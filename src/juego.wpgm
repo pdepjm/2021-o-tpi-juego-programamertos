@@ -1,0 +1,10 @@
+import wollok.game.*
+import pepita.*
+import texto.*
+
+program juego {
+	game.title("Juego Base")
+	game.addVisual(pepita)
+	game.addVisual(texto)
+	game.start()
+}

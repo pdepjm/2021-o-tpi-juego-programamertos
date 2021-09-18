@@ -1,0 +1,11 @@
+import soundProducer.*
+
+describe "Inserte descripción" {
+	method initialize() {
+		soundProducer.provider(soundProviderMock)		
+	}
+	
+	test "testX" {
+		assert.that(true)
+	}	
+}
