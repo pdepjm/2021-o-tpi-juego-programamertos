@@ -1,6 +1,7 @@
 import wollok.game.*
 import players.*
 import directions.*
+import tile.*
 
 program juego {
 	//Varias cosas de sste método podrían tirarse en un método aparte
@@ -20,6 +21,9 @@ program juego {
 	keyboard.d().onPressDo({ p1.move(right) })
 
 	game.addVisual(p1)
+
+	
+	testTile.render()
 	//TEMP fin
 
 	game.start()

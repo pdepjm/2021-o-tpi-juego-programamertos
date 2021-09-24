@@ -39,3 +39,8 @@ class BorderTile inherits Tile {    //Considerar heredar desde SolidTile
 
     //...
 }
+
+//TEMP
+object testTile inherits SolidTile(position = game.at(10, 10)) {
+    
+}
