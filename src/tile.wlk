@@ -36,11 +36,20 @@ class BorderTile inherits Tile {    //Considerar heredar desde SolidTile
     const property image = "./assets/map/solidTile.png"
     const property canBeSteppedOn = false
 
-
+    /*
+    method render() {
+        //TODO: Poner todo en un bloque
+        const rango = (1 .. 17)
+        //Lado oeste
+        rango.map({xCoord => return new BorderTile(position = game.at(xCoord, 1))}).forEach({tile => tile.render()})
+        //Lado este
+        rango.map({xCoord => return new BorderTile(position = game.at(xCoord, 17))}).forEach({tile => tile.render()})
+        //Lado norte
+        rango.map({yCoord => return new BorderTile(position = game.at(1, yCoord))}).forEach({tile => tile.render()})
+        //Lado sur
+        rango.map({yCoord => return new BorderTile(position = game.at(17, yCoord))}).forEach({tile => tile.render()})
+        
+    }
+    */
     //...
-}
-
-//TEMP
-object testTile inherits SolidTile(position = game.at(10, 10)) {
-    
 }

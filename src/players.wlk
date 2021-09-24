@@ -3,7 +3,8 @@ import directions.*
 import tile.*
 
 class Personaje {
-    var property position = game.at(0, 0)
+    const property id
+    var property position = game.at(1, 1)
     var property isAlive = true
 
     method render() {
@@ -30,6 +31,6 @@ class Personaje {
 }
 
 //TODO: TEMP
-object p1 inherits Personaje {
+object p1 inherits Personaje(id = 1) {
     const property image = "./assets/characters/p1.png"
 }
