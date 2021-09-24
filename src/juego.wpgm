@@ -1,7 +1,5 @@
 import wollok.game.*
-//import pepita.*
 import players.*
-//import texto.*
 import directions.*
 
 program juego {
@@ -24,7 +22,5 @@ program juego {
 	game.addVisual(p1)
 	//TEMP fin
 
-	//game.addVisual(pepita)
-	//game.addVisual(texto)
 	game.start()
 }
