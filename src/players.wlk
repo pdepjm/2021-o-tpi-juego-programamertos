@@ -1,18 +1,19 @@
 import wollok.game.*
 import directions.*
+import tile.*
 
 class Personaje {
-    var property position
-    var property isAlive
+    var property position = game.at(0, 0)
+    var property isAlive = true
 
     method render() {
         game.addVisual(self)
     }
 
     method move(direction) {
-        nextPosition = direction.nextPosition(position)
+        const nextPosition = direction.nextPosition(position)
 
-        if(game.getObjectsIn(nextPostion).all(canBeSteppedOn)) {
+        if(game.getObjectsIn(nextPosition).all({tile => tile.canBeSteppedOn()})) {
             position = nextPosition
         }
     }
@@ -26,4 +27,9 @@ class Personaje {
         isAlive = false
         game.removeVisual(self)
     }
+}
+
+//TODO: TEMP
+object p1 inherits Personaje {
+    const property image = "./assets/characters/p1.png"
 }

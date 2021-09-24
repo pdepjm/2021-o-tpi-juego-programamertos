@@ -1,15 +1,30 @@
 import wollok.game.*
-import pepita.*
-import texto.*
+//import pepita.*
+import players.*
+//import texto.*
+import directions.*
 
 program juego {
+	//Varias cosas de sste método podrían tirarse en un método aparte
+
 	game.title("Bomberman") //TODO: Pensar un nombre un poco más original xd
 
 	//Tamaño basado en Bomb It, donde 17x17 incluye el Tile para los bordes
 	game.height(17)
 	game.width(17)
+	game.boardGround("./assets/map/fullBackground.png")
+	game.cellSize(32)
 
-	game.addVisual(pepita)
-	game.addVisual(texto)
+	//TEMP
+	keyboard.left().onPressDo({ p1.move(left) })
+	keyboard.right().onPressDo({ p1.move(right) })
+	keyboard.up().onPressDo({ p1.move(up) })
+	keyboard.down().onPressDo({ p1.move(down) })
+
+	game.addVisual(p1)
+	//TEMP fin
+
+	//game.addVisual(pepita)
+	//game.addVisual(texto)
 	game.start()
 }
