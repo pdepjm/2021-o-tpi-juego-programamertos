@@ -16,10 +16,10 @@ program juego {
 	game.cellSize(32)
 
 	//TEMP
-	keyboard.left().onPressDo({ p1.move(left) })
-	keyboard.right().onPressDo({ p1.move(right) })
-	keyboard.up().onPressDo({ p1.move(up) })
-	keyboard.down().onPressDo({ p1.move(down) })
+	keyboard.w().onPressDo({ p1.move(up) })
+	keyboard.a().onPressDo({ p1.move(left) })
+	keyboard.s().onPressDo({ p1.move(down) })
+	keyboard.d().onPressDo({ p1.move(right) })
 
 	game.addVisual(p1)
 	//TEMP fin
