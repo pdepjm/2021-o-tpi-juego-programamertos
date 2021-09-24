@@ -1,10 +1,13 @@
-# Nombre del juego (<- borrar y completar)
+# Bomberman
 
 ## Equipo de desarrollo
 
-- Alguien
-- Persona
-- etc.
+- Cabaleiro, Ulises
+- Gratz, Matías
+- Martínez Bonafine, Santiago
+- Pasqualino, Franco
+- Rascón, Mariela Belén
+- Rossi, Matías
 
 ## Capturas
 
@@ -12,7 +15,11 @@
 
 ## Reglas de Juego / Instrucciones
 
-(Escribirlas)
+(Redactar mejor)
+Bomberman es un juego de hasta 4 jugadores local, donde cada uno aparece en una esquina de la grilla y tiene que explotar obstáculos del mapa con bombas para abrirse camino y explotar al resto. También hay objetos bonus que aumentan la potencia de las bombas (la cantidad de grillas en X y en Y que alcanzan), o la rapidez con la que explota la bomba. El último que queda vivo sin haber sido explotado por una bomba, enemiga o propia, gana.
+
+Modalidad del juego: Hasta 4 jugadores con flechas o teclas del teclado, con una key para colocar una bomba. Los objetos bonus como potencia y rapidez de explosión se agarran solos al pasar por encima.
+
 
 ## Respuestas teóricas
 
