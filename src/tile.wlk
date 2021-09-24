@@ -33,7 +33,7 @@ class DestroyableTile inherits Tile {
 
 //BorderTile representa a un SolidTile que se encuentra en el borde del mapa
 class BorderTile inherits Tile {    //Considerar heredar desde SolidTile
-    const propery image = //TODO: Agregar Imagen
+    const property image = //TODO: Agregar Imagen
     const property canBeSteppedOn = false
 
 
