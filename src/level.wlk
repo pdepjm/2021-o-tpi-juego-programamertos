@@ -2,7 +2,8 @@ import tile.*
 import wollok.game.*
 
 class Level {
-    const spawnPoints   //Lista que contiene los spawnpoints de los 4 personajes
+    //Lista que contiene los spawnpoints de los 4 personajes
+    const property spawnPoints = [game.at(1,15), game.at(1, 1), game.at(15, 15), game.at(1, 1)]
 
     //Tiles
     const solidTiles

@@ -15,18 +15,19 @@ program juego {
 	game.boardGround("./assets/map/fullBackground.png")
 	game.cellSize(32)
 
-	//TEMP
+	//TODO: TEMP
+	/*
 	keyboard.w().onPressDo({ p1.move(up) })
 	keyboard.a().onPressDo({ p1.move(left) })
 	keyboard.s().onPressDo({ p1.move(down) })
 	keyboard.d().onPressDo({ p1.move(right) })
+	*/
+	p1.setup()
+	p2.setup()
+	p1.position(game.at(1,15))
+	p2.position(game.at(1,1))
 
 	level1.loadLevel()
-
-	game.addVisual(p1)
-
-
-	
 	//TEMP fin
 
 	game.start()
