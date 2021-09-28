@@ -18,6 +18,8 @@ class Personaje {
     var property position = game.at(1,1) //TODO: Valor inicial temporal, luego ajustar. 
     var property isAlive = true
     const property canBeSteppedOn = false
+    const property color
+    var property image = "./assets/characters/dino-right-" + self.color() + ".png"
 
     method render() {
         game.addVisual(self)
@@ -41,11 +43,22 @@ class Personaje {
         game.removeVisual(self)
     }
 
+	method color() = color
+
+	method image(key){
+		image = "./assets/characters/dino-" + key.toString() + "-" + self.color() + ".png"
+	}
+
+	method action(key){
+		self.move(key)
+		self.image(key)
+	}
+
     method setup() {
-        upBind.onPressDo({ self.move(up) })
-        downBind.onPressDo({ self.move(down) })
-        leftBind.onPressDo({ self.move(left) })
-        rightBind.onPressDo({ self.move(right) })
+        upBind.onPressDo({ self.action(up) })
+        downBind.onPressDo({ self.action(down) })
+        leftBind.onPressDo({ self.action(left) })
+        rightBind.onPressDo({ self.action(right) })
         bombKey.onPressDo({ self.dropBomb() })
         
         game.addVisual(self)
@@ -54,27 +67,23 @@ class Personaje {
 
 //TODO: TEMP
 object p1 inherits Personaje(
-    id = 1, 
+    id = 1,
+    color = "purple",
     upBind = keyboard.w(), 
     downBind = keyboard.s(), 
     leftBind = keyboard.a(), 
     rightBind = keyboard.d(),
     bombKey = keyboard.control()
     ) {
-
-    const property image = "./assets/characters/dino-right-purple.png"
-    
 }
 
 object p2 inherits Personaje(
-    id = 2, 
+    id = 2,
+    color = "yellow",
     upBind = keyboard.up(), 
     downBind = keyboard.down(), 
     leftBind = keyboard.left(), 
     rightBind = keyboard.right(),
     bombKey = keyboard.space()
-    ) {
-
-    const property image = "./assets/characters/dino-right-yellow.png"
-    
+    ) {    
 }
