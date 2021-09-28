@@ -1,19 +1,39 @@
 import wollok.game.*
 
 class Bomb {
-	const property image =  "./assets/objects/bomb.png"
-	var property timer = 5 	  //time it takes to explode
-	var property distance = 1 //how many tiles will the explosion be
+	var property image =  "./assets/objects/bomb.png"
+	var property timer = 1 	  	//time it takes to explode --unused
+	var phaseTime = 500			//Phase duration in miliseconds
+	var property distance = 1 	//how far (in tiles) the explosion will reach
 	var property position
-	const property canBeSteppedOn = true
+	const property canBeSteppedOn = false
+
+	method init() {
+		game.addVisual(self)
+		self.phaser()
+	}
 
 	method explode(){
 		//...
+		game.say(self, "BOOM (Imaginar fuego)")
+		
+		game.schedule(500, {=> 
+			position(game.at(17,17))
+			game.removeVisual(self)	
+		})	//TODO: Como borrar? Se podrá siquiera? Y la moto?
 	}
-	
-	//to-do como accederiamos a las bombas especificas de un jugador para modificar estos atributos?
-	method reduceTime(){
-		timer -= 0.5
+
+	method phaser() {
+		/*	//TODO: Implementar imagenes
+		game.schedule(phaseTime, {=> self.updateImage("./assets/objects/bomb1.png")})
+		game.schedule(phaseTime*2, {=> self.updateImage("./assets/objects/bomb2.png")})
+		game.schedule(phaseTime*3, {=> self.updateImage("./assets/objects/bomb3.png")})
+		*/
+		game.schedule(phaseTime*4, {=> self.explode()})
+	}
+
+	method updateImage() {
+
 	}
 	
 	method addDistance(){

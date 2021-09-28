@@ -17,7 +17,7 @@ class Personaje {
     //Variables con valor inicial
     var property position = game.at(1,1) //TODO: Valor inicial temporal, luego ajustar. 
     var property isAlive = true
-    const property canBeSteppedOn = false
+    const property canBeSteppedOn = true
     const property color
     var property image = "./assets/characters/dino-right-" + self.color() + ".png"
 
@@ -34,7 +34,8 @@ class Personaje {
     }
 
     method dropBomb() {
-        game.addVisual(new Bomb(position = self.position()))
+        const bomb = new Bomb(position = self.position())
+        bomb.init()
     }
 
     method die() {
