@@ -12,6 +12,7 @@ class Personaje {
     const leftBind
     const rightBind
     const bombKey
+    var property bombCount = 1
 
     //Variables con valor inicial
     var property position = game.at(1,1) //TODO: Valor inicial temporal, luego ajustar. 
@@ -31,7 +32,7 @@ class Personaje {
     }
 
     method dropBomb() {
-        game.addVisual(bomb)
+        game.addVisual(new Bomb(position = self.position()))
     }
 
     method die() {
@@ -45,6 +46,7 @@ class Personaje {
         downBind.onPressDo({ self.move(down) })
         leftBind.onPressDo({ self.move(left) })
         rightBind.onPressDo({ self.move(right) })
+        bombKey.onPressDo({ self.dropBomb() })
         
         game.addVisual(self)
     }
@@ -70,7 +72,7 @@ object p2 inherits Personaje(
     downBind = keyboard.down(), 
     leftBind = keyboard.left(), 
     rightBind = keyboard.right(),
-    bombKey = keyboard.backspace()
+    bombKey = keyboard.space()
     ) {
 
     const property image = "./assets/characters/dino-right-yellow.png"

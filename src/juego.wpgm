@@ -7,7 +7,7 @@ import levels.*
 program juego {
 	//Varias cosas de este método podrían tirarse en un método aparte
 
-	game.title("Bomberman") //TODO: Pensar un nombre un poco más original xd
+	game.title("Bombersaur")
 
 	//Tamaño basado en Bomb It, donde 17x17 incluye el Tile para los bordes
 	game.height(17)
