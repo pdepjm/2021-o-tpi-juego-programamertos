@@ -2,6 +2,7 @@ import wollok.game.*
 import directions.*
 import tile.*
 import levels.* //temp
+import bomb.*
 
 class Personaje {
     //Propiedades que deben ser asignadas al declarar un objeto
@@ -10,6 +11,7 @@ class Personaje {
     const downBind
     const leftBind
     const rightBind
+    const bombKey
 
     //Variables con valor inicial
     var property position = game.at(1,1) //TODO: Valor inicial temporal, luego ajustar. 
@@ -29,7 +31,7 @@ class Personaje {
     }
 
     method dropBomb() {
-        //...
+        game.addVisual(bomb)
     }
 
     method die() {
@@ -43,6 +45,7 @@ class Personaje {
         downBind.onPressDo({ self.move(down) })
         leftBind.onPressDo({ self.move(left) })
         rightBind.onPressDo({ self.move(right) })
+        
         game.addVisual(self)
     }
 }
@@ -53,11 +56,11 @@ object p1 inherits Personaje(
     upBind = keyboard.w(), 
     downBind = keyboard.s(), 
     leftBind = keyboard.a(), 
-    rightBind = keyboard.d()
+    rightBind = keyboard.d(),
+    bombKey = keyboard.control()
     ) {
 
-    const property image = "./assets/characters/p1.png"
-    
+    const property image = "./assets/characters/dino-right-purple.png"
     
 }
 
@@ -66,9 +69,10 @@ object p2 inherits Personaje(
     upBind = keyboard.up(), 
     downBind = keyboard.down(), 
     leftBind = keyboard.left(), 
-    rightBind = keyboard.right()
+    rightBind = keyboard.right(),
+    bombKey = keyboard.backspace()
     ) {
 
-    const property image = "./assets/characters/p2.png"
+    const property image = "./assets/characters/dino-right-yellow.png"
     
 }
