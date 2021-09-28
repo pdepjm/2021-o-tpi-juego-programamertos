@@ -4,7 +4,6 @@ class Bomb {
 	const property image =  "./assets/objects/bomb.png"
 	var property timer = 5 	  //time it takes to explode
 	var property distance = 1 //how many tiles will the explosion be
-	var property position
 	const property canBeSteppedOn = true
 
 	method explode(){

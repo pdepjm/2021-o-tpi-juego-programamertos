@@ -4,6 +4,7 @@ import tile.*
 import levels.* //temp
 import bomb.*
 
+//to-do Se deberia poder pasar por encima de otro dino
 class Personaje {
     //Propiedades que deben ser asignadas al declarar un objeto
     const property id
@@ -34,7 +35,7 @@ class Personaje {
     }
 
     method dropBomb() {
-        game.addVisual(new Bomb(position = self.position()))
+        game.addVisualIn(new Bomb(), self.position())
     }
 
     method die() {
