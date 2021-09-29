@@ -35,6 +35,12 @@ class Personaje {
     }
 
     method dropBomb() {
+		/* En caso de que tenga una bomba disponible para dropear
+		 * if(!(bombCount == 0)) {
+			const bomb = new Bomb(position = self.position(), owner = self)
+            bomb.init()
+		}*/
+		
         if(bombCount == 0) {
             const bomb = new Bomb(position = self.position(), owner = self)
             bomb.init()
