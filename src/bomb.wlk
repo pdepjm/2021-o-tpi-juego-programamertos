@@ -1,5 +1,6 @@
 import wollok.game.*
 
+//TO-DO cuando explota una bomba y le pega en su rango de explosión a otra bomba, la hace explotar automaticamente
 class Bomb {
 	var property image =  "./assets/objects/bomb.png"
 	var property timer = 1 	  	//time it takes to explode --unused
