@@ -8,6 +8,7 @@ class Bomb {
 	var property distance = 1 	//how far (in tiles) the explosion will reach
 	var property position
 	const property canBeSteppedOn = false
+	const owner
 
 	method init() {
 		game.addVisual(self)
@@ -21,6 +22,7 @@ class Bomb {
 		game.schedule(500, {=> 
 			game.removeVisual(self)	
 		})
+		owner.bombCount(owner.bombCount() - 1)
 	}
 
 	method phaser() {

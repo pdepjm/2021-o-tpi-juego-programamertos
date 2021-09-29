@@ -13,7 +13,7 @@ class Personaje {
     const leftBind
     const rightBind
     const bombKey
-    var property bombCount = 1
+    var property bombCount = 0
 
     //Variables con valor inicial
     var property position = game.at(1,1) //TODO: Valor inicial temporal, luego ajustar. 
@@ -35,8 +35,12 @@ class Personaje {
     }
 
     method dropBomb() {
-        const bomb = new Bomb(position = self.position())
-        bomb.init()
+        if(bombCount == 0) {
+            const bomb = new Bomb(position = self.position(), owner = self)
+            bomb.init()
+            bombCount++
+        }
+        //Aca se podría implementar algún booster que permita poner más de una bomba
     }
 
     method die() {
