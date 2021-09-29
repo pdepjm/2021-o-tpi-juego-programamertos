@@ -75,7 +75,7 @@ object p1 inherits Personaje(
     downBind = keyboard.s(), 
     leftBind = keyboard.a(), 
     rightBind = keyboard.d(),
-    bombKey = keyboard.control()
+    bombKey = keyboard.q()
     ) {
 }
 
@@ -86,6 +86,6 @@ object p2 inherits Personaje(
     downBind = keyboard.down(), 
     leftBind = keyboard.left(), 
     rightBind = keyboard.right(),
-    bombKey = keyboard.space()
+    bombKey = keyboard.minusKey()
     ) {    
 }
