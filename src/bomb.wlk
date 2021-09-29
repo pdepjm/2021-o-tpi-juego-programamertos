@@ -16,7 +16,7 @@ class Bomb {
 
 	method explode(){
 		//...
-		game.say(self, "BOOM (Imaginar fuego)")
+		game.say(self, "kuchaw")
 		
 		game.schedule(500, {=> 
 			game.removeVisual(self)	
@@ -24,16 +24,14 @@ class Bomb {
 	}
 
 	method phaser() {
-		/*	//TODO: Implementar imagenes
-		game.schedule(phaseTime, {=> self.updateImage("./assets/objects/bomb1.png")})
-		game.schedule(phaseTime*2, {=> self.updateImage("./assets/objects/bomb2.png")})
-		game.schedule(phaseTime*3, {=> self.updateImage("./assets/objects/bomb3.png")})
-		*/
+		game.schedule(phaseTime, {=> self.updateImage("./assets/objects/bomb2.png")})
+		game.schedule(phaseTime*2, {=> self.updateImage("./assets/objects/bomb3.png")})
+		game.schedule(phaseTime*3, {=> self.updateImage("./assets/objects/bomb4.png")})
 		game.schedule(phaseTime*4, {=> self.explode()})
 	}
 
-	method updateImage() {
-
+	method updateImage(newImage) {
+		image = newImage
 	}
 	
 	method addDistance(){
