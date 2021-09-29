@@ -4,12 +4,12 @@ import directions.*
 import tile.*
 import levels.*
 
-program juego {
-	//Varias cosas de este método podrían tirarse en un método aparte
+program game {
+	//todo Varias cosas de este método podrían tirarse en un método aparte
 
 	game.title("Dinoboom")
 
-	//Tamaño basado en Bomb It, donde 17x17 incluye el Tile para los bordes
+	//Size of the map based on Bomb It, where 17x17 includes the border tiles
 	game.height(17)
 	game.width(17)
 	game.boardGround("./assets/map/background2.png")
@@ -24,8 +24,6 @@ program juego {
 	*/
 	p1.setup()
 	p2.setup()
-	p1.position(game.at(1,15))
-	p2.position(game.at(1,1))
 
 	level1.loadLevel()
 	//TEMP fin

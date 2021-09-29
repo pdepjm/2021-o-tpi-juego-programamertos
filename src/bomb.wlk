@@ -4,7 +4,7 @@ import wollok.game.*
 class Bomb {
 	var property image =  "./assets/objects/bomb.png"
 	var property timer = 1 	  	//time it takes to explode --unused
-	var phaseTime = 500			//Phase duration in miliseconds
+	const phaseTime = 500			//Phase duration in miliseconds
 	var property distance = 1 	//how far (in tiles) the explosion will reach
 	var property position
 	const property canBeSteppedOn = false
@@ -18,11 +18,10 @@ class Bomb {
 	method explode(){
 		//...
 		game.say(self, "kuchaw")
-		
-		game.schedule(500, {=> 
-			game.removeVisual(self)	
-		})
+		game.schedule(500, {=> game.removeVisual(self)	})
 		owner.bombCount(owner.bombCount() - 1)
+		
+		//todo Si tiene un objeto destruible al alcance de la explosion, lo remueve
 	}
 
 	method phaser() {
@@ -39,5 +38,4 @@ class Bomb {
 	method addDistance(){
 		distance += 1
 	}
-	
 }
