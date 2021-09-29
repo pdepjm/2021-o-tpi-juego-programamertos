@@ -1,6 +1,6 @@
 import wollok.game.*
 
-//TO-DO cuando explota una bomba y le pega en su rango de explosión a otra bomba, la hace explotar automaticamente
+//TODO: cuando explota una bomba y le pega en su rango de explosión a otra bomba, la hace explotar automaticamente
 class Bomb {
 	var property image =  "./assets/objects/bomb.png"
 	var property timer = 1 	  	//time it takes to explode --unused
@@ -19,9 +19,8 @@ class Bomb {
 		game.say(self, "BOOM (Imaginar fuego)")
 		
 		game.schedule(500, {=> 
-			position(game.at(17,17))
 			game.removeVisual(self)	
-		})	//TODO: Como borrar? Se podrá siquiera? Y la moto?
+		})
 	}
 
 	method phaser() {
