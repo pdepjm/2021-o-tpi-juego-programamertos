@@ -11,7 +11,7 @@ class Tile {
 
 //SolidTile representa a aquellos cubos que no pueden ser atravesados
 class SolidTile inherits Tile {
-    const property image =  "./assets/map/wall-sand.png"
+    const property image =  "./assets/map/wall-stone.png"
     const property canBeSteppedOn = false
 
     //...
@@ -33,7 +33,7 @@ class DestroyableTile inherits Tile {
 
 //BorderTile representa a un SolidTile que se encuentra en el borde del mapa
 class BorderTile inherits Tile {    //Considerar heredar desde SolidTile
-    const property image = "./assets/map/wall-sand.png"
+    const property image = "./assets/map/wall-stone.png"
     const property canBeSteppedOn = false
 
     /*
