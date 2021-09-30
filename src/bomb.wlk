@@ -15,12 +15,18 @@ class Bomb {
 		self.phaser()
 	}
 
+	//TODO puede destruir un obstaculo cuando se encuentra a "distance" bloques o menos
+	method destroyObstacles(){
+	//	if( (game.getObjectsIn(self.position()) != []) && obstacles.in()) return 0
+	}
+
 	method explode(){
 		//...
 		game.say(self, "kuchaw")
 		game.schedule(500, {=> game.removeVisual(self)	})
 		owner.bombCount(owner.bombCount() - 1)
 		
+		self.destroyObstacles()
 		//todo Si tiene un objeto destruible al alcance de la explosion, lo remueve
 	}
 
