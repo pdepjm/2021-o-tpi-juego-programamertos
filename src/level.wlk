@@ -2,7 +2,7 @@ import tile.*
 import wollok.game.*
 
 class Level {
-    //Lista que contiene los spawnpoints de los 4 personajes
+    //List that contains spawnpoints for all 4 characters
     const property spawnPoints = [game.at(1,15), game.at(1, 1), game.at(15, 15), game.at(1, 1)]
 
     //Tiles
@@ -17,13 +17,13 @@ class Level {
 
     method renderBorderTiles() {
         const rango = (0 .. 16)
-        //Lado oeste
+        //West side
         rango.map({xCoord => return new BorderTile(position = game.at(xCoord, 0))}).forEach({tile => tile.render()})
-        //Lado este
+        //East side
         rango.map({xCoord => return new BorderTile(position = game.at(xCoord, 16))}).forEach({tile => tile.render()})
-        //Lado norte
+        //North side
         rango.map({yCoord => return new BorderTile(position = game.at(0, yCoord))}).forEach({tile => tile.render()})
-        //Lado sur
+        //South side
         rango.map({yCoord => return new BorderTile(position = game.at(16, yCoord))}).forEach({tile => tile.render()})
         
     }

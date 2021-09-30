@@ -11,7 +11,7 @@ class Tile {
     method harm() {} //TODO: asume que el tile no es destruible, por eso hay override en DestroyableTile. Debería poder tener un mejor formato
 }
 
-//SolidTile representa a aquellos cubos que no pueden ser atravesados
+//SolidTile represents those tiles that can't be stepped on
 class SolidTile inherits Tile {
     const property image =  "./assets/map/wall-stone.png"
     const property canBeSteppedOn = false
@@ -20,8 +20,7 @@ class SolidTile inherits Tile {
     //...
 }
 
-//DestroyableTile representa a aquellos tiles que pueden ser destruidos por el usuario (Obstáculos)
-// y arrojar items
+//DestroyableTile represents those tiles that can be destroyed by the player (Obstacles) and drop items
 class DestroyableTile inherits Tile {
     const property image = "./assets/objects/barrier-tree2.png"
     var property canBeSteppedOn = false
@@ -37,7 +36,7 @@ class DestroyableTile inherits Tile {
     //...
 }
 
-//BorderTile representa a un SolidTile que se encuentra en el borde del mapa
+//BorderTile represents a SolidTile placed at the edge of the map
 class BorderTile inherits Tile {    //Considerar heredar desde SolidTile
     const property image = "./assets/map/wall-stone.png"
     const property canBeSteppedOn = false

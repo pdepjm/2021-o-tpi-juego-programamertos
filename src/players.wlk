@@ -5,7 +5,7 @@ import levels.* //todo temp
 import bomb.*
 
 class Personaje {
-	//Properties that must be asigned declaring a player
+	//Properties that must be asigned when declaring a player
     const property id
     const property color //purple, yellow, red, green
     var property position
@@ -19,8 +19,8 @@ class Personaje {
     var property image = "./assets/characters/dino-right-" + self.color() + ".png"
     var property isAlive = true
     const property canBeSteppedOn = true
-    var property bombCount = 0 //amount of bombs the player has active
-    const property destroyable = true //This property is used by the bomb explosion
+    var property bombCount = 0          //Amount of bombs the player has active
+    const property destroyable = true   //This property is used by the bomb explosion
 
 	method color() = color
 
