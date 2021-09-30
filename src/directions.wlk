@@ -13,3 +13,5 @@ object up {
 object down {
 	method nextPosition(actPos) = actPos.down(1) 
 }
+
+const orientations = [left, right, up, down]

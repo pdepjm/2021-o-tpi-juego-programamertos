@@ -16,16 +16,10 @@ program game {
 	game.cellSize(32)
 
 	//TODO: TEMP
-	/*
-	keyboard.w().onPressDo({ p1.move(up) })
-	keyboard.a().onPressDo({ p1.move(left) })
-	keyboard.s().onPressDo({ p1.move(down) })
-	keyboard.d().onPressDo({ p1.move(right) })
-	*/
+	level1.loadLevel()
+
 	p1.setup()
 	p2.setup()
-
-	level1.loadLevel()
 	//TEMP fin
 
 	game.start()

@@ -20,6 +20,7 @@ class Personaje {
     var property isAlive = true
     const property canBeSteppedOn = true
     var property bombCount = 0 //amount of bombs the player has active
+    const property destroyable = true //This property is used by the bomb explosion
 
 	method color() = color
 
@@ -44,10 +45,10 @@ class Personaje {
         //todo Aca se podría implementar algún booster que permita poner más de una bomba
     }
 
-    method die() {
-        //...
-        isAlive = false
-        game.removeVisual(self)
+    method harm() {
+        //TODO: Pendiente de implementación
+        
+        game.say(self, "ay") //temp, obviamente
     }
 
 	method image(direction){

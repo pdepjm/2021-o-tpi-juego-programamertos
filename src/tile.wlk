@@ -7,12 +7,15 @@ class Tile {
     method render() {
         game.addVisual(self)
     }
+
+    method harm() {} //TODO: asume que el tile no es destruible, por eso hay override en DestroyableTile. Debería poder tener un mejor formato
 }
 
 //SolidTile representa a aquellos cubos que no pueden ser atravesados
 class SolidTile inherits Tile {
     const property image =  "./assets/map/wall-stone.png"
     const property canBeSteppedOn = false
+    const property destroyable = false
 
     //...
 }
@@ -22,10 +25,13 @@ class SolidTile inherits Tile {
 class DestroyableTile inherits Tile {
     const property image = "./assets/objects/barrier-tree2.png"
     var property canBeSteppedOn = false
+    const property destroyable = true
 
-    method destroy() {
+    //The following method is called in bomb.wlk
+    override method harm() {
         game.removeVisual(self) 
-        canBeSteppedOn = true
+        //canBeSteppedOn = true //TODO: Línea probablemente de más
+        //TODO: Implementar bonus
     }
 
     //...
@@ -35,21 +41,6 @@ class DestroyableTile inherits Tile {
 class BorderTile inherits Tile {    //Considerar heredar desde SolidTile
     const property image = "./assets/map/wall-stone.png"
     const property canBeSteppedOn = false
-
-    /*
-    method render() {
-        //TODO: Poner todo en un bloque
-        const rango = (1 .. 17)
-        //Lado oeste
-        rango.map({xCoord => return new BorderTile(position = game.at(xCoord, 1))}).forEach({tile => tile.render()})
-        //Lado este
-        rango.map({xCoord => return new BorderTile(position = game.at(xCoord, 17))}).forEach({tile => tile.render()})
-        //Lado norte
-        rango.map({yCoord => return new BorderTile(position = game.at(1, yCoord))}).forEach({tile => tile.render()})
-        //Lado sur
-        rango.map({yCoord => return new BorderTile(position = game.at(17, yCoord))}).forEach({tile => tile.render()})
-        
-    }
-    */
+    const property destroyable = false
     //...
 }
