@@ -71,6 +71,7 @@ class Explosion {
 	const property image = "./assets/objects/bomb4.png"	//TODO: Change
 	const property destroyable = false
 	const expansionRate = 100							//constant used to control how fast the explosion expands
+	const property canBeSteppedOn = false				//TODO: Temporal, debería ser true y debería implementarse que haga daño
 
 	method set() {
 		game.addVisual(self)	//Adds explosion sprite
