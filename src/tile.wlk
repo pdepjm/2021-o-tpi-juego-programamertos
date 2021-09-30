@@ -3,6 +3,7 @@ import wollok.game.*
 class Tile {
     // property te hace el method getter y setter. Es epico.
     const property position
+    const property stopsExplosion = true     //An explosion won't expand after colliding with a tile
 
     method render() {
         game.addVisual(self)

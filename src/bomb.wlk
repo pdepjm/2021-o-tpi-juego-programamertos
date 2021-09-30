@@ -13,6 +13,7 @@ class Bomb {
 	const property canBeSteppedOn = false
 	const owner
 	const property destroyable = true
+	const property stopsExplosion = false	//An explosion will continue expanding after hitting another bomb
 	
 
 	method init() {
@@ -77,15 +78,22 @@ class Explosion {
 		game.addVisual(self)	//Adds explosion sprite
 
 		//TODO: Posible optimización, se ejecuta getObjectsIn más de una vez para una misma posicion
-		//Gets all objects in position, checks if they are destroyable, in which case they are "harmed"/damaged
-		game.getObjectsIn(position)
-			.forEach({_object => 
+
+		//Gets all objects in position,
+		const objectsinPosition = game.getObjectsIn(position)
+		var ableToContinueExpansion = true
+
+		//Checks if they are destroyable, in which case they are "harmed"/damaged
+		objectsinPosition.forEach({_object => 
 				if(_object.destroyable()) {
 					_object.harm()
+
+
+					ableToContinueExpansion = !_object.stopsExplosion() && ableToContinueExpansion	//Checks if the object stops the explosion from expanding beyond it
 				}
 			})
 
-		if(remainingTiles > 0) {
+		if(remainingTiles > 0 && ableToContinueExpansion) {
 			//Saves next tile in a variable, as it is used more than once
 			const nextPosition = orientation.nextPosition(position)
 

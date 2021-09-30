@@ -98,7 +98,9 @@ const level1 = new Level(
     ],
 
     destroyableTiles = [
-//       new DestroyableTile(position = game.at(14, 8)),
+        new DestroyableTile(position = game.at(14, 8)),
+        new DestroyableTile(position = game.at(14, 7)),
+        new DestroyableTile(position = game.at(14, 6))  //TODO: Están a modo de prueba
 //       new DestroyableTile(position = game.at(8, 7))
     ]
 

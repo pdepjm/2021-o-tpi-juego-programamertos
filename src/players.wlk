@@ -21,6 +21,7 @@ class Personaje {
     const property canBeSteppedOn = true
     var property bombCount = 0          //Amount of bombs the player has active
     const property destroyable = true   //This property is used by the bomb explosion
+    const property stopsExplosion = false //An explosion will continue expanding after hitting a player
 
 	method color() = color
 
