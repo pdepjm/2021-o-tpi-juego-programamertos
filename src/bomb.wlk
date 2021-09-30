@@ -20,6 +20,11 @@ class Bomb {
 		self.phaser()
 	}
 
+	//TODO puede destruir un obstaculo cuando se encuentra a "distance" bloques o menos
+	method destroyObstacles(){
+	//	if( (game.getObjectsIn(self.position()) != []) && obstacles.in()) return 0
+	}
+
 	method explode(){
 		//...
 
