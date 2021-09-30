@@ -47,7 +47,7 @@ class Personaje {
 
     method harm() {
         //TODO: Pendiente de implementación
-        
+        image = "./assets/characters/dino-lose.png"
         game.say(self, "ay") //temp, obviamente
     }
 
