@@ -14,6 +14,7 @@ class Bomb {
 	const owner
 	const property destroyable = true
 	const property stopsExplosion = false	//An explosion will continue expanding after hitting another bomb
+	var exploded = false
 	
 
 	method init() {
@@ -28,17 +29,19 @@ class Bomb {
 
 	method explode(){
 		//...
+		if(!exploded){
+			exploded = true
 
-		//Creates one explosion object in each adjacent tile
-		orientations.forEach({_orientation => 
-			const exp = new Explosion(position = position, orientation = _orientation, remainingTiles = distance) 
-			exp.set()
-		})
+			//Creates one explosion object in each adjacent tile
+			orientations.forEach({_orientation => 
+				const exp = new Explosion(position = position, orientation = _orientation, remainingTiles = distance) 
+				exp.set()
+			})
 
-		game.say(self, "kuchaw")
-		owner.bombCount(owner.bombCount() - 1)
-		game.removeVisual(self)
-
+			game.say(self, "kuchaw")
+			owner.bombCount(owner.bombCount() - 1)
+			game.removeVisual(self)
+		}
 	}
 
 	method phaser() {
@@ -56,6 +59,7 @@ class Bomb {
 	}
 
 	method harm() {
+		self.explode()
 		//TODO: Implementar que al ser impactada por otra explosion, la bomba explote
 	}
 }
@@ -73,6 +77,7 @@ class Explosion {
 	const property destroyable = false
 	const expansionRate = 100							//constant used to control how fast the explosion expands
 	const property canBeSteppedOn = false				//TODO: Temporal, debería ser true y debería implementarse que haga daño
+	const property stopsExplosion = false
 
 	method set() {
 		game.addVisual(self)	//Adds explosion sprite
