@@ -1,0 +1,18 @@
+import wollok.game.*
+import level.*
+import levels.*
+import players.*
+
+program Dinoboom {
+	game.title("Dinoboom")
+	
+	game.height(17) //Based on Bomb It
+	game.width(17)  //Based on Bomb It
+	game.cellSize(32)
+	game.boardGround("./assets/map/bg-sand.png")
+	
+	players.configurate()
+	level1.loadLevel() //todo: more levels (one sand, one stone, one dungeon?)
+	
+	game.start()
+}

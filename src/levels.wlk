@@ -10,9 +10,10 @@ const level1 = new Level(
         game.at(17, 17)
     ],
 
+	//TODO: gatos muertos
     solidTiles = [
        new SolidTile(position = game.at(8, 15)),
-
+       
        new SolidTile(position = game.at(2, 14)),
        new SolidTile(position = game.at(3, 14)),
        new SolidTile(position = game.at(5, 14)),
@@ -94,14 +95,16 @@ const level1 = new Level(
        new SolidTile(position = game.at(14, 2)),
        
        new SolidTile(position = game.at(8, 1))
-       
     ],
 
+	//TODO: testing
     destroyableTiles = [
         new DestroyableTile(position = game.at(14, 8)),
         new DestroyableTile(position = game.at(14, 7)),
-        new DestroyableTile(position = game.at(14, 6))  //TODO: Están a modo de prueba
-//       new DestroyableTile(position = game.at(8, 7))
+        new DestroyableTile(position = game.at(14, 6)),
+        new DestroyableTile(position = game.at(8, 3)),
+        new DestroyableTile(position = game.at(14, 3)),
+        new DestroyableTile(position = game.at(14, 13)),
+        new DestroyableTile(position = game.at(7, 13))
     ]
-
 )

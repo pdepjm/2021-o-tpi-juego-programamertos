@@ -1,33 +1,46 @@
-import tile.*
 import wollok.game.*
+import levels.*
+import soundProducer.*
+import directions.*
+import tile.*
+import obstacles.*
+import bomb.*
+import players.*
+
 
 class Level {
     //List that contains spawnpoints for all 4 characters
     const property spawnPoints = [game.at(1,15), game.at(1, 1), game.at(15, 15), game.at(1, 1)]
-
-    //Tiles
     const solidTiles
     const destroyableTiles
 
     method loadLevel() {
-        solidTiles.forEach({tile => tile.render()})
-        destroyableTiles.forEach({tile => tile.render()})
+    	self.renderSolidTiles()
+    	self.renderDestroyableTiles()
         self.renderBorderTiles()
     }
 
-    method renderBorderTiles() {
-        const rango = (0 .. 16)
-        //West side
-        rango.map({xCoord => return new BorderTile(position = game.at(xCoord, 0))}).forEach({tile => tile.render()})
-        //East side
-        rango.map({xCoord => return new BorderTile(position = game.at(xCoord, 16))}).forEach({tile => tile.render()})
-        //North side
-        rango.map({yCoord => return new BorderTile(position = game.at(0, yCoord))}).forEach({tile => tile.render()})
-        //South side
-        rango.map({yCoord => return new BorderTile(position = game.at(16, yCoord))}).forEach({tile => tile.render()})
-        
-    }
+	method renderSolidTiles(){
+		solidTiles.forEach({tile => tile.render()})
+	}
+	
+	method renderDestroyableTiles(){
+		destroyableTiles.forEach({tile => tile.render()})
+	}
 
+    method renderBorderTiles() {
+    	const ancho = game.width() - 1
+		const largo = game.height() - 1
+        
+        //West side
+        (1 .. ancho-1).map({xCoord => return new BorderTile(position = game.at(xCoord, 0))}).forEach({tile => tile.render()})
+        //East side
+        (1 .. ancho-1).map({xCoord => return new BorderTile(position = game.at(xCoord, 16))}).forEach({tile => tile.render()})
+        //North side
+        (0 .. largo).map({yCoord => return new BorderTile(position = game.at(0, yCoord))}).forEach({tile => tile.render()})
+        //South side
+        (0 .. largo).map({yCoord => return new BorderTile(position = game.at(16, yCoord))}).forEach({tile => tile.render()})
+    }
 }
 
 

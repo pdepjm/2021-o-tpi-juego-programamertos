@@ -1,7 +1,7 @@
 import wollok.game.*
 
 class Tile {
-    // property te hace el method getter y setter. Es epico.
+    // property te hace el method getter y setter. Es epico. Epicardo.
     const property position
     const property stopsExplosion = true     //An explosion won't expand after colliding with a tile
 
@@ -9,7 +9,8 @@ class Tile {
         game.addVisual(self)
     }
 
-    method harm() {} //TODO: asume que el tile no es destruible, por eso hay override en DestroyableTile. Debería poder tener un mejor formato
+    //method harm() {} //TODO: asume que el tile no es destruible, por eso hay override en DestroyableTile.
+    					//Debería poder tener un mejor formato
 }
 
 //SolidTile represents those tiles that can't be stepped on
@@ -28,7 +29,7 @@ class DestroyableTile inherits Tile {
     const property destroyable = true
 
     //The following method is called in bomb.wlk
-    override method harm() {
+    method harm() {
         game.removeVisual(self) 
         //canBeSteppedOn = true //TODO: Línea probablemente de más
         //TODO: Implementar bonus

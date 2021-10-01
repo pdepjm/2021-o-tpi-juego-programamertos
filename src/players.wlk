@@ -4,8 +4,8 @@ import tile.*
 import levels.* //todo temp
 import bomb.*
 
-class Personaje {
-	//Properties that must be asigned when declaring a player
+class Player {
+	//Properties without initial value
     const property id
     const property color //purple, yellow, red, green
     var property position
@@ -24,10 +24,6 @@ class Personaje {
     const property stopsExplosion = false //An explosion will continue expanding after hitting a player
 
 	method color() = color
-
-    method render() {
-        game.addVisual(self)
-    }
 
     method move(direction) {
         const nextPosition = direction.nextPosition(position)
@@ -73,7 +69,7 @@ class Personaje {
 }
 
 //TODO: TEMP
-object p1 inherits Personaje(
+object p1 inherits Player(
     id = 1,
     color = "purple",
     position = game.at(1,15),
@@ -84,7 +80,7 @@ object p1 inherits Personaje(
     bombKey = keyboard.q()
     ){}
 
-object p2 inherits Personaje(
+object p2 inherits Player(
     id = 2,
     color = "yellow",
     position = game.at(1,1),
@@ -94,3 +90,10 @@ object p2 inherits Personaje(
     rightBind = keyboard.right(),
     bombKey = keyboard.minusKey()
     ){}
+
+object players{
+	method configurate(){
+		p1.setup()
+		p2.setup()
+	}
+}
