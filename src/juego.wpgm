@@ -12,7 +12,7 @@ program game {
 	//Size of the map based on Bomb It, where 17x17 includes the border tiles
 	game.height(17)
 	game.width(17)
-	game.boardGround("./assets/map/background2.png")
+	game.boardGround("./assets/map/bg-sand.png")
 	game.cellSize(32)
 
 	//TODO: TEMP

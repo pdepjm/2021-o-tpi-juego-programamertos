@@ -14,7 +14,7 @@ class Tile {
 
 //SolidTile represents those tiles that can't be stepped on
 class SolidTile inherits Tile {
-    const property image =  "./assets/map/wall-stone.png"
+    const property image =  "./assets/map/wall-sand.png"
     const property canBeSteppedOn = false
     const property destroyable = false
 
@@ -39,7 +39,7 @@ class DestroyableTile inherits Tile {
 
 //BorderTile represents a SolidTile placed at the edge of the map
 class BorderTile inherits Tile {    //Considerar heredar desde SolidTile
-    const property image = "./assets/map/wall-stone.png"
+    const property image = "./assets/map/wall-sand.png"
     const property canBeSteppedOn = false
     const property destroyable = false
     //...
