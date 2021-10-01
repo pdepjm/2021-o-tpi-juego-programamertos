@@ -9,7 +9,7 @@ program Dinoboom {
 	game.height(17) //Based on Bomb It
 	game.width(17)  //Based on Bomb It
 	game.cellSize(32)
-	game.boardGround("./assets/map/bg-sand.png")
+	game.boardGround("./assets/map/bg-sand2.jpg")
 	
 	players.configurate()
 	level1.loadLevel() //todo: more levels (one sand, one stone, one dungeon?)
