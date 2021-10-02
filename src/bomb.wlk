@@ -4,12 +4,13 @@ import directions.*
 
 //TODO: cuando explota una bomba y le pega en su rango de explosión a otra bomba, la hace explotar automaticamente
 class Bomb {
-	//TODO: Hay que emprolijar esto un poco
 	var property image =  "./assets/objects/bomb.png"
-	var property timer = 1 	  	//time it takes to explode --unused
 	const phaseTime = 500			//Phase duration in miliseconds
-	var property distance = 5 	//how far (in tiles) the explosion will reach
+	var property distance = 5 		//how far (in tiles) the explosion will reach
 	var property position
+	//var property timer = 1 	  	//time it takes to explode --unused
+	
+	//TODO: Hay que emprolijar esto un poco
 	const property canBeSteppedOn = false
 	const owner
 	const property destroyable = true
@@ -127,6 +128,5 @@ class Explosion {
 		const exp = new Explosion(position = nextPosition, orientation = orientation, remainingTiles = remainingTiles - 1)
 		exp.set()
 	}
-
-	
 }
+
