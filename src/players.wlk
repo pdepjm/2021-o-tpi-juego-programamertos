@@ -14,7 +14,8 @@ class Player {
     const leftBind
     const rightBind
     const bombKey
-
+    const phaseTime = 500
+    
     //Properties with initial value
     var property image = "./assets/characters/dino-right-" + self.color() + ".png"
     var property isAlive = true
@@ -22,7 +23,7 @@ class Player {
     var property bombCount = 0          //Amount of bombs the player has active
     const property destroyable = true   //This property is used by the bomb explosion
     const property stopsExplosion = false //An explosion will continue expanding after hitting a player
-
+    
 	method color() = color
 
     method move(direction) {
@@ -43,9 +44,8 @@ class Player {
     }
 
     method harm() {
-        //TODO: Pendiente de implementación
-        image = "./assets/characters/dino-lose.png"
-        game.say(self, "ay") //temp, obviamente
+        self.isAlive(false) //temp, Decidir si implementar sistema de vidas
+        self.die()
     }
 
 	method image(direction){
@@ -55,6 +55,13 @@ class Player {
 	method action(direction){
 		self.move(direction)
 		self.image(direction)
+	}
+	
+	method die(){  // An PC die 
+		if(not(self.isAlive())) 
+		game.schedule(phaseTime , {image = "./assets/characters/dino-lose.png"})
+        game.schedule(phaseTime , {game.say(self, "ay")}) // No se visualiza el mensaje ya que lo bloquea los sprite de los muros 
+		game.schedule(phaseTime * 2.5 , {game.removeVisual(self)})
 	}
 
     method setup() {

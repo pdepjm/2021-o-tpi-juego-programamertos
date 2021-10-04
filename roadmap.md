@@ -4,6 +4,7 @@
 
 - [ ] ¿Mapa único, objetos generados aleatoriamente, o varios mapas prearmados?
 - [ ] ¿Los jugadores tienen una o varias vidas?
+   -> - [ ] ¿Extendemos el mapa para meter un Sprite para las vidas?
 - [ ] ¿Qué objetos bonus serán implementados?
 
 ## Diseños
