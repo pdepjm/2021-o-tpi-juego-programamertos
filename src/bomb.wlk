@@ -94,8 +94,7 @@ class Explosion {
 				if(_object.destroyable()) {
 					_object.harm()
 
-
-					ableToContinueExpansion =! _object.stopsExplosion() && ableToContinueExpansion	//Checks if the object stops the explosion from expanding beyond it
+					ableToContinueExpansion = !_object.stopsExplosion() && ableToContinueExpansion	//Checks if the object stops the explosion from expanding beyond it
 				}
 			})
 
