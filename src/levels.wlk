@@ -99,12 +99,41 @@ const level1 = new Level(
 
 	//TODO: testing
     destroyableTiles = [
+        new DestroyableTile(position = game.at(4, 15)),
+        new DestroyableTile(position = game.at(5, 15)),
+        new DestroyableTile(position = game.at(6, 15)),
+        new DestroyableTile(position = game.at(7, 15)),
+        new DestroyableTile(position = game.at(9, 15)),
+        new DestroyableTile(position = game.at(10, 15)),
+        new DestroyableTile(position = game.at(11, 15)),
+        new DestroyableTile(position = game.at(12, 15)),
+ 
+        new DestroyableTile(position = game.at(4, 14)),
+        new DestroyableTile(position = game.at(7, 14)),
+        new DestroyableTile(position = game.at(9, 14)),
+        new DestroyableTile(position = game.at(12, 14)),
+    	
+    	new DestroyableTile(position = game.at(2, 13)),
+        new DestroyableTile(position = game.at(3, 13)),
+        new DestroyableTile(position = game.at(5, 13)),
+        new DestroyableTile(position = game.at(7, 13)),
+        new DestroyableTile(position = game.at(8, 13)),
+        new DestroyableTile(position = game.at(9, 13)),
+        new DestroyableTile(position = game.at(11, 13)),
+        new DestroyableTile(position = game.at(13, 13)),
+        new DestroyableTile(position = game.at(14, 13)),
+    	
+        new DestroyableTile(position = game.at(1, 12)),
+        new DestroyableTile(position = game.at(4, 12)),
+        new DestroyableTile(position = game.at(6, 12)),
+        new DestroyableTile(position = game.at(10, 12)),
+        new DestroyableTile(position = game.at(12, 12)),
+        new DestroyableTile(position = game.at(14, 12)),
+    	
         new DestroyableTile(position = game.at(14, 8)),
         new DestroyableTile(position = game.at(14, 7)),
         new DestroyableTile(position = game.at(14, 6)),
         new DestroyableTile(position = game.at(8, 3)),
-        new DestroyableTile(position = game.at(14, 3)),
-        new DestroyableTile(position = game.at(14, 13)),
-        new DestroyableTile(position = game.at(7, 13))
+        new DestroyableTile(position = game.at(14, 3))
     ]
 )
