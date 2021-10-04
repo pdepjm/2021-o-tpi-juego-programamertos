@@ -18,6 +18,14 @@ class Level {
     	self.renderSolidTiles()
     	self.renderDestroyableTiles()
         self.renderBorderTiles()
+
+        
+    }
+
+    method unloadLevel() {
+        solidTiles.forEach({_tile => _tile.remove()})
+        destroyableTiles.forEach({_tile => _tile.remove()})
+        //TODO: implementar logica jugadores
     }
 
 	method renderSolidTiles(){

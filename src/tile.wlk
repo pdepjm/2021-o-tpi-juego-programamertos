@@ -9,6 +9,10 @@ class Tile {
         game.addVisual(self)
     }
 
+    method remove() {
+        game.removeVisual(self)
+    }
+
     //method harm() {} //TODO: asume que el tile no es destruible, por eso hay override en DestroyableTile.
     					//Debería poder tener un mejor formato
 }
