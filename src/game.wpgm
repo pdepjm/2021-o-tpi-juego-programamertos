@@ -10,8 +10,34 @@ program Dinoboom {
 	game.width(17)  //Based on Bomb It
 	game.cellSize(32)
 	game.boardGround("./assets/map/bg-sand2.jpg")
+
+	//TEMP
+	var p1 = new Player(
+            id = 1,
+            color = "purple",
+            position = game.at(1,15),
+            upBind = keyboard.w(), 
+            downBind = keyboard.s(), 
+            leftBind = keyboard.a(), 
+            rightBind = keyboard.d(),
+            bombKey = keyboard.q()
+        )
+
+	var p2 = new Player(
+		id = 2,
+		color = "yellow",
+		position = game.at(1,1),
+		upBind = keyboard.up(), 
+		downBind = keyboard.down(), 
+		leftBind = keyboard.left(), 
+		rightBind = keyboard.right(),
+		bombKey = keyboard.minusKey()
+	)
+
+	const players = [p1, p2]
+	//Fin TEMP
 	
-	players.configurate()
+	players.forEach({_player => _player.setup()})
 	level1.loadLevel() //todo: more levels (one sand, one stone, one dungeon?)
 	
 	game.start()

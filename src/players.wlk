@@ -74,33 +74,3 @@ class Player {
         game.addVisual(self)
     }
 }
-
-//TODO: TEMP
-object p1 inherits Player(
-    id = 1,
-    color = "purple",
-    position = game.at(1,15),
-    upBind = keyboard.w(), 
-    downBind = keyboard.s(), 
-    leftBind = keyboard.a(), 
-    rightBind = keyboard.d(),
-    bombKey = keyboard.q()
-    ){}
-
-object p2 inherits Player(
-    id = 2,
-    color = "yellow",
-    position = game.at(1,1),
-    upBind = keyboard.up(), 
-    downBind = keyboard.down(), 
-    leftBind = keyboard.left(), 
-    rightBind = keyboard.right(),
-    bombKey = keyboard.minusKey()
-    ){}
-
-object players{
-	method configurate(){
-		p1.setup()
-		p2.setup()
-	}
-}
