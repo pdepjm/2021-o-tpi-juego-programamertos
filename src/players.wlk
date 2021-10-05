@@ -60,7 +60,6 @@ class Player {
 	
 	method die(){  // An PC die 
 		if(not(self.isAlive())) 
-		game.schedule(phaseTime , {self.disable()})
 		game.schedule(phaseTime , {image = "./assets/characters/dino-lose.png"})
         game.schedule(phaseTime , {game.say(self, "ay")}) // No se visualiza el mensaje ya que lo bloquea los sprite de los muros 
 		game.schedule(phaseTime * 2.5 , {game.removeVisual(self)})
@@ -78,9 +77,6 @@ class Player {
         bombKey.onPressDo({ self.dropBomb() })
         
         game.addVisual(self)
-    }
-    
-    method disable(){
-    	
-    }
+    }  
+
     }
