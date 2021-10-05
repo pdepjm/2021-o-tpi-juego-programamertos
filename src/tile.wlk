@@ -28,7 +28,7 @@ class SolidTile inherits Tile {
 
 //DestroyableTile represents those tiles that can be destroyed by the player (Obstacles) and drop items
 class DestroyableTile inherits Tile {
-    const property image = "./assets/objects/obstacle" + new Range(start = 1, end = 5).anyOne() + ".png"
+    const property image = "./assets/objects/obstacles/obstacle-sand-" + new Range(start = 1, end = 3).anyOne() + ".png" //TODO level changes obstacles
     var property canBeSteppedOn = false
     const property destroyable = true
 

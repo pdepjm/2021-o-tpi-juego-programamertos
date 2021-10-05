@@ -4,7 +4,7 @@ import directions.*
 
 //TODO: cuando explota una bomba y le pega en su rango de explosión a otra bomba, la hace explotar automaticamente
 class Bomb {
-	var property image =  "./assets/objects/bomb.png"
+	var property image =  "./assets/objects/bomb/bomb.png"
 	const phaseTime = 500			//Phase duration in miliseconds
 	var property distance = 5 		//how far (in tiles) the explosion will reach
 	var property position
@@ -46,8 +46,8 @@ class Bomb {
 	}
 
 	method phaser() {
-		game.schedule(phaseTime, {=> self.updateImage("./assets/objects/bomb2.png")})
-		game.schedule(phaseTime*2, {=> self.updateImage("./assets/objects/bomb3.png")})
+		game.schedule(phaseTime, {=> self.updateImage("./assets/objects/bomb/bomb2.png")})
+		game.schedule(phaseTime*2, {=> self.updateImage("./assets/objects/bomb/bomb3.png")})
 		game.schedule(phaseTime*3, {=> self.explode()})
 	}
 
@@ -74,7 +74,7 @@ class Explosion {
 	var remainingTiles
 
 	//With initial value
-	const property image = "./assets/objects/bomb4.png"	//TODO: Change
+	const property image = "./assets/objects/bomb/bomb4.png"	//TODO: Change
 	const property destroyable = false
 	const expansionRate = 100							//constant used to control how fast the explosion expands
 	const property canBeSteppedOn = false				//TODO: Temporal, debería ser true y debería implementarse que haga daño
