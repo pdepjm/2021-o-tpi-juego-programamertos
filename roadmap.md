@@ -30,6 +30,8 @@
 - [ ] Implementar menúes
 - [ ] Implementar carga random de niveles
 - [ ] Implementar nuevos niveles
+- [ ] Implementar objetos bonus
+- [ ] (Ligado a Implementar objetos bonus) Posibilidad de colocar más de una bomba por jugador
 
 ### Tests
 
