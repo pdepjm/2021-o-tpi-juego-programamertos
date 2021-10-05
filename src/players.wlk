@@ -44,7 +44,7 @@ class Player {
     }
 
     method harm() {
-        self.isAlive(false) //temp, Decidir si implementar sistema de vidas
+        self.isAlive(false) 
         self.die()
     }
 
