@@ -9,7 +9,7 @@ program Dinoboom {
 	game.height(17) //Based on Bomb It
 	game.width(17)  //Based on Bomb It
 	game.cellSize(32)
-	game.boardGround("./assets/map/bg-sand2.jpg")
+	game.boardGround("./assets/map/bg-sand2.jpg") //TODO: level changes background
 
 	//TEMP
 	var p1 = new Player(
@@ -38,6 +38,8 @@ program Dinoboom {
 	//Fin TEMP
 	
 	players.forEach({_player => _player.setup()})
+	
+	//levelOne.loadLevel()
 	level1.loadLevel() //todo: more levels (one sand, one stone, one dungeon?)
 	
 	game.start()

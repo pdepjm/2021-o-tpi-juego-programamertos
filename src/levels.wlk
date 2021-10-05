@@ -2,6 +2,52 @@ import wollok.game.*
 import tile.*
 import level.*
 
+
+/*
+//testing to refactorize
+object levelOne inherits Level{
+	
+	override method createSolidTiles(){
+	
+	// Para repetir codigo solo una vez por fila (80 líneas se convierten en 30)
+	// Esta implementación requeriría un método en la clase nivel que cree sus tiles
+	// Todo esto es solo para las SolidTiles
+	
+	const pos1 = [8] //(15, 1)
+	const pos2 = [2, 3, 5, 6, 8, 10, 11, 13, 14] //(14, 2)
+	const pos3 = [2, 3, 5, 7, 8, 9, 11, 13, 14] //(12, 4)
+	const pos4 = [5, 11] //(11, 5)
+	const pos5 = [1, 3, 8, 13, 15] //(10, 6)
+	const pos6 = [3, 4, 5, 7, 8, 9, 11, 12, 13] //(9, 7)
+	
+	const posiciones = [pos1, pos2, pos3, pos4, pos5, pos6] // Podríamos hacer un loop de esta lista tambien
+	 															// Pero no sabría como implementar el número de fila
+
+	pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 15)) )} )
+	pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 1)) )} )
+	
+	pos2.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 14)) )} )
+	pos2.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 2)) )} )
+	
+	pos3.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 12)) )} )
+	pos3.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 4)) )} )
+	
+	pos4.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 11)) )} )
+	pos4.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 5)) )} )
+	
+	pos5.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 10)) )} )
+	pos5.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 6)) )} )
+	
+	pos6.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 9)) )} )
+	pos6.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 7)) )} )
+	}
+	
+	method createDestroyableTiles(){
+		
+	}
+}
+*/
+
 const level1 = new Level(
     spawnPoints = [
         game.at(1, 1),
@@ -34,7 +80,6 @@ const level1 = new Level(
        new SolidTile(position = game.at(13, 12)),
        new SolidTile(position = game.at(14, 12)),
 
-       new SolidTile(position = game.at(11, 11)),
        new SolidTile(position = game.at(11, 11)),
        new SolidTile(position = game.at(5, 11)),
 
@@ -73,7 +118,6 @@ const level1 = new Level(
        new SolidTile(position = game.at(11, 5)),
        new SolidTile(position = game.at(5, 5)),
 
-
        new SolidTile(position = game.at(2, 4)),
        new SolidTile(position = game.at(3, 4)),
        new SolidTile(position = game.at(5, 4)),
@@ -97,7 +141,6 @@ const level1 = new Level(
        new SolidTile(position = game.at(8, 1))
     ],
 
-	//TODO: testing
     destroyableTiles = [
         new DestroyableTile(position = game.at(4, 15)),
         new DestroyableTile(position = game.at(5, 15)),
@@ -128,7 +171,7 @@ const level1 = new Level(
         new DestroyableTile(position = game.at(6, 12)),
         new DestroyableTile(position = game.at(10, 12)),
         new DestroyableTile(position = game.at(12, 12)),
-        new DestroyableTile(position = game.at(14, 12)),
+        //new DestroyableTile(position = game.at(14, 12)),
     	
         new DestroyableTile(position = game.at(14, 8)),
         new DestroyableTile(position = game.at(14, 7)),

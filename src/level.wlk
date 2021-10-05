@@ -11,15 +11,13 @@ import players.*
 class Level {
     //List that contains spawnpoints for all 4 characters
     const property spawnPoints = [game.at(1,15), game.at(1, 1), game.at(15, 15), game.at(1, 1)]
-    const solidTiles
-    const destroyableTiles
+    var property solidTiles
+    var property destroyableTiles
 
-    method loadLevel() {
+    method loadLevel() {    	
     	self.renderSolidTiles()
     	self.renderDestroyableTiles()
         self.renderBorderTiles()
-
-        
     }
 
     method unloadLevel() {
@@ -27,6 +25,10 @@ class Level {
         destroyableTiles.forEach({_tile => _tile.remove()})
         //TODO: implementar logica jugadores
     }
+
+	//method createSolidTiles()
+	
+	//method createDestroyableTiles()
 
 	method renderSolidTiles(){
 		solidTiles.forEach({tile => tile.render()})
@@ -43,11 +45,11 @@ class Level {
         //West side
         (1 .. ancho-1).map({xCoord => return new BorderTile(position = game.at(xCoord, 0))}).forEach({tile => tile.render()})
         //East side
-        (1 .. ancho-1).map({xCoord => return new BorderTile(position = game.at(xCoord, 16))}).forEach({tile => tile.render()})
+        (1 .. ancho-1).map({xCoord => return new BorderTile(position = game.at(xCoord, ancho))}).forEach({tile => tile.render()})
         //North side
         (0 .. largo).map({yCoord => return new BorderTile(position = game.at(0, yCoord))}).forEach({tile => tile.render()})
         //South side
-        (0 .. largo).map({yCoord => return new BorderTile(position = game.at(16, yCoord))}).forEach({tile => tile.render()})
+        (0 .. largo).map({yCoord => return new BorderTile(position = game.at(largo, yCoord))}).forEach({tile => tile.render()})
     }
 }
 
