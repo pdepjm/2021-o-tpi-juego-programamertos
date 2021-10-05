@@ -35,7 +35,7 @@ class Player {
     }
 
     method dropBomb() {		
-        if(bombCount == 0 && isAlive == true) {
+        if(bombCount == 0 && isAlive) {
             const bomb = new Bomb(position = self.position(), owner = self)
             bomb.init()
             bombCount++
