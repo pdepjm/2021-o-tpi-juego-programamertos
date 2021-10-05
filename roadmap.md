@@ -21,7 +21,7 @@
 - [x] Menúes
   - [x] Menú principal
   - [x] Pantalla de controles
-  - [ ] Pantalla de créditos
+  - [x] Pantalla de créditos
 - [ ] Interfaz de fin de nivel
   - [ ] Contador victorias por jugador
 
