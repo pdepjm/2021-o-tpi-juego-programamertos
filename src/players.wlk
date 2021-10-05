@@ -35,7 +35,7 @@ class Player {
     }
 
     method dropBomb() {		
-        if(bombCount == 0) {
+        if(bombCount == 0 && isAlive == true) {
             const bomb = new Bomb(position = self.position(), owner = self)
             bomb.init()
             bombCount++
@@ -46,6 +46,7 @@ class Player {
     method harm() {
         self.isAlive(false) 
         self.die()
+        
     }
 
 	method image(direction){
@@ -59,9 +60,14 @@ class Player {
 	
 	method die(){  // An PC die 
 		if(not(self.isAlive())) 
+		game.schedule(phaseTime , {self.disable()})
 		game.schedule(phaseTime , {image = "./assets/characters/dino-lose.png"})
         game.schedule(phaseTime , {game.say(self, "ay")}) // No se visualiza el mensaje ya que lo bloquea los sprite de los muros 
 		game.schedule(phaseTime * 2.5 , {game.removeVisual(self)})
+		
+		
+		
+		
 	}
 
     method setup() {
@@ -73,4 +79,8 @@ class Player {
         
         game.addVisual(self)
     }
-}
+    
+    method disable(){
+    	
+    }
+    }
