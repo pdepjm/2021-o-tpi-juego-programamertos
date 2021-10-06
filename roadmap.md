@@ -12,6 +12,7 @@
 - [ ] ¿Qué objetos bonus serán implementados?
   - [ ] Aumentar rango de explosión
   - [ ] Aumentar cantidad de bombas
+  - [ ] Aumentar velocida de explosión
   - [ ] Inmunidad por corto lapso de tiempo
 
 ## Diseños
@@ -28,7 +29,7 @@
 - [ ] Implementar menúes
 - [ ] Implementar carga random de niveles
 - [ ] Implementar objetos bonus
-  - [ ] (Ligado a Implementar objetos bonus) Posibilidad de colocar más de una bomba por jugador
+  - [ ] Posibilidad de colocar más de una bomba por jugador
 - [x] Terminar mapa actual
 - [x] Objetos en posiciones fijas con imágenes randomizadas (Mariela)
 - [ ] Implementar nuevos niveles (2 mapas adicionales) (Mariela)
