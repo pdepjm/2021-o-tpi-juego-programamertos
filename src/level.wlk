@@ -11,10 +11,10 @@ import players.*
 class Level {
     //List that contains spawnpoints for all 4 characters
     const property spawnPoints = [game.at(1,15), game.at(1, 1), game.at(15, 15), game.at(1, 1)]
-    var property solidTiles
-    var property destroyableTiles
+    const property solidTiles = []
+    const property destroyableTiles = []
 
-    method loadLevel() {    	
+    method loadLevel() {
     	self.renderSolidTiles()
     	self.renderDestroyableTiles()
         self.renderBorderTiles()
@@ -26,17 +26,9 @@ class Level {
         //TODO: implementar logica jugadores
     }
 
-	//method createSolidTiles()
+	method renderSolidTiles()
 	
-	//method createDestroyableTiles()
-
-	method renderSolidTiles(){
-		solidTiles.forEach({tile => tile.render()})
-	}
-	
-	method renderDestroyableTiles(){
-		destroyableTiles.forEach({tile => tile.render()})
-	}
+	method renderDestroyableTiles()
 
     method renderBorderTiles() {
     	const ancho = game.width() - 1
