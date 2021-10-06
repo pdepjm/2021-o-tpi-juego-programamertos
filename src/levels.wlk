@@ -171,12 +171,73 @@ const level1 = new Level(
         new DestroyableTile(position = game.at(6, 12)),
         new DestroyableTile(position = game.at(10, 12)),
         new DestroyableTile(position = game.at(12, 12)),
-        //new DestroyableTile(position = game.at(14, 12)),
-    	
-        new DestroyableTile(position = game.at(14, 8)),
-        new DestroyableTile(position = game.at(14, 7)),
+        
+        new DestroyableTile(position = game.at(1, 11)),
+        new DestroyableTile(position = game.at(3, 11)),
+        new DestroyableTile(position = game.at(4, 11)),
+        new DestroyableTile(position = game.at(8, 11)),
+        new DestroyableTile(position = game.at(12, 11)),
+        new DestroyableTile(position = game.at(13, 11)),
+        new DestroyableTile(position = game.at(15, 11)),
+        
+        new DestroyableTile(position = game.at(2, 10)),
+        new DestroyableTile(position = game.at(5, 10)),
+        new DestroyableTile(position = game.at(6, 10)),
+        new DestroyableTile(position = game.at(10, 10)),
+        new DestroyableTile(position = game.at(11, 10)),
+        new DestroyableTile(position = game.at(14, 10)),
+        
+        new DestroyableTile(position = game.at(1, 8)),
+        new DestroyableTile(position = game.at(3, 8)),
+        new DestroyableTile(position = game.at(5, 8)),
+        new DestroyableTile(position = game.at(8, 8)),
+        new DestroyableTile(position = game.at(11, 8)),
+        new DestroyableTile(position = game.at(13, 8)),
+        new DestroyableTile(position = game.at(15, 8)),
+        
+        new DestroyableTile(position = game.at(2, 6)),
+        new DestroyableTile(position = game.at(5, 6)),
+        new DestroyableTile(position = game.at(6, 6)),
+        new DestroyableTile(position = game.at(10, 6)),
+        new DestroyableTile(position = game.at(11, 6)),
         new DestroyableTile(position = game.at(14, 6)),
+        
+        new DestroyableTile(position = game.at(1, 5)),
+        new DestroyableTile(position = game.at(3, 5)),
+        new DestroyableTile(position = game.at(4, 5)),
+        new DestroyableTile(position = game.at(8, 5)),
+        new DestroyableTile(position = game.at(12, 5)),
+        new DestroyableTile(position = game.at(13, 5)),
+        new DestroyableTile(position = game.at(15, 5)),
+        
+        new DestroyableTile(position = game.at(1, 4)),
+        new DestroyableTile(position = game.at(4, 4)),
+        new DestroyableTile(position = game.at(6, 4)),
+        new DestroyableTile(position = game.at(10, 4)),
+        new DestroyableTile(position = game.at(12, 4)),
+        
+        new DestroyableTile(position = game.at(2, 3)),
+        new DestroyableTile(position = game.at(3, 3)),
+        new DestroyableTile(position = game.at(5, 3)),
+        new DestroyableTile(position = game.at(7, 3)),
         new DestroyableTile(position = game.at(8, 3)),
-        new DestroyableTile(position = game.at(14, 3))
+        new DestroyableTile(position = game.at(9, 3)),
+        new DestroyableTile(position = game.at(11, 3)),
+        new DestroyableTile(position = game.at(13, 3)),
+        new DestroyableTile(position = game.at(14, 3)),
+        
+        new DestroyableTile(position = game.at(4, 2)),
+        new DestroyableTile(position = game.at(7, 2)),
+        new DestroyableTile(position = game.at(9, 2)),
+        new DestroyableTile(position = game.at(12, 2)),
+        
+        new DestroyableTile(position = game.at(4, 1)),
+        new DestroyableTile(position = game.at(5, 1)),
+        new DestroyableTile(position = game.at(6, 1)),
+        new DestroyableTile(position = game.at(7, 1)),
+        new DestroyableTile(position = game.at(9, 1)),
+        new DestroyableTile(position = game.at(10, 1)),
+        new DestroyableTile(position = game.at(11, 1)),
+        new DestroyableTile(position = game.at(12, 1))
     ]
 )
