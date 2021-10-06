@@ -23,6 +23,8 @@ object levelOne inherits Level{
 	const posiciones = [pos1, pos2, pos3, pos4, pos5, pos6] // Podríamos hacer un loop de esta lista tambien
 	 															// Pero no sabría como implementar el número de fila
 
+	const filas = [[1, 15], [2, 14], [4, 12], [5, 11], [6, 10], [7, 9], [8]]
+
 	pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 15)) )} )
 	pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 1)) )} )
 	
