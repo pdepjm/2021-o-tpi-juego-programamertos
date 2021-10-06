@@ -3,10 +3,8 @@
 ## Decisiones
 
 - [x] ¿Mapa único, objetos generados aleatoriamente, o varios mapas prearmados?
-
-  1. Terminar mapa actual
-  2. Objetos en posiciones fijas con imágenes randomizadas (Mariela)
-  3. Crear 2 mapas adicionales
+  
+  -Tres mapas de paredes y obstáculos fijos con imágenes randomizadas
 
 - [x] ¿Los jugadores tienen una o varias vidas?
   - Los jugadores tienen una vida
@@ -29,9 +27,12 @@
 
 - [ ] Implementar menúes
 - [ ] Implementar carga random de niveles
-- [ ] Implementar nuevos niveles
 - [ ] Implementar objetos bonus
-- [ ] (Ligado a Implementar objetos bonus) Posibilidad de colocar más de una bomba por jugador
+  - [ ] (Ligado a Implementar objetos bonus) Posibilidad de colocar más de una bomba por jugador
+- [x] Terminar mapa actual
+- [x] Objetos en posiciones fijas con imágenes randomizadas (Mariela)
+- [ ] Implementar nuevos niveles (2 mapas adicionales) (Mariela)
+
 
 ### Tests
 
