@@ -6,6 +6,7 @@ import level.*
 object levelSand inherits Level{
 	
 	override method renderSolidTiles(){
+		
 		const pos1 = [8] //(15, 1)
 		const pos2 = [2, 3, 5, 6, 8, 10, 11, 13, 14] //(14, 2)
 		const pos3 = [2, 3, 5, 7, 8, 9, 11, 13, 14] //(12, 4)
@@ -13,12 +14,6 @@ object levelSand inherits Level{
 		const pos5 = [1, 3, 8, 13, 15] //(10, 6)
 		const pos6 = [3, 4, 5, 7, 8, 9, 11, 12, 13] //(9, 7)
 		
-		//Se podría hacer un loop 
-		//const conjunto = [pos1, pos2, pos3, pos4, pos5, pos6]
-	
-		//Se podría hacer un loop con la lista de filas por la que tiene que pasar cada lista pos"n"
-		//const filas = [[1, 15], [2, 14], [4, 12], [5, 11], [6, 10], [7, 9], [8]]
-	
 		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 15)) )} )
 		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 1)) )} )
 		
@@ -36,19 +31,23 @@ object levelSand inherits Level{
 		
 		pos6.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 9)) )} )
 		pos6.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 7)) )} )
-		
+				
+		//const columns = [pos1, pos2, pos3, pos4, pos5, pos6]
+		//const rows = [[1, 15], [2, 14], [4, 12], [5, 11], [6, 10], [7, 9]]
+
 		solidTiles.forEach({tile => tile.render()})
 	}
 	
 	override method renderDestroyableTiles(){
-		const pos1 = [4, 5, 6, 7, 9, 10, 11, 12] //15, 1
-		const pos2 = [4, 7, 9, 12] //14, 2
-		const pos3 = [2, 3, 5, 7, 8, 9, 11, 13, 14] //13, 3
-		const pos4 = [1, 4, 6, 10, 12, 15] //12, 4
-		const pos5 = [1, 3, 4, 8, 12, 13, 15] //11, 5
-		const pos6 = [2, 5, 6, 10, 11, 14] //10, 6
-		const pos7 = [1, 3, 5, 8, 11, 13, 15] //8
-		
+	
+		const pos1 = [4, 5, 6, 7, 9, 10, 11, 12]
+		const pos2 = [4, 7, 9, 12]
+		const pos3 = [2, 3, 5, 7, 8, 9, 11, 13, 14]
+		const pos4 = [1, 4, 6, 10, 12, 15]
+		const pos5 = [1, 3, 4, 8, 12, 13, 15]
+		const pos6 = [2, 5, 6, 10, 11, 14]
+		const pos7 = [1, 3, 5, 8, 11, 13, 15]
+			
 		pos1.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 15)) )} )
 		pos1.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 1)) )} )
 		
@@ -69,6 +68,24 @@ object levelSand inherits Level{
 		
 		pos7.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 8)) )} )
 		
+		/*
+		
+		//combination of column x row gives the coordenate of every destroyable tile on this level
+			//e.g. (4, 1), (5, 1) .. (11, 1) (12, 1) and (4, 15), (5, 15) .. (11, 15), (12, 15)
+		const columns = [pos1, pos2, pos3, pos4, pos5, pos6, pos7]				
+		const rows = [[1, 15], [2, 14], [3, 13], [4, 12], [5, 11], [6, 10], [8]]
+		
+		columns.forEach({ //for every list in columns
+			column => column.forEach({ //for every number on the lists
+				x => rows.forEach({ //for every list in rows
+					row => row.forEach({ //for every number on the lists
+						y => destroyableTiles.add( new DestroyableTile(position = game.at(x, y)))
+					})
+				})
+			})
+		})
+		*/
+
 		destroyableTiles.forEach({tile => tile.render()})
 	}
 }
