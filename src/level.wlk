@@ -4,7 +4,6 @@ import soundProducer.*
 import directions.*
 import tile.*
 import obstacles.*
-import bomb.*
 import players.*
 
 
@@ -30,6 +29,7 @@ class Level {
 	
 	method renderDestroyableTiles()
 
+	//same border tiles to every map, only thing that changes are images
     method renderBorderTiles() {
     	const ancho = game.width() - 1
 		const largo = game.height() - 1

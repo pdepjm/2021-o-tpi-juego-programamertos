@@ -39,7 +39,7 @@ program Dinoboom {
 	
 	players.forEach({_player => _player.setup()})
 	
-	levelOne.loadLevel()
+	levelSand.loadLevel()
 	//level1.loadLevel() //todo: more levels (one sand, one stone, one dungeon?)
 	
 	game.start()

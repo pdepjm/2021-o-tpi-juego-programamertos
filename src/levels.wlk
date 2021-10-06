@@ -2,8 +2,8 @@ import wollok.game.*
 import tile.*
 import level.*
 
-
-object levelOne inherits Level{
+//TODO level has to assign sand images to tiles and obstacles
+object levelSand inherits Level{
 	
 	override method renderSolidTiles(){
 		const pos1 = [8] //(15, 1)
@@ -69,6 +69,28 @@ object levelOne inherits Level{
 		
 		pos7.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 8)) )} )
 		
+		destroyableTiles.forEach({tile => tile.render()})
+	}
+}
+
+//TODO level has to assign stone images to tiles and obstacles
+object levelStone inherits Level{
+	override method renderSolidTiles(){
+		solidTiles.forEach({tile => tile.render()})
+	}
+	
+	override method renderDestroyableTiles(){
+		destroyableTiles.forEach({tile => tile.render()})
+	}
+}
+
+//TODO level has to assign dungeon images to tiles and obstacles
+object levelDungeon inherits Level{
+	override method renderSolidTiles(){
+		solidTiles.forEach({tile => tile.render()})
+	}
+	
+	override method renderDestroyableTiles(){
 		destroyableTiles.forEach({tile => tile.render()})
 	}
 }
