@@ -7,7 +7,7 @@
   -Tres mapas de paredes y obstáculos fijos con imágenes randomizadas
 
 - [x] ¿Los jugadores tienen una o varias vidas?
-  - Los jugadores tienen una vida
+  - [x] Los jugadores tienen una vida
   - Cuando queda un solo jugador en pie, con un cartel/contador de por medio se carga otro mapa infinitamente
 - [ ] ¿Qué objetos bonus serán implementados?
   - [ ] Aumentar rango de explosión
@@ -18,10 +18,10 @@
 ## Diseños
 
 - [x] Menúes
-  - [x] Menú principal
-  - [x] Pantalla de controles
-  - [x] Pantalla de créditos
-- [ ] Interfaz de fin de nivel
+  - [x] Menú principal (hecho está en discord)
+  - [x] Pantalla de controles (hecho está en discord)
+  - [x] Pantalla de créditos (hecho está en discord)
+  - [x] Interfaz de fin de nivel (hecho gano x personaje)
   - [ ] Contador victorias por jugador
 
 ## Código
@@ -38,6 +38,16 @@
 ### Tests
 
 - [ ] Desarrollar lista de tests a implementar (Acá)
+  - [ ] Un jugador se mueve correctamente
+    - [ ] Al presionar W se mueve hacia arriba
+    - [ ] Al presionar S se mueve hacia abajo
+    - [ ] Al presionar A se mueve hacia izquierda
+    - [ ] Al presionar D se mueve hacia Derecha
+  - [ ] Una bomba explota 
+  - [ ] Un jugador muere
+  - [ ] Se rompe un destroyableTile al colocar una bomba
+  - [ ] El personaje no puede pasar sobre las paredes
+  - [ ] ...
 
 ### Obstáculos
 
