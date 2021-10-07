@@ -27,9 +27,9 @@ object menu {
     //TODO: Estas funciones podrian tener mejor lógica
     method goUp() {
         selected.isSelected(false)
-        if(selected == keybindings) {
+        if(selected.name() == "keybindings") {
             selected = play
-        }  else if(selected == credits) {
+        }  else if(selected.name() == "credits") {
             selected = keybindings
         }
         selected.isSelected(true)
@@ -37,9 +37,9 @@ object menu {
 
     method goDown() {
         selected.isSelected(false)
-        if(selected == play) {
+        if(selected.name() == "play") {
             selected = keybindings
-        } else if(selected == keybindings) {
+        } else if(selected.name() == "keybindings") {
             selected = credits
         }
         selected.isSelected(true)
