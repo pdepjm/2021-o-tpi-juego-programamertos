@@ -19,14 +19,16 @@
 
 - [x] Menúes
   - [x] Menú principal (hecho está en discord)
-  - [x] Pantalla de controles (hecho está en discord)
-  - [x] Pantalla de créditos (hecho está en discord)
-  - [x] Interfaz de fin de nivel (hecho gano x personaje)
+  - [ ] Pantalla de controles (resizear a 544x544)
+  - [ ] Pantalla de créditos (resizear a 544x544)
+  - [x] Interfaz de fin de nivel (resizear a 544x544)
   - [ ] Contador victorias por jugador
 
 ## Código
 
-- [ ] Implementar menúes
+- [x] Implementar menúes
+  - [ ] Emprolijar código
+- [ ] Implementar función para cambiar el background
 - [ ] Implementar carga random de niveles
 - [ ] Implementar objetos bonus
   - [ ] Mayor alcance de bomba
