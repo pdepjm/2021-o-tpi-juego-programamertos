@@ -29,7 +29,8 @@
 - [ ] Implementar menúes
 - [ ] Implementar carga random de niveles
 - [ ] Implementar objetos bonus
-  - [ ] Posibilidad de colocar más de una bomba por jugador
+  - [ ] Mayor alcance de bomba
+  - [ ] Más bombas por jugador
 - [x] Terminar mapa actual
 - [x] Objetos en posiciones fijas con imágenes randomizadas (Mariela)
 - [ ] Implementar nuevos niveles (2 mapas adicionales) (Mariela)
