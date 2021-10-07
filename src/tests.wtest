@@ -1,11 +1,59 @@
+import wollok.game.*
+import level.*
+import levels.*
+import players.*
+import directions.*
+import menu.*
 import soundProducer.*
 
-describe "Inserte descripción" {
-	method initialize() {
+/*method initialize() {
 		soundProducer.provider(soundProviderMock)		
+	} */
+
+describe "Movement of the player" {
+	   const p1 = new Player(
+                id = 1,
+                color = "purple",
+                position = game.at(1,15),
+                upBind = keyboard.w(), 
+                downBind = keyboard.s(), 
+                leftBind = keyboard.a(), 
+                rightBind = keyboard.d(),
+                bombKey = keyboard.q()
+            )
+
+        const p2 = new Player(
+            id = 2,
+            color = "yellow",
+            position = game.at(1,1),
+            upBind = keyboard.up(), 
+            downBind = keyboard.down(), 
+            leftBind = keyboard.left(), 
+            rightBind = keyboard.right(),
+            bombKey = keyboard.minusKey()
+        )
+	test "A Player moves to the right" {
+		p1.move(right) 
+		assert.equals(game.at(2 , 15) , p1.position())
+	}	
+	
+	
+	test "A Player moves to the left" {
+		p2.move(right)
+		p2.move(right)
+		p2.move(left)
+		assert.equals(game.at(2 , 1) , p2.position())
 	}
 	
-	test "testX" {
-		assert.that(true)
-	}	
+	test "A Player moves up" {
+		p2.move(up)
+		p2.move(up)
+		assert.equals(game.at(1 , 3) , p2.position())
+	}
+	
+	test "A Player moves down" {
+		p1.move(down)
+		p1.move(down)
+		assert.equals(game.at(1 , 13) , p1.position())
+	}
 }
