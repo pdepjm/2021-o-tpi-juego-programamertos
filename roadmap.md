@@ -18,25 +18,21 @@
 ## Diseños
 
 - [x] Menúes
-  - [x] Menú principal (hecho está en discord)
+  - [x] Menú principal
   - [ ] Pantalla de controles (resizear a 544x544)
   - [ ] Pantalla de créditos (resizear a 544x544)
-  - [x] Interfaz de fin de nivel (resizear a 544x544)
+  - [ ] Interfaz de fin de nivel (resizear a 544x544)
   - [ ] Contador victorias por jugador
 
 ## Código
 
 - [x] Implementar menúes
-  - [ ] Emprolijar código (Ver de usar identificadores en vez de comparar objetos)
+  - [ ] Emprolijar código
 - [ ] Implementar función para cambiar el background
 - [ ] Implementar carga random de niveles
-- [ ] Implementar objetos bonus
-  - [ ] Mayor alcance de bomba
-  - [ ] Más bombas por jugador
 - [x] Terminar mapa actual
 - [x] Objetos en posiciones fijas con imágenes randomizadas (Mariela)
 - [ ] Implementar nuevos niveles (2 mapas adicionales) (Mariela)
-
 
 ### Tests
 
@@ -61,7 +57,14 @@
 - [ ] Aplicar efectos de los objetos bonus
 - [ ] Los objetos bonus tienen una duración máxima
 
+## Documento
+
+- [ ] Empezar
+
 ## Más adelante
 
 - [ ] Música
 - [ ] Sonido
+- [ ] Implementar objetos bonus
+  - [ ] Mayor alcance de bomba
+  - [ ] Más bombas por jugador
