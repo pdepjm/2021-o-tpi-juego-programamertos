@@ -43,10 +43,11 @@
     - [ ] Al presionar S se mueve hacia abajo
     - [ ] Al presionar A se mueve hacia izquierda
     - [ ] Al presionar D se mueve hacia Derecha
-  - [ ] Una bomba explota 
-  - [ ] Un jugador muere
-  - [ ] Se rompe un destroyableTile al colocar una bomba
+    - [ ] Al presionar minusKey coloca una bomba
   - [ ] El personaje no puede pasar sobre las paredes
+  - [ ] Una bomba explota
+  - [ ] Se destruye un obstáculo por la explosión de una bomba
+  - [ ] Un jugador muere al ser alcanzado por la explosión de una bomba
   - [ ] ...
 
 ### Obstáculos
