@@ -27,7 +27,7 @@
 ## Código
 
 - [x] Implementar menúes
-  - [ ] Emprolijar código
+  - [ ] Emprolijar código (Ver de usar identificadores en vez de comparar objetos)
 - [ ] Implementar función para cambiar el background
 - [ ] Implementar carga random de niveles
 - [ ] Implementar objetos bonus

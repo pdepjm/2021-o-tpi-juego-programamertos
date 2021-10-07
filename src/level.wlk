@@ -14,6 +14,7 @@ class Level {
     const property destroyableTiles = []
 
     method loadLevel() {
+        game.boardGround("./assets/map/bg-sand2.jpg") //TODO: TEMP a modo de prueba
     	self.renderSolidTiles()
     	self.renderDestroyableTiles()
         self.renderBorderTiles()
