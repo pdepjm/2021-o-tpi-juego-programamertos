@@ -19,8 +19,8 @@
 
 - [x] Menúes
   - [x] Menú principal
-  - [ ] Pantalla de controles (resizear a 544x544)
-  - [ ] Pantalla de créditos (resizear a 544x544)
+  - [x] Pantalla de controles (resizear a 544x544)
+  - [x] Pantalla de créditos (resizear a 544x544)
   - [ ] Interfaz de fin de nivel (resizear a 544x544)
   - [ ] Contador victorias por jugador
 
@@ -38,10 +38,10 @@
 
 - [ ] Desarrollar lista de tests a implementar (Acá)
   - [ ] Un jugador se mueve correctamente
-    - [ ] Al presionar W se mueve hacia arriba
-    - [ ] Al presionar S se mueve hacia abajo
-    - [ ] Al presionar A se mueve hacia izquierda
-    - [ ] Al presionar D se mueve hacia Derecha
+    - [x] Al presionar W se mueve hacia arriba
+    - [x] Al presionar S se mueve hacia abajo
+    - [x] Al presionar A se mueve hacia izquierda
+    - [x] Al presionar D se mueve hacia Derecha
     - [ ] Al presionar minusKey coloca una bomba
   - [ ] El personaje no puede pasar sobre las paredes
   - [ ] Una bomba explota
