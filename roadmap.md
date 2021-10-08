@@ -29,7 +29,8 @@
 - [x] Implementar menúes
   - [ ] Emprolijar código
 - [x] Implementar función para cambiar el background
-- [ ] Implementar carga random de niveles
+- [ ] Implementar que, cuando muere un personaje muestre la imagen que gano el otro
+  - [ ] Implementar carga random de niveles
 - [x] Terminar mapa actual
 - [x] Objetos en posiciones fijas con imágenes randomizadas (Mariela)
 - [ ] Implementar nuevos niveles (2 mapas adicionales) (Mariela)
