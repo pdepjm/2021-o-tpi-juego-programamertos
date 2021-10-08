@@ -92,41 +92,13 @@ object play inherits Button(
     imgSelected = "./assets/menu/JUGAR_rojo.png", 
     imgUnselected = "./assets/menu/JUGAR_blanco.png", 
     isSelected = true, 
-    position = game.at(3,5), 
+    position = game.at(3,8), 
     isSubMenu = false, 
     subMenu = null
     ) {
 
     method enter() {
         game.clear()        //Cleans the menu
-
-        //TEMP
-        const p1 = new Player(
-                id = 1,
-                color = "purple",
-                position = game.at(1,15),
-                upBind = keyboard.w(), 
-                downBind = keyboard.s(), 
-                leftBind = keyboard.a(), 
-                rightBind = keyboard.d(),
-                bombKey = keyboard.q()
-            )
-
-        const p2 = new Player(
-            id = 2,
-            color = "yellow",
-            position = game.at(1,1),
-            upBind = keyboard.up(), 
-            downBind = keyboard.down(), 
-            leftBind = keyboard.left(), 
-            rightBind = keyboard.right(),
-            bombKey = keyboard.minusKey()
-        )
-
-        const players = [p1, p2]
-        //Fin TEMP
-        
-        players.forEach({_player => _player.setup()})
         
         levelSand.loadLevel()
     }
@@ -137,7 +109,7 @@ object keybindings inherits Button(
     imgSelected = "./assets/menu/CONTROLES_rojo.png", 
     imgUnselected = "./assets/menu/CONTROLES_blanco.png", 
     isSelected = false, 
-    position = game.at(3,3), 
+    position = game.at(3,6), 
     isSubMenu = true, 
     subMenu = keybindingsSubpage
     ) {
@@ -153,7 +125,7 @@ object credits inherits Button(
     imgSelected = "./assets/menu/CREDITOS_rojo.png", 
     imgUnselected = "./assets/menu/CREDITOS_blanco.png", 
     isSelected = false, 
-    position = game.at(3,1), 
+    position = game.at(3,4), 
     subMenu = creditsSubpage,
     isSubMenu = true
     ) {
@@ -167,5 +139,5 @@ class MenuSubpage {
     const property position = game.at(0,0)
 }
 
-const keybindingsSubpage = new MenuSubpage(image = "./assets/menu/controles.jpg")
-const creditsSubpage = new MenuSubpage(image = "./assets/menu/creditos.jpg")
+const keybindingsSubpage = new MenuSubpage(image = "./assets/menu/controles.png")
+const creditsSubpage = new MenuSubpage(image = "./assets/menu/creditos.png")
