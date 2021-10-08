@@ -28,7 +28,7 @@
 
 - [x] Implementar menúes
   - [ ] Emprolijar código
-- [ ] Implementar función para cambiar el background
+- [x] Implementar función para cambiar el background
 - [ ] Implementar carga random de niveles
 - [x] Terminar mapa actual
 - [x] Objetos en posiciones fijas con imágenes randomizadas (Mariela)
