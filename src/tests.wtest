@@ -36,63 +36,70 @@ describe "Player's Movements" {
         
         var solidTile = new SolidTile(position = game.at(5 , 1))
          
-	test "A Player moves to the right" {
+	test "A player moves right" {
 		p1.move(right) 
 		assert.equals(game.at(2 , 15) , p1.position())
 	}	
 	
 	
-	test "A Player moves to the left" {
+	test "A player moves left" {
 		p2.move(right)
 		p2.move(right)
 		p2.move(left)
 		assert.equals(game.at(2 , 1) , p2.position())
 	}
 	
-	test "A Player moves up" {
+	test "A player moves up" {
 		p2.move(up)
 		p2.move(up)
 		assert.equals(game.at(1 , 3) , p2.position())
 	}
 	
-	test "A Player moves down" {
+	test "A player moves down" {
 		p1.move(down)
 		p1.move(down)
 		assert.equals(game.at(1 , 13) , p1.position())
 	}
 	
-	test "A player moves to th right with the bottom 'right'"{
-      p1.setup()	 
-	  keyboard.right()
-	  keyboard.right()
-	  keyboard.right()
-	  assert.equals(game.at(4 , 15) , p1.position())
+	test "A player moves right with key 'right'"{
+      p2.setup()
+      keyboard.right()	 
+	  p2.move(right)
+	  keyboard.right()	
+	  p2.move(right)
+	  assert.equals(game.at(3 , 1) , p2.position())
 	  }
 	  
-	  test "A player moves to the left with the bottom 'A'"{
-	  	p2.setup()
-	  	keyboard.d()
-	  	keyboard.d()
-	  	keyboard.d()
-	  	keyboard.a()
-	  	assert.equals(game.at(3 , 1) , p2.position())
+	  test "A player moves left with key 'A'"{
+	  	p1.setup()
+	  	keyboard.d()	 
+	  	p1.move(right)
+	  	keyboard.d()	 
+	  	p1.move(right)
+		keyboard.a()
+		p1.move(left)
+	  	assert.equals(game.at(2 , 15) , p1.position())
 	  }
 	  
-	  test "A player moves up with the bottom 'W'"{
+	  test "A player moves up with key 'up'"{
 	  	p2.setup()
-	  	keyboard.w()
-	  	keyboard.w()
+	  	keyboard.up()
+	  	p2.move(up)
+	  	keyboard.up()
+	  	p2.move(up)
 	  	assert.equals(game.at(1 , 3) , p2.position())
 	  }
 	  
-	  test "A player moves down with the bottom 'down'"{
-	  	keyboard.down().onPressDo({p1.setup()})
-	  	keyboard.down()
-	  	keyboard.down()
+	  test "A player moves down with key 'S'"{
+	  	p1.setup()
+	  	keyboard.s()
+	  	p1.move(down) 	
+	  	keyboard.s()
+	  	p1.move(down) 	
 	  	assert.equals(game.at(1 , 13) , p1.position())
 	  } 
 	  
-	  test "A player cannot pass a wall" {
+	  test "A player cannot go through a wall" {
 	  	4.times({p2.move(right)})
 	  	assert.equals(game.at(4 , 1) , p2.position())
 	  }
@@ -112,13 +119,13 @@ describe "Player's Habilities"{
       
       var destroyableTile = new DestroyableTile(position = game.at(3 , 15))
             
-      test "Player drop a Bomb" {
+      test "A player drops a Bomb" {
          p1.move(right)
          p1.dropBomb()
          assert.that(not(game.hasVisual(destroyableTile)))
       }
       
-      test "Drop a Bomb with the bottom 'Q'"{
+      test "A player Drops a Bomb with key 'Q'"{
       	p1.setup()
       	destroyableTile.render()
       	keyboard.right()
@@ -139,7 +146,7 @@ describe "Player's Interactions" {
                 bombKey = keyboard.q()
             )
       
-      test "A player dies when drop a Bomb"{
+      test "A player dies when he drops a Bomb"{
       	p1.dropBomb()
       	assert.that(not(game.hasVisual(p1)))
       }
