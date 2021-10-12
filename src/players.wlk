@@ -63,12 +63,10 @@ class Player {
 		game.schedule(phaseTime , {image = "./assets/characters/dino-lose.png"})
         game.schedule(phaseTime , {game.say(self, "ay")}) // No se visualiza el mensaje ya que lo bloquea los sprite de los muros 
 		game.schedule(phaseTime * 2.5 , {game.removeVisual(self)})
-		// game.schedule(phaseTime * 3, {game.addVisual()})
+		}
 		
-		
-		
-	}
-
+	// Req: Cuando muere un personaje muestre la imagen que gano el otro.
+	// game.schedule(phaseTime * 3, {game.addVisual()})
     // "./assets/menu/youwin-" + isAlive.toString() + "-" + self.color() + ".png"
 
     method setup() {
