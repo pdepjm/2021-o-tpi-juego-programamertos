@@ -5,9 +5,11 @@ import players.*
 
 object menu {
 
-    var selected = play
+    var selected = 0
     const options = [play, keybindings, credits]
     var screenOnTop = null        //Example: credits or controls
+
+	method getSelected() = options.get(selected)
 
     method setup() {
         self.loadControls()
@@ -25,32 +27,24 @@ object menu {
     }
 
     //TODO: Estas funciones podrian tener mejor lógica
-    method goUp() {
-        selected.isSelected(false)
-        if(selected.name() == "keybindings") {
-            selected = play
-        }  else if(selected.name() == "credits") {
-            selected = keybindings
-        }
-        selected.isSelected(true)
+    method goUp(){
+    	self.getSelected().isSelected(false)
+    	selected = (selected - 1).max(0)
+    	self.getSelected().isSelected(true)
     }
-
-    method goDown() {
-        selected.isSelected(false)
-        if(selected.name() == "play") {
-            selected = keybindings
-        } else if(selected.name() == "keybindings") {
-            selected = credits
-        }
-        selected.isSelected(true)
+    
+    method goDown(){
+    	self.getSelected().isSelected(false)
+    	selected = (selected + 1).min(options.size() - 1)
+    	self.getSelected().isSelected(true)
     }
 
     method select() {
-        if (selected.isSubMenu()) {
-            screenOnTop = selected.subMenu()
+        if (self.getSelected().isSubMenu()) {
+            screenOnTop = self.getSelected().subMenu()
             game.addVisual(screenOnTop)
         } else {
-            selected.enter()
+            self.getSelected().enter()
         }
     }
 
