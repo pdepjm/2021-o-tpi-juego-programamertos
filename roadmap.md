@@ -39,10 +39,10 @@
 
 - [ ] Desarrollar lista de tests a implementar (Acá)
   - [x] Un jugador se mueve correctamente
-    - [] Al presionar W se mueve hacia arriba
-    - [] Al presionar S se mueve hacia abajo
-    - [] Al presionar A se mueve hacia izquierda
-    - [] Al presionar D se mueve hacia Derecha
+    - [ ] Al presionar W se mueve hacia arriba    (Pendiente de revision)
+    - [ ] Al presionar S se mueve hacia abajo     (Pendiente de revision)
+    - [ ] Al presionar A se mueve hacia izquierda (Pendiente de revision)
+    - [ ] Al presionar D se mueve hacia Derecha   (Pendiente de revision)
     - [x] Al presionar minusKey coloca una bomba
   - [x] El personaje no puede pasar sobre las paredes
   - [x] Una bomba explota
