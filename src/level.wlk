@@ -14,6 +14,13 @@ class Level {
     const property destroyableTiles = []
 
     method loadLevel() {
+
+        /* A veces anda, a veces no
+        keyboard.y().onPressDo({=>
+            levelSand.unloadLevel()
+            levelSand.loadLevel()
+        })
+        */
         
         self.changeBackground("./assets/map/bg-sand2.jpg") //TODO: TEMP a modo de prueba
 
@@ -47,11 +54,14 @@ class Level {
     	self.renderSolidTiles()
     	self.renderDestroyableTiles()
         self.renderBorderTiles()
+
+        
     }
 
     method unloadLevel() {
         solidTiles.forEach({_tile => _tile.remove()})
         destroyableTiles.forEach({_tile => _tile.remove()})
+        game.clear()
         //TODO: implementar logica jugadores
     }
 
