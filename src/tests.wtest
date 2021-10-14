@@ -11,7 +11,7 @@ import soundProducer.*
  * 		soundProducer.provider(soundProviderMock)		
  } */
  
-describe "Player's Movements" {
+describe "Players Movements" {
 
 	const p1 = new Player(
 		id = 1, 
@@ -60,6 +60,18 @@ describe "Player's Movements" {
 		p1.move(down)
 		assert.equals(game.at(1, 13), p1.position())
 	}
+
+    
+	test "A player cannot go through a wall" {
+		keyboard.right()
+		p2.move(right)
+		keyboard.right()
+		p2.move(right)
+		assert.equals(game.at(3, 1), p2.position())
+	}
+    
+}
+
 /* 
    TODO: Volver a analizar Logica de los Test(Rehacer)
 	test "A player moves right with key 'right'" {
@@ -92,18 +104,8 @@ describe "Player's Movements" {
 	}
 
     */
-    
-	test "A player cannot go through a wall" {
-		keyboard.right()
-		p2.move(right)
-		keyboard.right()
-		p2.move(right)
-		assert.equals(game.at(3, 1), p2.position())
-	}
-    
-}
 
-describe "Player's Habilities" {
+describe "Players Habilities" {
 
 	const p1 = new Player(
 		id = 1, 
@@ -137,7 +139,7 @@ describe "Player's Habilities" {
 */
 }
 
-describe "Player's Interactions" {
+describe "Players Interactions" {
 
 	const p1 = new Player(
 		id = 1, 
