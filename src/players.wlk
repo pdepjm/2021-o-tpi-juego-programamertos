@@ -61,7 +61,7 @@ class Player {
 	method die(){  // A player dies 
 		if(not(self.isAlive())) {
             game.schedule(phaseTime , {image = "./assets/characters/dino-lose.png"})
-            game.schedule(phaseTime , {game.say(self, "ay")}) //TODO: No se visualiza el mensaje ya que lo bloquea los sprite de los muros 
+            game.schedule(phaseTime , {game.say(self, "ay")})
             game.schedule(phaseTime * 2.5 , {game.removeVisual(self)})
         }
         

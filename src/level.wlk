@@ -50,10 +50,10 @@ class Level {
         const players = [p1, p2]
         //Fin TEMP
         
-        players.forEach({_player => _player.setup()})
     	self.renderSolidTiles()
     	self.renderDestroyableTiles()
         self.renderBorderTiles()
+        players.forEach({_player => _player.setup()})
 
         
     }
