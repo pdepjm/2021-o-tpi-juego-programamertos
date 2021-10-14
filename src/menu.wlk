@@ -108,7 +108,7 @@ object keybindings inherits Button(
     subMenu = keybindingsSubpage
     ) {
     method enter() {
-        return new MenuSubpage(image = "")
+        return new Screen(image = "")
     }
     
     
@@ -124,14 +124,14 @@ object credits inherits Button(
     isSubMenu = true
     ) {
     method get_page() {
-        return new MenuSubpage(image = "")
+        return new Screen(image = "")
     }
 }
 
-class MenuSubpage {
+class Screen {
     const property image
     const property position = game.at(0,0)
 }
 
-const keybindingsSubpage = new MenuSubpage(image = "./assets/menu/controles.png")
-const creditsSubpage = new MenuSubpage(image = "./assets/menu/creditos.png")
+const keybindingsSubpage = new Screen(image = "./assets/menu/controles.png")
+const creditsSubpage = new Screen(image = "./assets/menu/creditos.png")
