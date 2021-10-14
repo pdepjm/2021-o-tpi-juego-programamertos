@@ -58,12 +58,15 @@ class Player {
 		self.image(direction)
 	}
 	
-	method die(){  // An PC die 
-		if(not(self.isAlive())) 
-		game.schedule(phaseTime , {image = "./assets/characters/dino-lose.png"})
-        game.schedule(phaseTime , {game.say(self, "ay")}) // No se visualiza el mensaje ya que lo bloquea los sprite de los muros 
-		game.schedule(phaseTime * 2.5 , {game.removeVisual(self)})
-		}
+	method die(){  // A player dies 
+		if(not(self.isAlive())) {
+            game.schedule(phaseTime , {image = "./assets/characters/dino-lose.png"})
+            game.schedule(phaseTime , {game.say(self, "ay")}) //TODO: No se visualiza el mensaje ya que lo bloquea los sprite de los muros 
+            game.schedule(phaseTime * 2.5 , {game.removeVisual(self)})
+        }
+        
+        
+    }
 		
 	// Req: Cuando muere un personaje muestre la imagen que gano el otro.
 	// game.schedule(phaseTime * 3, {game.addVisual()})
