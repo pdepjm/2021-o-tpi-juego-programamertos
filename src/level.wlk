@@ -3,7 +3,6 @@ import levels.*
 import soundProducer.*
 import directions.*
 import tile.*
-import obstacles.*
 import players.*
 
 

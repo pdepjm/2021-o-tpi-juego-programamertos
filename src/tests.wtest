@@ -35,7 +35,7 @@ describe "Players Movements" {
 		bombKey = keyboard.minusKey()
 	)
 	
-	var solidTile = new SolidTile(position = game.at(5, 1))
+	const solidTile = new SolidTile(position = game.at(5, 1))
 
 	test "A player moves right" {
 		p1.move(right)
@@ -118,8 +118,8 @@ describe "Players Habilities" {
 		bombKey = keyboard.q()
 	)
 	
-	var destroyableTile = new DestroyableTile(position = game.at(3, 15))
-	var destroyableTile2 = new DestroyableTile(position = game.at(4, 15))
+	const destroyableTile = new DestroyableTile(position = game.at(3, 15))
+	const destroyableTile2 = new DestroyableTile(position = game.at(4, 15))
 
 	test "A player drops a Bomb" {
 		p1.move(right)

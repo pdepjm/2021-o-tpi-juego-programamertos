@@ -61,7 +61,6 @@ class Bomb {
 
 	method harm() {
 		self.explode()
-		//TODO: Implementar que al ser impactada por otra explosion, la bomba explote
 	}
 }
 

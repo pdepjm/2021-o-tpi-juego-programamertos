@@ -21,13 +21,13 @@
   - [x] Menú principal
   - [x] Pantalla de controles (resizear a 544x544)
   - [x] Pantalla de créditos (resizear a 544x544)
-  - [ ] Interfaz de fin de nivel (resizear a 544x544)
+  - [x] Interfaz de fin de nivel (resizear a 544x544)
   - [ ] Contador victorias por jugador
 
 ## Código
 
 - [x] Implementar menúes
-  - [ ] Emprolijar código
+  - [ ] Emprolijar código (Por favor xd)
 - [x] Implementar función para cambiar el background
 - [ ] Implementar que, cuando muere un personaje muestre la imagen que gano el otro
   - [ ] Implementar carga random de niveles
@@ -43,7 +43,8 @@
     - [ ] Al presionar S se mueve hacia abajo     (Pendiente de revision)
     - [ ] Al presionar A se mueve hacia izquierda (Pendiente de revision)
     - [ ] Al presionar D se mueve hacia Derecha   (Pendiente de revision)
-    - [x] Al presionar minusKey coloca una bomba
+    - [ ] Al presionar minusKey coloca una bomba  (Rehacer)
+    - [ ] Probar harm en distintas bombas
   - [x] El personaje no puede pasar sobre las paredes
   - [x] Una bomba explota
   - [ ] Se destruye un obstáculo por la explosión de una bomba
