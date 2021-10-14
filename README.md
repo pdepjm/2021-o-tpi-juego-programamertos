@@ -20,7 +20,6 @@ Bomberman es un juego de hasta 4 jugadores local, donde cada uno aparece en una 
 
 Modalidad del juego: Hasta 4 jugadores con flechas o teclas del teclado, con una key para colocar una bomba. Los objetos bonus como potencia y rapidez de explosión se agarran solos al pasar por encima.
 
-
 ## Respuestas teóricas
 
-(link al archivo o bien responder acá)
+[Enlace a teoria.md](https://github.com/pdepjm/2021-o-tpi-juego-programamertos/blob/master/teoria.md)
