@@ -42,7 +42,11 @@ object menu {
     method select() {
         if (self.getSelected().isSubMenu()) {
             screenOnTop = self.getSelected().subMenu()
-            game.addVisual(screenOnTop)
+
+            if(!game.hasVisual(screenOnTop)){
+                //TODO: Falta evitar que el usuario pueda acceder a otros submenús mientras se encuentre en otro
+                game.addVisual(screenOnTop)
+            }
         } else {
             self.getSelected().enter()
         }
