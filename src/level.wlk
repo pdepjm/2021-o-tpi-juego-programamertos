@@ -27,7 +27,7 @@ class Level {
         //TEMP
         const p1 = new Player(
                 id = 1,
-                color = "purple",
+                color = "green",
                 position = game.at(1,15),
                 upBind = keyboard.w(), 
                 downBind = keyboard.s(), 
@@ -38,7 +38,7 @@ class Level {
 
         const p2 = new Player(
             id = 2,
-            color = "yellow",
+            color = "red",
             position = game.at(1,1),
             upBind = keyboard.up(), 
             downBind = keyboard.down(), 
