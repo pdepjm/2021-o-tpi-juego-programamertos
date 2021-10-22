@@ -21,7 +21,7 @@ class Level {
         })
         */
         
-        self.changeBackground("./assets/map/bg-sand2.jpg") //TODO: TEMP a modo de prueba
+        self.changeBackground("./assets/map/bg-flowers.png") //TODO: TEMP a modo de prueba
 
         //TEMP
         const p1 = new Player(
