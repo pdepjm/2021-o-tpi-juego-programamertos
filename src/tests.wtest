@@ -11,58 +11,62 @@ import soundProducer.*
  * 		soundProducer.provider(soundProviderMock)		
  } */
  
-describe "Players Movements" {
+describe "player movements" {
 
 	const p1 = new Player(
-		id = 1, 
-		color = "purple", 
-		position = game.at(1, 15), 
-		upBind = keyboard.w(), 
-		downBind = keyboard.s(), 
-		leftBind = keyboard.a(), 
-		rightBind = keyboard.d(), 
+		id = 1,
+		color = "purple",
+		position = game.at(1, 15),
+		upBind = keyboard.w(),
+		downBind = keyboard.s(),
+		leftBind = keyboard.a(),
+		rightBind = keyboard.d(),
 		bombKey = keyboard.q()
 	)
 	
 	const p2 = new Player(
-		id = 2, 
-		color = "yellow", 
-		position = game.at(1, 1), 
-		upBind = keyboard.up(), 
-		downBind = keyboard.down(), 
-		leftBind = keyboard.left(), 
-		rightBind = keyboard.right(), 
+		id = 2,
+		color = "yellow",
+		position = game.at(1, 1),
+		upBind = keyboard.up(),
+		downBind = keyboard.down(),
+		leftBind = keyboard.left(),
+		rightBind = keyboard.right(),
 		bombKey = keyboard.minusKey()
 	)
 	
 	const solidTile = new SolidTile(position = game.at(5, 1))
 
-	test "A player moves right" {
+	test "a player moves right" {
 		p1.move(right)
 		assert.equals(game.at(2, 15), p1.position())
 	}
 
-	test "A player moves left" {
+	test "a player moves left" {
 		p2.move(right)
 		p2.move(right)
 		p2.move(left)
 		assert.equals(game.at(2, 1), p2.position())
 	}
 
-	test "A player moves up" {
+	test "a player moves up" {
 		p2.move(up)
 		p2.move(up)
 		assert.equals(game.at(1, 3), p2.position())
 	}
 
-	test "A player moves down" {
+	test "a player moves down" {
 		p1.move(down)
 		p1.move(down)
 		assert.equals(game.at(1, 13), p1.position())
 	}
 
+	/*test "a player places bomb" {
+		p1.dropBomb()
+		assert.equals(3, (game.getObjectsIn(p1.position())).size() )
+	}*/
     
-	test "A player cannot go through a wall" {
+	test "a player cannot go through a wall" {
 		keyboard.right()
 		p2.move(right)
 		keyboard.right()
