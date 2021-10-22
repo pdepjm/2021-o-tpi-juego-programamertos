@@ -60,11 +60,6 @@ describe "player movements" {
 		p1.move(down)
 		assert.equals(game.at(1, 13), p1.position())
 	}
-
-	/*test "a player places bomb" {
-		p1.dropBomb()
-		assert.equals(3, (game.getObjectsIn(p1.position())).size() )
-	}*/
     
 	test "a player cannot go through a wall" {
 		keyboard.right()
@@ -73,7 +68,6 @@ describe "player movements" {
 		p2.move(right)
 		assert.equals(game.at(3, 1), p2.position())
 	}
-    
 }
 
 /* 
@@ -109,7 +103,7 @@ describe "player movements" {
 
     */
 
-describe "Players Habilities" {
+describe "player abilities" {
 
 	const p1 = new Player(
 		id = 1, 
@@ -125,7 +119,7 @@ describe "Players Habilities" {
 	const destroyableTile = new DestroyableTile(position = game.at(3, 15))
 	const destroyableTile2 = new DestroyableTile(position = game.at(4, 15))
 
-	test "A player drops a Bomb" {
+	test "a player drops a bomb" {
 		p1.move(right)
 		p1.dropBomb()
 		assert.notThat(game.hasVisual(destroyableTile))
@@ -143,7 +137,7 @@ describe "Players Habilities" {
 */
 }
 
-describe "Players Interactions" {
+describe "players interactions" {
 
 	const p1 = new Player(
 		id = 1, 
@@ -156,12 +150,12 @@ describe "Players Interactions" {
 		bombKey = keyboard.q()
 	)
 
-	test "A player dies when he drops a Bomb" {
+	test "a player dies when reached by a bomb" {
 		p1.dropBomb()
 		assert.notThat(game.hasVisual(p1))
 	}
 
-	test "A player dies when expansion is incoming" {
+	test "a player dies when reached by bomb explosion" {
 		4.times({any => p1.move(down)})
 		game.schedule(500, {p1.dropBomb()} )
 		game.schedule(500 * 1.1 , {p1.move(right)})
