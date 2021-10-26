@@ -11,65 +11,63 @@ import soundProducer.*
  * 		soundProducer.provider(soundProviderMock)		
  } */
  
-describe "Players Movements" {
+describe "player movements" {
 
 	const p1 = new Player(
-		id = 1, 
-		color = "purple", 
-		position = game.at(1, 15), 
-		upBind = keyboard.w(), 
-		downBind = keyboard.s(), 
-		leftBind = keyboard.a(), 
-		rightBind = keyboard.d(), 
+		id = 1,
+		color = "purple",
+		position = game.at(1, 15),
+		upBind = keyboard.w(),
+		downBind = keyboard.s(),
+		leftBind = keyboard.a(),
+		rightBind = keyboard.d(),
 		bombKey = keyboard.q()
 	)
 	
 	const p2 = new Player(
-		id = 2, 
-		color = "yellow", 
-		position = game.at(1, 1), 
-		upBind = keyboard.up(), 
-		downBind = keyboard.down(), 
-		leftBind = keyboard.left(), 
-		rightBind = keyboard.right(), 
+		id = 2,
+		color = "yellow",
+		position = game.at(1, 1),
+		upBind = keyboard.up(),
+		downBind = keyboard.down(),
+		leftBind = keyboard.left(),
+		rightBind = keyboard.right(),
 		bombKey = keyboard.minusKey()
 	)
 	
 	const solidTile = new SolidTile(position = game.at(5, 1))
 
-	test "A player moves right" {
+	test "a player moves right" {
 		p1.move(right)
 		assert.equals(game.at(2, 15), p1.position())
 	}
 
-	test "A player moves left" {
+	test "a player moves left" {
 		p2.move(right)
 		p2.move(right)
 		p2.move(left)
 		assert.equals(game.at(2, 1), p2.position())
 	}
 
-	test "A player moves up" {
+	test "a player moves up" {
 		p2.move(up)
 		p2.move(up)
 		assert.equals(game.at(1, 3), p2.position())
 	}
 
-	test "A player moves down" {
+	test "a player moves down" {
 		p1.move(down)
 		p1.move(down)
 		assert.equals(game.at(1, 13), p1.position())
 	}
-
     
-	test "A player cannot go through a wall" {
+	test "a player cannot go through a wall" {
 		keyboard.right()
 		p2.move(right)
 		keyboard.right()
 		p2.move(right)
 		assert.equals(game.at(3, 1), p2.position())
 	}
-    
 }
 
 /* 
@@ -105,7 +103,7 @@ describe "Players Movements" {
 
     */
 
-describe "Players Habilities" {
+describe "player abilities" {
 
 	const p1 = new Player(
 		id = 1, 
@@ -121,7 +119,7 @@ describe "Players Habilities" {
 	const destroyableTile = new DestroyableTile(position = game.at(3, 15))
 	const destroyableTile2 = new DestroyableTile(position = game.at(4, 15))
 
-	test "A player drops a Bomb" {
+	test "a player drops a bomb" {
 		p1.move(right)
 		p1.dropBomb()
 		assert.notThat(game.hasVisual(destroyableTile))
@@ -139,7 +137,7 @@ describe "Players Habilities" {
 */
 }
 
-describe "Players Interactions" {
+describe "players interactions" {
 
 	const p1 = new Player(
 		id = 1, 
@@ -152,12 +150,12 @@ describe "Players Interactions" {
 		bombKey = keyboard.q()
 	)
 
-	test "A player dies when he drops a Bomb" {
+	test "a player dies when reached by a bomb" {
 		p1.dropBomb()
 		assert.notThat(game.hasVisual(p1))
 	}
 
-	test "A player dies when expansion is incoming" {
+	test "a player dies when reached by bomb explosion" {
 		4.times({any => p1.move(down)})
 		game.schedule(500, {p1.dropBomb()} )
 		game.schedule(500 * 1.1 , {p1.move(right)})
