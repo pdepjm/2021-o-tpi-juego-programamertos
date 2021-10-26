@@ -2,6 +2,7 @@ import wollok.game.*
 import level.*
 import levels.*
 import players.*
+import levelManager.*
 
 object menu {
 
@@ -98,7 +99,7 @@ object play inherits Button(
     method enter() {
         game.clear()        //Cleans the menu
         
-        levelSand.loadLevel()
+        levelManager.loadLevel()
     }
 }
 
@@ -132,10 +133,7 @@ object credits inherits Button(
     }
 }
 
-class Screen {
-    const property image
-    const property position = game.at(0,0)
-}
+
 
 const keybindingsSubpage = new Screen(image = "./assets/menu/controles.png")
 const creditsSubpage = new Screen(image = "./assets/menu/creditos.png")

@@ -23,36 +23,11 @@ class Level {
         
         self.changeBackground("./assets/map/bg-sand2.jpg") //TODO: TEMP a modo de prueba
 
-        //TEMP
-        const p1 = new Player(
-                id = 1,
-                color = "green",
-                position = game.at(1,15),
-                upBind = keyboard.w(), 
-                downBind = keyboard.s(), 
-                leftBind = keyboard.a(), 
-                rightBind = keyboard.d(),
-                bombKey = keyboard.q()
-            )
-
-        const p2 = new Player(
-            id = 2,
-            color = "red",
-            position = game.at(1,1),
-            upBind = keyboard.up(), 
-            downBind = keyboard.down(), 
-            leftBind = keyboard.left(), 
-            rightBind = keyboard.right(),
-            bombKey = keyboard.minusKey()
-        )
-
-        const players = [p1, p2]
-        //Fin TEMP
+        
         
     	self.renderSolidTiles()
     	self.renderDestroyableTiles()
         self.renderBorderTiles()
-        players.forEach({_player => _player.setup()})
 
         
     }
@@ -60,7 +35,7 @@ class Level {
     method unloadLevel() {
         solidTiles.forEach({_tile => _tile.remove()})
         destroyableTiles.forEach({_tile => _tile.remove()})
-        game.clear()
+        
         //TODO: implementar logica jugadores
     }
 

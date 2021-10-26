@@ -3,6 +3,7 @@ import directions.*
 import tile.*
 import levels.* //todo temp
 import bomb.*
+import levelManager.*
 
 class Player {
 	//Properties without initial value
@@ -25,6 +26,14 @@ class Player {
     const property stopsExplosion = false //An explosion will continue expanding after hitting a player
     
 	method color() = color
+
+    method spawn() {
+        position = levelManager.activeLevel().spawnPoints().get(id)
+        image = "./assets/characters/dino-right-" + self.color() + ".png"
+        isAlive = true
+        bombCount = 0  //hace falta?
+        game.addVisual(self)
+    }
 
     method move(direction) {
         const nextPosition = direction.nextPosition(position)
@@ -60,6 +69,7 @@ class Player {
 	
 	method die(){  // A player dies 
 		if(not(self.isAlive())) {
+            levelManager.playerDied(self)
             game.schedule(phaseTime , {image = "./assets/characters/dino-lose.png"})
             game.schedule(phaseTime , {game.say(self, "ay")})
             game.schedule(phaseTime * 2.5 , {game.removeVisual(self)})
@@ -79,7 +89,7 @@ class Player {
         rightBind.onPressDo({ self.action(right) })
         bombKey.onPressDo({ self.dropBomb() })
         
-        game.addVisual(self)
+        
     }  
 
     }
