@@ -1,7 +1,6 @@
 import wollok.game.*
 import directions.*
 import tile.*
-import levels.* //todo temp
 import bomb.*
 import levelManager.*
 
@@ -36,10 +35,12 @@ class Player {
     }
 
     method move(direction) {
-        const nextPosition = direction.nextPosition(position)
+        if (isAlive) {
+            const nextPosition = direction.nextPosition(position)
 
-        if(game.getObjectsIn(nextPosition).all({tile => tile.canBeSteppedOn()})) {
-            position = nextPosition
+            if(game.getObjectsIn(nextPosition).all({tile => tile.canBeSteppedOn()})) {
+                position = nextPosition
+            }
         }
     }
 
@@ -53,13 +54,16 @@ class Player {
     }
 
     method harm() {
-        self.isAlive(false) 
         self.die()
-        
     }
 
 	method image(direction){
-		image = "./assets/characters/dino-" + direction.toString() + "-" + self.color() + ".png"
+        if(isAlive) {
+		    image = "./assets/characters/dino-" + direction.toString() + "-" + self.color() + ".png"
+        } else {
+            //Avoids image being overwritten when player tries to move after dying
+            image = "./assets/characters/dino-lose.png" 
+        }
 	}
 
 	method action(direction){
@@ -68,19 +72,16 @@ class Player {
 	}
 	
 	method die(){  // A player dies 
-		if(not(self.isAlive())) {
+		if(isAlive) {
+            isAlive = false
             levelManager.playerDied(self)
-            game.schedule(phaseTime , {image = "./assets/characters/dino-lose.png"})
-            game.schedule(phaseTime , {game.say(self, "ay")})
+            image = "./assets/characters/dino-lose.png" 
             game.schedule(phaseTime * 2.5 , {game.removeVisual(self)})
         }
         
         
     }
-		
-	// Req: Cuando muere un personaje muestre la imagen que gano el otro.
-	// game.schedule(phaseTime * 3, {game.addVisual()})
-    // "./assets/menu/youwin-" + isAlive.toString() + "-" + self.color() + ".png"
+	
 
     method setup() {
         upBind.onPressDo({ self.action(up) })
@@ -88,8 +89,6 @@ class Player {
         leftBind.onPressDo({ self.action(left) })
         rightBind.onPressDo({ self.action(right) })
         bombKey.onPressDo({ self.dropBomb() })
-        
-        
     }  
 
-    }
+}

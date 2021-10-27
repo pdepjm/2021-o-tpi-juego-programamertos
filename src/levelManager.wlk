@@ -55,7 +55,7 @@ object levelManager {
     }
 }
 
-//TODO: Los jugadores deberían estar en algun lugar implementados de tal forma que sea facil "reiniciarlos"
+//TODO: Los jugadores deberían estar en algun lugar implementados de tal forma que sea facil "reiniciarlos". LevelManager parece un buen lugar
 const p1 = new Player(
         id = 1,
         color = "green",

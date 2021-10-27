@@ -2,13 +2,11 @@ import wollok.game.*
 import tile.*
 import directions.*
 
-//TODO: cuando explota una bomba y le pega en su rango de explosión a otra bomba, la hace explotar automaticamente
 class Bomb {
 	var property image =  "./assets/objects/bomb/bomb.png"
 	const phaseTime = 500			//Phase duration in miliseconds
 	var property distance = 5 		//how far (in tiles) the explosion will reach
 	var property position
-	//var property timer = 1 	  	//time it takes to explode --unused
 	
 	//TODO: Hay que emprolijar esto un poco
 	const property canBeSteppedOn = false
@@ -21,11 +19,6 @@ class Bomb {
 	method init() {
 		game.addVisual(self)
 		self.phaser()
-	}
-
-	//TODO puede destruir un obstaculo cuando se encuentra a "distance" bloques o menos
-	method destroyObstacles(){
-	//	if( (game.getObjectsIn(self.position()) != []) && obstacles.in()) return 0
 	}
 
 	method explode(){

@@ -62,8 +62,8 @@ object menu {
 }
 
 object title {
-    const property position = game.at(1, 12)    //TODO: Cambiar según sea necesario
-    const property image = "./assets/menu/DINOBOOM.png"                   //TODO: Agregar
+    const property position = game.at(1, 12)    
+    const property image = "./assets/menu/DINOBOOM.png"                  
 }
 
 class Button {
