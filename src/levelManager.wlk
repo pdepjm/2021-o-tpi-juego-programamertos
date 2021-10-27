@@ -30,7 +30,6 @@ object levelManager {
         //Fin TEMP
     }
 
-    //TODO: Problema grave, se solapan los tiles destruibles entre niveles
     method finishLevel(color) {
         const levelEndScreen = new Screen(image = "./assets/menu/youwin-" + color + ".png")
         game.schedule(5000, {game.addVisual(levelEndScreen)})

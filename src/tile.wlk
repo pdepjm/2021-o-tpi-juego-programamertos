@@ -5,7 +5,7 @@ class Tile {
     const property position
     const property stopsExplosion = true     //An explosion won't expand after colliding with a tile
 
-    method render() {
+    method render() {        
         game.addVisual(self)
     }
 
@@ -39,6 +39,12 @@ class DestroyableTile inherits Tile {
         game.removeVisual(self) 
         //canBeSteppedOn = true //TODO: Línea probablemente de más
         //TODO: Implementar bonus
+    }
+
+    override method render() {
+        const objectsInPosition = game.getObjectsIn(position)
+        objectsInPosition.forEach({_object => game.removeVisual(_object)})
+        super()
     }
 
     //...
