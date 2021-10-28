@@ -6,7 +6,7 @@ import levelManager.*
 class Bomb {
 	var property image =  "./assets/objects/bomb/bomb.png"
 	const phaseTime = 500			//Phase duration in miliseconds
-	var property distance = 5 		//how far (in tiles) the explosion will reach
+	var property distance = 2 		//how far (in tiles) the explosion will reach
 	var property position
 	
 	//TODO: Hay que emprolijar esto un poco
