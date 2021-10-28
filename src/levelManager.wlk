@@ -32,11 +32,12 @@ object levelManager {
         levelFinished = false
     }
 
-    method finishLevel(id) {
+    method finishLevel(player) {
         levelFinished = true
-        const levelEndScreen = new Screen(image = "./assets/menu/youwin-" + id + ".png")
+        const levelEndScreen = new Screen(image = "./assets/menu/youwin-" + player.id() + ".png")
         game.schedule(1500, {
             game.addVisual(levelEndScreen)
+            game.removeVisual(player)
             activeLevel.unloadLevel()
         })
         game.schedule(3000, {
@@ -55,7 +56,7 @@ object levelManager {
 
     method checkIfLevelFinished() {
         if (playersAlive.size() == 1) {
-            self.finishLevel(playersAlive.get(0).id())
+            self.finishLevel(playersAlive.get(0))
         } else if (playersAlive.size() == 0) {
             self.finishLevel("neutral")    //TODO: Arreglar imagen neutral
         }
