@@ -12,6 +12,7 @@ class Screen {
 object levelManager {
     var playersAlive = [p1, p2]
     var property activeLevel = null
+    var levelFinished
 
     method loadLevel(){
         //TEMP
@@ -28,18 +29,24 @@ object levelManager {
         players.forEach({_player => _player.spawn()})
         players.forEach({_player => _player.setup()})
         //Fin TEMP
+        levelFinished = false
     }
 
     method finishLevel(color) {
+        levelFinished = true
         const levelEndScreen = new Screen(image = "./assets/menu/youwin-" + color + ".png")
-        game.schedule(5000, {game.addVisual(levelEndScreen)})
-        game.schedule(7000, {
-            game.removeVisual(levelEndScreen)
+        game.schedule(1500, {
+            game.addVisual(levelEndScreen)
             activeLevel.unloadLevel()
+        })
+        game.schedule(3000, {
+            game.removeVisual(levelEndScreen)
             game.clear()
             self.loadLevel()
         })
     }
+
+    method levelFinished() = levelFinished
 
     method playerDied(player) {
         playersAlive.remove(player)

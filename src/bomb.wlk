@@ -1,6 +1,7 @@
 import wollok.game.*
 import tile.*
 import directions.*
+import levelManager.*
 
 class Bomb {
 	var property image =  "./assets/objects/bomb/bomb.png"
@@ -41,7 +42,7 @@ class Bomb {
 	method phaser() {
 		game.schedule(phaseTime, {=> self.updateImage("./assets/objects/bomb/bomb2.png")})
 		game.schedule(phaseTime*2, {=> self.updateImage("./assets/objects/bomb/bomb3.png")})
-		game.schedule(phaseTime*3, {=> self.explode()})
+		game.schedule(phaseTime*3, {=> if(!levelManager.levelFinished()) self.explode()})
 	}
 
 	method updateImage(newImage) {
@@ -86,7 +87,8 @@ class Explosion {
 				if(_object.destroyable()) {
 					_object.harm()
 
-					ableToContinueExpansion = !_object.stopsExplosion() && ableToContinueExpansion	//Checks if the object stops the explosion from expanding beyond it
+					//Checks if the object stops the explosion from expanding beyond it.
+					ableToContinueExpansion = !_object.stopsExplosion() && ableToContinueExpansion
 				}
 			})
 
