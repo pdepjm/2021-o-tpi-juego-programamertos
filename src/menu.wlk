@@ -3,6 +3,7 @@ import level.*
 import levels.*
 import players.*
 import levelManager.*
+import characterSelectionScreen.*
 
 object menu {
 
@@ -99,7 +100,7 @@ object play inherits Button(
     method enter() {
         game.clear()        //Cleans the menu
         
-        levelManager.loadLevel()
+        characterSelectionScreen.setUp()
     }
 }
 

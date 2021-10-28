@@ -32,9 +32,9 @@ object levelManager {
         levelFinished = false
     }
 
-    method finishLevel(color) {
+    method finishLevel(id) {
         levelFinished = true
-        const levelEndScreen = new Screen(image = "./assets/menu/youwin-" + color + ".png")
+        const levelEndScreen = new Screen(image = "./assets/menu/youwin-" + id + ".png")
         game.schedule(1500, {
             game.addVisual(levelEndScreen)
             activeLevel.unloadLevel()
@@ -55,14 +55,14 @@ object levelManager {
 
     method checkIfLevelFinished() {
         if (playersAlive.size() == 1) {
-            self.finishLevel(playersAlive.get(0).color())
+            self.finishLevel(playersAlive.get(0).id())
         } else if (playersAlive.size() == 0) {
             self.finishLevel("neutral")    //TODO: Arreglar imagen neutral
         }
     }
 }
 
-//TODO: Los jugadores deberían estar en algun lugar implementados de tal forma que sea facil "reiniciarlos". LevelManager parece un buen lugar
+
 const p1 = new Player(
         id = 1,
         color = "green",
@@ -84,3 +84,16 @@ const p2 = new Player(
     rightBind = keyboard.right(),
     bombKey = keyboard.minusKey()
 )
+/*
+object background1() {
+    var image
+    const property position = game.at(0,0)
+
+    method image() = image
+
+    method change(newImage) {
+        image = newImage
+        game.addVisual(self)
+    }
+}
+*/

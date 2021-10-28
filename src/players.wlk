@@ -7,7 +7,7 @@ import levelManager.*
 class Player {
 	//Properties without initial value
     const property id
-    const property color //purple, yellow, red, green
+    var property color //purple, yellow, red, green
     var property position
     const upBind
     const downBind
