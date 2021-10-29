@@ -4,14 +4,15 @@ import directions.*
 import levelManager.*
 
 class Bomb {
+	//Variables to be defined
+	var property position
+	const owner
+
+	//Defined variables
 	var property image =  "./assets/objects/bomb/bomb.png"
 	const phaseTime = 500			//Phase duration in miliseconds
 	var property distance = 2 		//how far (in tiles) the explosion will reach
-	var property position
-	
-	//TODO: Hay que emprolijar esto un poco
 	const property canBeSteppedOn = false
-	const owner
 	const property destroyable = true
 	const property stopsExplosion = false	//An explosion will continue expanding after hitting another bomb
 	var exploded = false
@@ -23,7 +24,6 @@ class Bomb {
 	}
 
 	method explode(){
-		//...
 		if(!exploded){
 			exploded = true
 
@@ -33,7 +33,6 @@ class Bomb {
 				exp.set()
 			})
 
-			game.say(self, "kuchaw")
 			owner.bombCount(owner.bombCount() - 1)
 			game.removeVisual(self)
 		}
@@ -67,16 +66,14 @@ class Explosion {
 	var remainingTiles
 
 	//With initial value
-	const property image = "./assets/objects/bomb/bomb4.png"	//TODO: Change
+	const property image = "./assets/objects/bomb/bomb4.png"
 	const property destroyable = false
 	const expansionRate = 100							//constant used to control how fast the explosion expands
-	const property canBeSteppedOn = false				//TODO: Temporal, debería ser true y debería implementarse que haga daño
+	const property canBeSteppedOn = false				
 	const property stopsExplosion = false
 
 	method set() {
 		game.addVisual(self)	//Adds explosion sprite
-
-		//TODO: Posible optimización, se ejecuta getObjectsIn más de una vez para una misma posicion
 
 		//Gets all objects in position,
 		const objectsinPosition = game.getObjectsIn(position)

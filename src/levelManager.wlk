@@ -15,20 +15,15 @@ object levelManager {
     var levelFinished
 
     method loadLevel(){
-        //TEMP
-        levelSand.loadLevel()   //TODO: arreglar al agregar más niveles 
+        levelSand.loadLevel()   //More levels could be added by making changes here
         activeLevel = levelSand
-        //FIN TEMP
 
         playersAlive = [p1, p2]
-
-        //TEMP
-
 
         const players = [p1, p2]
         players.forEach({_player => _player.spawn()})
         players.forEach({_player => _player.setup()})
-        //Fin TEMP
+
         levelFinished = false
     }
 
@@ -58,7 +53,7 @@ object levelManager {
         if (playersAlive.size() == 1) {
             self.finishLevel(playersAlive.get(0))
         } else if (playersAlive.size() == 0) {
-            self.finishLevel("neutral")    //TODO: Arreglar imagen neutral
+            self.finishLevel("neutral")    //TODO: Arreglar imagen neutral. Altamente improbable que dos jugadores mueran en el mismo tick.
         }
     }
 }
@@ -85,16 +80,3 @@ const p2 = new Player(
     rightBind = keyboard.right(),
     bombKey = keyboard.minusKey()
 )
-/*
-object background1() {
-    var image
-    const property position = game.at(0,0)
-
-    method image() = image
-
-    method change(newImage) {
-        image = newImage
-        game.addVisual(self)
-    }
-}
-*/

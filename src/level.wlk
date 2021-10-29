@@ -13,18 +13,9 @@ class Level {
     const property destroyableTiles = []
 
     method loadLevel() {
+        
+        self.changeBackground("./assets/map/bg-flowers.png")
 
-        /* A veces anda, a veces no
-        keyboard.y().onPressDo({=>
-            levelSand.unloadLevel()
-            levelSand.loadLevel()
-        })
-        */
-        
-        self.changeBackground("./assets/map/bg-flowers.png") //TODO: TEMP a modo de prueba
-
-        
-        
     	self.renderSolidTiles()
     	self.renderDestroyableTiles()
         self.renderBorderTiles()
@@ -35,15 +26,12 @@ class Level {
     method unloadLevel() {
         solidTiles.forEach({_tile => _tile.remove()})
         destroyableTiles.forEach({_tile => _tile.remove()})
-        
-        //TODO: implementar logica jugadores
     }
 
 	method renderSolidTiles()
 	
 	method renderDestroyableTiles()
 
-	//same border tiles to every map, only thing that changes are images
     method renderBorderTiles() {
     	const ancho = game.width() - 1
 		const largo = game.height() - 1
