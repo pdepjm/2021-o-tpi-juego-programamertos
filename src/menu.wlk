@@ -4,6 +4,7 @@ import levels.*
 import players.*
 import levelManager.*
 import characterSelectionScreen.*
+import soundManager.*
 
 object menu {
 
@@ -18,6 +19,9 @@ object menu {
         game.boardGround("./assets/menu/menu_background.png")
         options.forEach({option => game.addVisual(option)})
         game.addVisual(title)
+
+        //Play menu soundtrack
+        game.schedule(1, {soundManager.playSong(new SoundEffect(path = './assets/sounds/menuST.mp3'), true)})
         
     }
 
@@ -98,7 +102,8 @@ object play inherits Button(
     ) {
 
     method enter() {
-        game.clear()        //Cleans the menu
+        game.clear()        //Cleans up the menu
+
         
         characterSelectionScreen.setUp()
     }

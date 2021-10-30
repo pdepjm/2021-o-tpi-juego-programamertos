@@ -2,6 +2,7 @@ import wollok.game.*
 import players.*
 import levelManager.*
 import menu.*
+import soundManager.*
 
 object characterSelectionScreen {
     var property confirmedCounter = 0 //Count of how many players confirmed their selection 
@@ -27,6 +28,9 @@ object characterSelectionScreen {
 
     method checkAllPlayersReady() {
         if (confirmedCounter == 2) {
+            //TODO: Agregar cancion para nivel
+            soundManager.stopAllSongs() //sacar esta linea
+            //soundManager.playSong(new SoundEffecty('path a la cancion') , true)
             self.startGame()
         }
     }
