@@ -37,30 +37,7 @@ describe "player movements" {
 	
 	const solidTile = new SolidTile(position = game.at(5, 1))
 
-//	test "a player moves right" {
-//		p1.move(right)
-//		assert.equals(game.at(2, 15), p1.position())
-//	}
-//
-//	test "a player moves left" {
-//		p2.move(right)
-//		p2.move(right)
-//		p2.move(left)
-//		assert.equals(game.at(2, 1), p2.position())
-//	}
-//
-//	test "a player moves up" {
-//		p2.move(up)
-//		p2.move(up)
-//		assert.equals(game.at(1, 3), p2.position())
-//	}
-//
-//	test "a player moves down" {
-//		p1.move(down)
-//		p1.move(down)
-//		assert.equals(game.at(1, 13), p1.position())
-//	}
-    
+
      test "A player must be facing to the last direction he moved"{
      	
      }
@@ -74,38 +51,7 @@ describe "player movements" {
 	}
 }
 
-/* 
-   TODO: Volver a analizar Logica de los Test(Rehacer)
-	test "A player moves right with key 'right'" {
-		p2.setup()
-		keyboard.right()
-		keyboard.right()
-		assert.equals(game.at(3, 1), p2.position())
-	}
 
-	test "A player moves left with key 'A'" {
-		p1.setup()
-		keyboard.d()
-		keyboard.d()
-		keyboard.a()
-		assert.equals(game.at(2, 15), p1.position())
-	}
-
-	test "A player moves up with key 'up'" {
-		p2.setup()
-		keyboard.up()
-		keyboard.up()
-		assert.equals(game.at(1, 3), p2.position())
-	}
-
-	test "A player moves down with key 'S'" {
-		p1.setup()
-		keyboard.s()
-		keyboard.s()
-		assert.equals(game.at(1, 13), p1.position())
-	}
-
-    */
 
 describe "player abilities" {
 
@@ -120,26 +66,7 @@ describe "player abilities" {
 		bombKey = keyboard.q()
 	)
 	
-//	const destroyableTile = new DestroyableTile(position = game.at(3, 15))
-//	const destroyableTile2 = new DestroyableTile(position = game.at(4, 15))
-//
-//	test "a player drops a bomb" {
-//		p1.move(right)
-//		p1.dropBomb()
-//		assert.notThat(game.hasVisual(destroyableTile))
-//	}
 
-/* 
- * TODO: Analizar Logica del Test (devuelve true el hasVisual(destroyableTile2))
-	test "A player Drops a Bomb with key 'Q'" {
-		p1.setup()
-		destroyableTile2.render()
-		2.times({any => p1.move(right)})
-		p1.dropBomb()
-		game.schedule(500 * 2 , {any => p1.move(down)})
-		assert.notThat(game.hasVisual(destroyableTile2))
-	}
-*/
 }
 
 describe "players interactions" {
