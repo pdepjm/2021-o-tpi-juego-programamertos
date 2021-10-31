@@ -29,8 +29,8 @@ object characterSelectionScreen {
     method checkAllPlayersReady() {
         if (confirmedCounter == 2) {
             //TODO: Agregar cancion para nivel
-            soundManager.stopAllSongs() //sacar esta linea
-            //soundManager.playSong(new SoundEffecty('path a la cancion') , true)
+            //soundManager.stopAllSongs() //sacar esta linea
+            soundManager.playSong(new SoundEffect(path = './assets/sounds/gameST.mp3') , true)
             self.startGame()
         }
     }
