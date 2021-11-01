@@ -25,4 +25,4 @@ De igual manera, pueden chequearse los controles dentro del juego en el menú de
 
 ## Respuestas teóricas
 
-[Enlace a teoria.md](https://github.com/pdepjm/2021-o-tpi-juego-programamertos/blob/master/teoria/teoria.md)
+[Enlace a teoria.md](https://github.com/pdepjm/2021-o-tpi-juego-programamertos/blob/master/teoria.md)
