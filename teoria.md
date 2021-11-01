@@ -6,7 +6,7 @@
 El polimorfismo es la capacidad de un objeto de ser intercambiable con otro, sin que un tercero que los usa se vea afectado.
 
 En nuestro juego usamos polimorfismo para la implementación del método harm() de la explosión de una bomba.<br>
-*bomb.wlk*
+*bomb.wlk*<br>
 ![image](https://user-images.githubusercontent.com/72177829/139640504-4134d5c6-f20d-4413-b093-577539f45b28.png)
 
 Esto nos permite:
@@ -70,10 +70,10 @@ Cada botón (jugar, controles, créditos) es un objeto que hereda de la clase Bu
 [//]: # ( ----- Composición ----- )
 Para definir las direcciones en las que un jugador puede moverse por el mapa utilizamos composición. Cada dirección es un objeto distinto con un único método, y para todos el efecto del mensaje es diferente, por lo que no tendría sentido usar herencia para definirlos ya que no comparten lógica que se pueda abstraer.<br>
 
-*directions.wlk*
+*directions.wlk*<br>
 ![image](https://user-images.githubusercontent.com/72177829/139642248-799ff207-316d-4378-80d8-ddef772699a2.png)
 
-*players.wlk*
+*players.wlk*<br>
 ![image](https://user-images.githubusercontent.com/72177829/139642269-767b244a-ead6-404c-b62c-c9b0a5e855d8.png)
 
 En el momento en que el jugador quiere moverse en cierta dirección, el método move(direction) envía un mensaje al objeto dirección a la que se quiera mover, pidiéndole la próxima posición del jugador en caso de que efectivamente pueda moverse hacia ahí (en caso de chocar con una pared, obstáculo o bomba no podrá pasar).
