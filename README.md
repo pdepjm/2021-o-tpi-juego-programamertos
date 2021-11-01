@@ -1,4 +1,4 @@
-# Bomberman
+# Dinoboom
 
 ## Equipo de desarrollo
 
@@ -6,7 +6,7 @@
 - Gratz, Matías
 - Martínez Bonafine, Santiago
 - Pasqualino, Franco
-- Rascón, Mariela Belén
+- Rascón, Mariela Belén - https://github.com/muwella
 - Rossi, Matías
 
 ## Capturas
