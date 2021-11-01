@@ -3,8 +3,10 @@
 [//]: # ( ----- Polimorfismo -----)
 
 ## Polimorfismo
+El polimorfismo es la capacidad de un objeto de ser intercambiable con otro, sin que un tercero que los usa se vea afectado.
 
 ### ¿Cuál es el mensaje polimórfico?
+En nuestro juego usamos polimorfismo para la implementación del método harm() de la explosión de una bomba.
 
 ### ¿Qué objetos lo implementan?
 
