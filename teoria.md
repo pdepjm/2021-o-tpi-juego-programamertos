@@ -9,10 +9,10 @@ En nuestro juego usamos polimorfismo para la implementación del método harm() 
 *bomb.wlk*<br>
 ![image](https://user-images.githubusercontent.com/72177829/139640504-4134d5c6-f20d-4413-b093-577539f45b28.png)
 
-Esto nos permite:
-Destruir un obstáculo (un objeto destruible por el jugador)
-Explotar instantáneamente otra bomba
-Hacer que un jugador pierda
+Esto nos permite:<br>
+- Destruir un obstáculo (un objeto destruible por el jugador)<br>
+- Explotar instantáneamente otra bomba<br>
+- Hacer que un jugador pierda<br>
 
 Por lo tanto, el mensaje harm() es entendido por todos los objetos posicionados en el camino de la explosión y la bomba se aprovecha de esto para poner en efecto su daño.
 
