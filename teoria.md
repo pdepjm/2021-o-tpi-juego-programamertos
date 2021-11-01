@@ -40,12 +40,6 @@ Se observa con la palabra reservada new Bomb():
 
 ![image](https://user-images.githubusercontent.com/72177829/139642019-8b2b4b7d-b79f-44f4-88dc-25fdbce78933.png)
 
-
-
-### ¿Dónde o cuándo se instancian los objetos?
-
-> En el archivo levels instanciamos los distintos tipos de tiles (SolidTile y DestroyableTile) como objetos en las posiciones donde deben aparecer en el nivel indicado.
-
 [//]: # ( ----- Herencia ----- )
 
 ## Herencia
