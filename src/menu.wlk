@@ -8,9 +8,9 @@ import soundManager.*
 
 object menu {
 
-    var selected = 0
+    var property selected = 0
     const options = [play, keybindings, credits]
-    var screenOnTop = null        //Example: credits or controls
+    var property screenOnTop = null        //Example: credits or controls
 
 	method getSelected() = options.get(selected)
 
@@ -32,35 +32,30 @@ object menu {
         keyboard.q().onPressDo({self.exit() })
     }
 
-    //TODO: Estas funciones podrian tener mejor lógica
     method goUp(){
     	self.getSelected().isSelected(false)
-    	selected = (selected - 1).max(0)
+    	// Modulo hack to make the menu cyclic.
+    	selected = (((selected - 1) % options.size()) + options.size()) % options.size()
     	self.getSelected().isSelected(true)
     }
-    
+
     method goDown(){
     	self.getSelected().isSelected(false)
-    	selected = (selected + 1).min(options.size() - 1)
+    	// Modulo hack to make the menu cyclic.
+    	selected = (((selected + 1) % options.size()) + options.size()) % options.size()
     	self.getSelected().isSelected(true)
     }
 
     method select() {
-        if (self.getSelected().isSubMenu()) {
-            screenOnTop = self.getSelected().subMenu()
-
-            if(!game.hasVisual(screenOnTop)){
-                //TODO: Falta evitar que el usuario pueda acceder a otros submenús mientras se encuentre en otro
-                game.addVisual(screenOnTop)
-            }
-        } else {
-            self.getSelected().enter()
-        }
+		if (screenOnTop == null){
+			screenOnTop = self.getSelected()
+        	self.getSelected().enter()
+		}
     }
 
     method exit() {
         if (screenOnTop != null) {
-            game.removeVisual(screenOnTop)
+            screenOnTop.remove()
             screenOnTop = null
         }
     }
@@ -77,8 +72,6 @@ class Button {
     const imgSelected           //Image shown when the option is selected
     const imgUnselected         //The opposite xd
     var property isSelected     //Boolean value indicating if the option is being selected by default
-    const property isSubMenu
-    const property subMenu
 
     method image() {
         if (isSelected) {
@@ -88,7 +81,6 @@ class Button {
             return imgUnselected
         }
     }
-
 }
 
 object play inherits Button(
@@ -96,17 +88,14 @@ object play inherits Button(
     imgSelected = "./assets/menu/JUGAR_rojo.png", 
     imgUnselected = "./assets/menu/JUGAR_blanco.png", 
     isSelected = true, 
-    position = game.at(3,8), 
-    isSubMenu = false, 
-    subMenu = null
+    position = game.at(3,8)
     ) {
 
     method enter() {
         game.clear()        //Cleans up the menu
-
-        
         characterSelectionScreen.setUp()
     }
+    method remove(){}
 }
 
 object keybindings inherits Button(
@@ -114,15 +103,14 @@ object keybindings inherits Button(
     imgSelected = "./assets/menu/CONTROLES_rojo.png", 
     imgUnselected = "./assets/menu/CONTROLES_blanco.png", 
     isSelected = false, 
-    position = game.at(3,6), 
-    isSubMenu = true, 
-    subMenu = keybindingsSubpage
+    position = game.at(3,6)
     ) {
     method enter() {
-        return new Screen(image = "")
+        game.addVisual(keybindingsSubpage)
     }
-    
-    
+    method remove(){
+    	game.removeVisual(keybindingsSubpage)
+    }
 }
 
 object credits inherits Button(
@@ -130,16 +118,17 @@ object credits inherits Button(
     imgSelected = "./assets/menu/CREDITOS_rojo.png", 
     imgUnselected = "./assets/menu/CREDITOS_blanco.png", 
     isSelected = false, 
-    position = game.at(3,4), 
-    subMenu = creditsSubpage,
-    isSubMenu = true
+    position = game.at(3,4)
     ) {
-    method get_page() {
-        return new Screen(image = "")
+    
+    method enter(){
+    	game.addVisual(creditsSubpage)
+    }
+    
+    method remove(){
+    	game.removeVisual(creditsSubpage)
     }
 }
-
-
 
 const keybindingsSubpage = new Screen(image = "./assets/menu/controles.png")
 const creditsSubpage = new Screen(image = "./assets/menu/creditos.png")
