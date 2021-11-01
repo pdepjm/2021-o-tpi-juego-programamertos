@@ -18,7 +18,6 @@
 
 ## Reglas de Juego / Instrucciones
 
-(Redactar mejor)
 Dinoboom es un juego de 2 jugadores en local, donde cada jugador aparece en una esquina del mapa y deberá abrirse camino explotando obstáculos para derrotar al oponente con bombas.
 
 Los jugadores se mueven con ASDW y las flechas ←↓↑→, y colocan bombas con Q y - (minusKey) respectivamente.
