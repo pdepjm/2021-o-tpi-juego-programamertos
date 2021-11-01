@@ -1,7 +1,7 @@
 import wollok.game.*
 
 object soundManager {
-    var activeSongs = []
+    const activeSongs = []
 
     method playSound(sound, shouldLoop) {
         const soundToBePlayed = sound.get()
