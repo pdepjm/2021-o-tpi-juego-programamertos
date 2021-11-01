@@ -6,7 +6,7 @@
 - Gratz, Matías
 - Martínez Bonafine, Santiago
 - Pasqualino, Franco
-- Rascón, Mariela Belén - https://github.com/muwella
+- Rascón, Mariela Belén
 - Rossi, Matías
 
 ## Capturas
