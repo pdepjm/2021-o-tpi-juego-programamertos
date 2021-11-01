@@ -12,7 +12,7 @@
 ## Capturas
 ![image](https://user-images.githubusercontent.com/72177829/139638166-5d44c8bc-e2d4-4a1c-aeca-13f236e23404.png)
 
-![image](https://user-images.githubusercontent.com/72177829/139638642-38a94081-509b-4676-9b1f-c0c71cf79df8.png)
+![image](https://user-images.githubusercontent.com/72177829/139639447-4067f5ee-a25f-44c5-8069-2b048fda5710.png)
 
 ![image](https://user-images.githubusercontent.com/72177829/139637463-942e565f-d13c-4b9c-8bc4-48b5fcc9f067.png)
 
