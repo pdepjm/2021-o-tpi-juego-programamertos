@@ -22,4 +22,4 @@ Modalidad del juego: Hasta 4 jugadores con flechas o teclas del teclado, con una
 
 ## Respuestas teóricas
 
-[Enlace a teoria.md](https://github.com/pdepjm/2021-o-tpi-juego-programamertos/blob/master/teoria.md)
+[Enlace a teoria.md](https://github.com/pdepjm/2021-o-tpi-juego-programamertos/blob/master/teoria/teoria.md)
