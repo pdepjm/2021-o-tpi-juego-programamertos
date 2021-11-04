@@ -213,3 +213,24 @@ describe "Level's functions" {
 		assert.equals(0 , (game.getObjectsIn(game.at(2 , 2))).size()) 	
 	}
 }
+
+describe "Menu's Interactions" {
+    
+    test "goUp() cycles through the options." {
+        menu.goUp()
+        assert.equals(2, menu.selected())    
+    }
+    
+    test "goDown() cycles through the options." {
+        4.times{any => menu.goDown()}
+        assert.equals(1, menu.selected())    
+    }
+
+    test "method select() does not let you open a second submenu." {
+        menu.goDown()
+        menu.select()
+        menu.goDown()
+        menu.select()
+        assert.equals(keybindings,menu.screenOnTop())
+    }
+}
