@@ -1,6 +1,6 @@
 import wollok.game.*
 import directions.*
-import tile.*
+
 import bomb.*
 import levelManager.*
 

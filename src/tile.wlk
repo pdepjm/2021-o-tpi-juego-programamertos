@@ -1,4 +1,5 @@
 import wollok.game.*
+import levelManager.*
 
 class Tile {
     // property te hace el method getter y setter. Es epico. Epicardo.
@@ -21,7 +22,7 @@ class Tile {
 
 //SolidTile represents those tiles that can't be stepped on
 class SolidTile inherits Tile {
-    const property image =  "./assets/map/wall-stone.png"
+    const property image =  "./assets/map/wall-" + levelManager.activeLevel().levelName() + ".png"
     const property canBeSteppedOn = false
     const property destroyable = false
 
@@ -30,7 +31,7 @@ class SolidTile inherits Tile {
 
 //DestroyableTile represents those tiles that can be destroyed by the player (Obstacles) and drop items
 class DestroyableTile inherits Tile {
-    const property image = "./assets/objects/obstacles/obstacle-stone-" + new Range(start = 1, end = 6).anyOne() + ".png" //TODO level changes obstacles
+    const property image = "./assets/objects/obstacles/obstacle-" + levelManager.activeLevel().levelName() + "-" + new Range(start = 1, end = 3).anyOne() + ".png" //TODO level changes obstacles
     var property canBeSteppedOn = false
     const property destroyable = true
 
@@ -52,7 +53,7 @@ class DestroyableTile inherits Tile {
 
 //BorderTile represents a SolidTile placed at the edge of the map
 class BorderTile inherits Tile {    //Considerar heredar desde SolidTile
-    const property image = "./assets/map/wall-stone.png"
+    const property image = "./assets/map/wall-" + levelManager.activeLevel().levelName() + ".png"
     const property canBeSteppedOn = false
     const property destroyable = false
     //...

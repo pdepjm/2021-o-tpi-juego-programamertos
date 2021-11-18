@@ -64,12 +64,12 @@ class CharacterSelector {
 
     method setUp() {
         if (playerId == 1) {
-            //keyboard.a().onPressDo({self.previous()})     Wollok blows up
+            keyboard.a().onPressDo({self.previous()})
             keyboard.q().onPressDo({self.confirm()})
             keyboard.d().onPressDo({self.next()})
             
         } else if (playerId == 2) {
-            //keyboard.left().onPressDo({self.previous()})
+            keyboard.left().onPressDo({self.previous()})
             keyboard.minusKey().onPressDo({self.confirm()})
             keyboard.right().onPressDo({self.next()})
         }
@@ -85,13 +85,14 @@ class CharacterSelector {
 
     method next() {
         if(!hasConfirmed) {
-            currentlySelected = (currentlySelected + 1) % availableColors.size()
+        	// Modulo hack to make the colour selection cyclic.
+            currentlySelected = (((currentlySelected + 1) % availableColors.size()) + availableColors.size()) % availableColors.size()
         }
     }
 
-    //Unused as it is unstable in current wollok build
     method previous() {
-        currentlySelected = (currentlySelected - 1) % availableColors.size()
+    	// Modulo hack to make the colour selection cyclic.
+    	currentlySelected = (((currentlySelected - 1) % availableColors.size()) + availableColors.size()) % availableColors.size()
     }
 
     method position()  {

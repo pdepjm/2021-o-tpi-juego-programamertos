@@ -12,9 +12,11 @@ class Level {
     const property solidTiles = []
     const property destroyableTiles = []
 
+    method levelName () = ""    //Abstract
+
     method loadLevel() {
         
-        self.changeBackground("./assets/map/bg-flowers.png")
+        self.changeBackground("./assets/map/bg-" + self.levelName() + ".png")    //TODO: Cambiar acá
 
     	self.renderSolidTiles()
     	self.renderDestroyableTiles()

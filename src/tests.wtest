@@ -73,7 +73,7 @@ describe "Player Movements" {
 
 
 
-describe "Player Abilities" {
+describe "Player Skills" {
 
 	const p1 = new Player(
 		id = 1, 
@@ -120,7 +120,7 @@ describe "Players Interactions" {
 		assert.notThat(game.hasVisual(p1))
 	}
 
-	test "A Player dies when reached by Bomb explosion" {
+	test "A Player dies when reached by a Bomb explosion" {
 		4.times({any => p1.move(down)})
 		game.schedule(500, {p1.dropBomb()} )
 		game.schedule(500 * 1.1 , {p1.move(right)})
@@ -150,7 +150,7 @@ describe "Bomb's Interactions" {
 	const d3 = new DestroyableTile(position = game.at(5 , 8))
 	const d4 = new DestroyableTile(position = game.at(5 , 2))	
 	
-	test "A bomb explodes" {
+	test "A bomb explode" {
 		b1.init()
 		b1.explode()
 		assert.that(b1.exploded())
@@ -183,20 +183,20 @@ describe "Tile's Interactions" {
 	const b3 = new BorderTile(position = game.at(5 , 8))
 	const d4 = new DestroyableTile(position = game.at(5 , 2))	
 	
-	test "A destroyabe tile harm" {
+	test "A destroyable tile can be harm" {
 	    p3.dropBomb()
 	    assert.notThat(game.hasVisual(d1))
 	    assert.notThat(game.hasVisual(d4))
 	}
 	
-	test "A solid tile not harm" {
+	test "A solid tile cannot be harm" {
 		p3.dropBomb()
 		game.schedule(500 , {p3.move(up)})
 		game.schedule(500 * 1.1 , {p3.move(right)})
 		assert.that(game.hasVisual(s2))
 	}
 	
-	test "A border tile not harm"{
+	test "A border tile cannot be harm"{
 		p3.dropBomb()
 		game.schedule(500 , {p3.move(up)})
 		game.schedule(500 * 1.1 , {p3.move(right)})
@@ -214,6 +214,7 @@ describe "Level's functions" {
 	}
 }
 
+<<<<<<< HEAD
 describe "Menu's Interactions" {
     
     test "goUp() cycles through the options." {
@@ -233,4 +234,25 @@ describe "Menu's Interactions" {
         menu.select()
         assert.equals(keybindings,menu.screenOnTop())
     }
+=======
+describe "menu" {
+	
+	test "goUp() cycles through the options." {
+		menu.goUp()
+		assert.equals(2, menu.selected())	
+	}
+	
+	test "goDown() cycles through the options." {
+		4.times{any => menu.goDown()}
+		assert.equals(1, menu.selected())	
+	}
+
+	test "method select() does not let you open a second submenu." {
+		menu.goDown()
+		menu.select()
+		menu.goDown()
+		menu.select()
+		assert.equals(keybindings,menu.screenOnTop())
+	}
+>>>>>>> branch 'master' of git@github.com:pdepjm/2021-o-tpi-juego-programamertos.git
 }
