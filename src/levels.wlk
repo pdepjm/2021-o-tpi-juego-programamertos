@@ -119,13 +119,17 @@ override method renderSolidTiles(){
 	
 	override method renderDestroyableTiles(){
 
-		const pos1 = [3, 4, 12, 13]
+        const pos0 = [1, 3, 4, 8, 9, 13, 14, 15]
+		const pos1 = [1, 2, 3, 5, 4, 10, 11, 12, 13]
 		const pos2 = [2, 3, 7, 11, 13, 14]
 		const pos3 = [2, 3, 4, 8, 14]
-		const pos4 = [6, 9, 13, 14, 15, 10]
-		const pos5 = [5, 6, 7, 14, 11]
-		const pos6 = [4, 5, 7, 9, 10, 11, 12]
+		const pos4 = [2, 3, 6, 9, 13, 14, 15, 10]
+		const pos5 = [2, 5, 6, 7, 14, 11]
+		const pos6 = [1, 2, 4, 5, 7, 9, 10, 11, 12]
 		const pos7 = [4, 6, 10, 12]
+		
+		pos0.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 15)))} )
+		pos0.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 1)))} )
 			
 		pos1.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 14)))} )
 		pos1.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 2)))} )
