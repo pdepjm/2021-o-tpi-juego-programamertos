@@ -90,6 +90,10 @@ object levelStone inherits Level{
 		
 		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 15)) )} )
 		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 1)) )} )
+		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 15))) })
+		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 1)))  })
+		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 13)) )})
+		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 3)) )} )
 		
 		pos2.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 14)) )} )
 		pos2.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 2)) )} )
@@ -102,6 +106,7 @@ object levelStone inherits Level{
 		
 		pos5.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 10)) )} )
 		pos5.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 6)) )} )
+	    solidTiles.add( new SolidTile(position = game.at(8, 10))) 
 		
 		pos6.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 9)) )} )
 		pos6.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 7)) )} )
@@ -120,6 +125,7 @@ object levelStone inherits Level{
 		const pos5 = [1, 3, 4, 8, 12, 13, 15]
 		const pos6 = [2, 5, 6, 10, 11, 14]
 		const pos7 = [1, 3, 5, 8, 11, 13, 15]
+		
 			
 		pos1.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 15)) )} )
 		pos1.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 1)) )} )
