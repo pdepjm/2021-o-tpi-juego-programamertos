@@ -205,16 +205,18 @@ describe "Tile's Interactions" {
 }
 
 describe "Level's functions" {
-	
+	/* 
 	test "Unload a Level" {
 		levelSand.loadLevel()
 		assert.that(levelSand.verifyTiles(game.at(2 , 2) , levelSand.solidTiles()))
 		levelSand.unloadLevel()
 		assert.equals(0 , (game.getObjectsIn(game.at(2 , 2))).size()) 	
 	}
+	
+	*/
 }
 
-<<<<<<< HEAD
+
 describe "Menu's Interactions" {
     
     test "goUp() cycles through the options." {
@@ -234,7 +236,9 @@ describe "Menu's Interactions" {
         menu.select()
         assert.equals(keybindings,menu.screenOnTop())
     }
-=======
+   
+}
+
 describe "menu" {
 	
 	test "goUp() cycles through the options." {
@@ -254,5 +258,4 @@ describe "menu" {
 		menu.select()
 		assert.equals(keybindings,menu.screenOnTop())
 	}
->>>>>>> branch 'master' of git@github.com:pdepjm/2021-o-tpi-juego-programamertos.git
 }

@@ -6,6 +6,10 @@ import level.*
 object levelSand inherits Level{
 	
     override method levelName() = "sand"
+    
+    override method newSpawnPoints(){
+    	spawnPoints = [game.at(1,15), game.at(1, 1), game.at(15, 15), game.at(1, 1)]
+   }
 
 	override method renderSolidTiles(){
 		
@@ -74,10 +78,18 @@ object levelSand inherits Level{
 	}
 }
 
+
+
+
+
 //TODO level has to assign stone images to tiles and obstacles
 object levelStone inherits Level{
 	
     override method levelName() = "stone"
+    
+    override method newSpawnPoints(){
+    	spawnPoints = [game.at(8, 2), game.at(8, 14), game.at(2, 8), game.at(14, 8)]
+    }
 
 	override method renderSolidTiles(){
         const pos1 = [6 , 10] 
@@ -87,6 +99,7 @@ object levelStone inherits Level{
 		
 		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 15))) })
 		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 1)))  })
+		
 		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 13)) )})
 		pos1.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 3)) )} )
 		
@@ -99,7 +112,7 @@ object levelStone inherits Level{
 		pos4.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 10)) )} )
 		pos4.forEach({ n => solidTiles.add( new SolidTile(position = game.at(n, 6)) )} )
 		
-	    solidTiles.add( new SolidTile(position = game.at(8, 10))) 
+	    solidTiles.add( new SolidTile(position = game.at(8, 8))) 
 		
 		solidTiles.forEach({tile => tile.render()})
 	}
@@ -108,7 +121,7 @@ object levelStone inherits Level{
 		
 		const pos1 = [3, 4, 12, 13]
 		const pos2 = [2, 3, 13, 14]
-		const pos3 = [2, 14, 8]
+		const pos3 = [2, 8, 14]
 		const pos4 = [6, 10]
 		const pos5 = [5, 11]
 		const pos6 = [7, 9]
@@ -123,14 +136,11 @@ object levelStone inherits Level{
 		pos3.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 12)))} )
 		pos3.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 4)))} )
 		
-		pos4.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 12)))} )
-		pos4.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 4)))} )
+		pos4.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 11)))} )
+		pos4.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 5)))} )
 		
-		pos5.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 11)))} )
-		pos5.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 5)))} )
-		
-		pos6.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 10)))} )
-		pos6.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 6)))} )
+		pos5.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 10)))} )
+		pos5.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 6)))} )
 		
 		pos6.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 9)))} )
 		pos6.forEach({ n => destroyableTiles.add( new DestroyableTile(position = game.at(n, 7)))} )
@@ -139,14 +149,22 @@ object levelStone inherits Level{
 		
 		
 		destroyableTiles.forEach({tile => tile.render()})
-		
 		}
-		
 }
+
+
+
+
+
 
 //TODO level has to assign dungeon images to tiles and obstacles
 object levelDungeon inherits Level{
     override method levelName() = "dungeon"
+    
+    override method newSpawnPoints(){
+    	spawnPoints = [game.at(1,15), game.at(1, 1), game.at(15, 15), game.at(1, 1)]
+   }
+    
 
 	//TODO: Cambiar para que quede distinto a los otros niveles
 	override method renderSolidTiles(){
