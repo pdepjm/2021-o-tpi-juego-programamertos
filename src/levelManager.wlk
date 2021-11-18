@@ -10,13 +10,17 @@ class Screen {
 
 // This object manages the state of levels
 object levelManager {
+    const availableLevels = [levelDungeon, levelStone, levelSand]
+
+
     var playersAlive = [p1, p2]
     var property activeLevel = null
     var levelFinished
+    var levelCounter = new Range(start = 0, end = 2).anyOne()
 
     method loadLevel(){
-        levelSand.loadLevel()   //More levels could be added by making changes here
-        activeLevel = levelSand
+        activeLevel = availableLevels.get(levelCounter)
+        activeLevel.loadLevel()   //More levels could be added by making changes here
 
         playersAlive = [p1, p2]
 
@@ -40,6 +44,7 @@ object levelManager {
             game.clear()
             self.loadLevel()
         })
+        levelCounter = (levelCounter + 1) % 3
     }
 
     method levelFinished() = levelFinished
