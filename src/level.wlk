@@ -18,7 +18,7 @@ class Level {
         
         self.newSpawnPoints()
         
-        self.changeBackground("./assets/map/bg-" + self.levelName() + ".png")    //TODO: Cambiar acá
+        self.changeBackground("./assets/map/bg-" + self.levelName() + ".png")    
 
     	self.renderSolidTiles()
     	self.renderDestroyableTiles()
