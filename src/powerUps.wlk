@@ -15,7 +15,7 @@ class PowerUp {
 	var property position
     
 	const type
-	const property image = "./assets/objects/bonus/bonus-" + type + ".png"
+	const property image = "./assets/objects/bonus/bonus-" + type.name() + ".png"
 	
 	method render(){
 		game.addVisual(self)
@@ -36,18 +36,24 @@ class PowerUp {
 }
 
 object bomb{
+	const property name = "bomb"
+	
 	method effect(player){
 		player.bonusBomb()
 	}
 }
 
 object distance{
+	const property name = "distance"
+	
 	method effect(player){
 		player.bonusDistance()
 	}	
 }
 
 object speed{
+	const property name = "speed"
+	
 	method effect(player){
 		player.bonusSpeed()
 	}
