@@ -25,6 +25,7 @@ class Player {
     const property destroyable = true   	//This property is used by the bomb explosion
     const property stopsExplosion = false 	//An explosion will continue expanding after hitting a player
     var property bombCount = 0				//Amount of bombs the player has active on field
+    var property facingDirection = right    //Used to aim throwable bomb
     
     //bonus implementation
     var property activeBombs = 1					//Amount of bombs the player has in total (it goes up with +1 bonus)
@@ -44,6 +45,7 @@ class Player {
         activeBombs = 1
         bombDistance = 2
         bombSpeed = 500
+        activeItem = normalBomb
 
         game.addVisual(self)
     }
@@ -55,6 +57,7 @@ class Player {
             if(game.getObjectsIn(nextPosition).all({tile => tile.canBeSteppedOn()})) {
                 position = nextPosition
             }
+            facingDirection = direction
         }
     }
 
