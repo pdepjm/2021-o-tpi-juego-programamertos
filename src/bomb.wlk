@@ -3,24 +3,20 @@ import tile.*
 import directions.*
 import levelManager.*
 
-class Bomb {
-	//Variables to be defined
-	var property position
+class Bomb {	
 	const owner
-
-	//Defined variables
-	var property image =  "./assets/objects/bomb/bomb.png"
-	const phaseTime = 500			//Phase duration in miliseconds
-	var property distance = 2 		//how far (in tiles) the explosion will reach
+	var property image =  "./assets/objects/bomb/bomb.png"	
+	var property position
+	var property speed = owner.bombSpeed()
+	var property distance = owner.bombDistance()
+	
 	const property canBeSteppedOn = false
 	const property destroyable = true
-	const property stopsExplosion = false	//An explosion will continue expanding after hitting another bomb
+	const property stopsExplosion = false
 	var exploded = false
-	
 
-	method init(powerUps) {
+	method init() {
 		game.addVisual(self)
-		powerUps.forEach({ bonus => bonus.affect(self) })
 		self.phaser()
 	}
 
@@ -40,24 +36,19 @@ class Bomb {
 	}
 
 	method phaser() {
-		game.schedule(phaseTime, {=> self.updateImage("./assets/objects/bomb/bomb2.png")})
-		game.schedule(phaseTime*2, {=> self.updateImage("./assets/objects/bomb/bomb3.png")})
-		game.schedule(phaseTime*3, {=> if(!levelManager.levelFinished()) self.explode()})
+		game.schedule(speed, {=> self.updateImage("./assets/objects/bomb/bomb2.png")})
+		game.schedule(speed * 2, {=> self.updateImage("./assets/objects/bomb/bomb3.png")})
+		game.schedule(speed * 3, {=> if(!levelManager.levelFinished()) self.explode()})
 	}
 
 	method updateImage(newImage) {
 		image = newImage
-	}
-	
-	method addDistance(){
-		distance += 1
 	}
 
 	method harm() {
 		self.explode()
 	}
 }
-
 
 
 class Explosion {

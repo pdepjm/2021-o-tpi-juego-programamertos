@@ -11,10 +11,11 @@ object normal {
 class PowerUp {
 	var property canBeSteppedOn = true
     const property destroyable = true
+    const property stopsExplosion = false
+	var property position
+    
 	const type
 	const property image = "./assets/objects/bonus/bonus-" + type + ".png"
-	var property position
-	const property stopsExplosion = false
 	
 	method render(){
 		game.addVisual(self)
@@ -23,24 +24,32 @@ class PowerUp {
 	method harm(){
         game.removeVisual(self)
     }
-	
-	method drop(newPosition) {
-		position = newPosition
-		game.addVisual(self)
+    
+   	//the powerUp causes an effect on the player that picks it up
+    method affect(){
+    	game.onCollideDo(self, { player => 
+			game.say(self, "extra " + type)
+			type.effect(player)
+			game.removeVisual(self)
+    	})
+    }
+}
+
+object bomb{
+	method effect(player){
+		player.bonusBomb()
 	}
 }
 
-class ExtraBomb inherits PowerUp(type = "bomb"){
-	method affect(){
-		game.say(self, "aparezco")
-		//player.bombs() = player.bombs() + 1
+object distance{
+	method effect(player){
+		player.bonusDistance()
+	}	
+}
+
+object speed{
+	method effect(player){
+		player.bonusSpeed()
 	}
 }
-
-class ExtraDistance inherits PowerUp(type = "potion-green"){
-}
-
-class ExtraSpeed inherits PowerUp(type = "potion-red") {
-}
-
 

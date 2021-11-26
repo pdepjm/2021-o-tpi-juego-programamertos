@@ -41,11 +41,14 @@ class DestroyableTile inherits Tile {
         game.removeVisual(self)
         //canBeSteppedOn = true //TODO: Línea probablemente de más
         
+        // dropping a powerUp item
         const random = new Range(start = 0, end = 4).anyOne()
+        const type = ["bomb", "distance", "speed"]
+                	
         if(random == 1){
-        	const type = ["bomb", "potion-green", "potion-red"]
         	const bonus = new PowerUp(position = self.position(), type = type.anyOne())
         	bonus.render()
+        	bonus.affect()
         }
     }
 

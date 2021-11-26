@@ -22,17 +22,15 @@ class Player {
     var property image = "./assets/characters/dino-right-" + self.color() + ".png"
     var property isAlive = true
     const property canBeSteppedOn = true
-    var property bombCount = 0				//Amount of bombs the player has active on field
     const property destroyable = true   	//This property is used by the bomb explosion
     const property stopsExplosion = false 	//An explosion will continue expanding after hitting a player
+    var property bombCount = 0				//Amount of bombs the player has active on field
     
-    // ***** WIP bonus implementation *****    
-    var property bombs = 1					//Amount of bombs the player has in total
-    											//it goes up with +1 bonus
-    var powerUps = []						//PowerUps the player has picked
-   
-    // ***** WIP bonus implementation *****
-    
+    //bonus implementation
+    var property bombs = 1					//Amount of bombs the player has in total (it goes up with +1 bonus)
+    var property bombDistance = 2			//Distance of player bomb explosions (it goes up with extraDistance bonus)
+	var property bombSpeed = 500			//Speed at which bombs explode (it goes up with extraSpeed bonus)
+       
 	method color() = color
 
     method spawn() {
@@ -55,11 +53,10 @@ class Player {
 
     method dropBomb() {		
         if(bombCount < bombs && isAlive) { //if the player has bombs available
-            const bomb = new Bomb(position = self.position(), owner = self)
-            bomb.init(powerUps)
+            const bomb = new Bomb(owner = self, position = self.position())
+            bomb.init()
             bombCount++
         }
-        //todo Aca se podría implementar algún booster que permita poner más de una bomba
     }
 
     method harm() {
@@ -95,5 +92,17 @@ class Player {
         leftBind.onPressDo({ self.action(left) })
         rightBind.onPressDo({ self.action(right) })
         bombKey.onPressDo({ self.dropBomb() })
+    }
+    
+    method bonusBomb(){
+    	bombs = bombs + 1
+    }
+    
+    method bonusDistance(){
+    	bombDistance = bombDistance + 1
+    }
+    
+    method bonusSpeed(){
+    	bombSpeed = bombSpeed - 50
     }
 }

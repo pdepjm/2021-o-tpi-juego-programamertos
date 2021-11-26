@@ -94,6 +94,7 @@ object play inherits Button(
         game.clear()        //Cleans up the menu
         characterSelectionScreen.setUp()
     }
+    
     method remove(){}
 }
 
