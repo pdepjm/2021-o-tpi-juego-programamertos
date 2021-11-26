@@ -1,7 +1,4 @@
 import wollok.game.*
-import level.*
-import levels.*
-import players.*
 import menu.*
 
 program Dinoboom {
@@ -10,7 +7,6 @@ program Dinoboom {
 	game.height(17) //Based on Bomb It
 	game.width(17)  //Based on Bomb It
 	game.cellSize(32)
-	//game.boardGround("./assets/map/bg-flowers.png")
 
 	menu.setup()
 	

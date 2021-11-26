@@ -22,7 +22,6 @@ object menu {
 
         //Play menu soundtrack
         game.schedule(1, {soundManager.playSong(new SoundEffect(path = './assets/sounds/menuST.mp3'), true)})
-        
     }
 
     method loadControls() {

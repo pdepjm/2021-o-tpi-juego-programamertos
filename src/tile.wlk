@@ -1,5 +1,6 @@
 import wollok.game.*
 import levelManager.*
+import powerUps.*
 
 class Tile {
     // property te hace el method getter y setter. Es epico. Epicardo.
@@ -29,17 +30,23 @@ class SolidTile inherits Tile {
     //...
 }
 
-//DestroyableTile represents those tiles that can be destroyed by the player (Obstacles) and drop items
+//DestroyableTile represents those tiles that can be destroyed by the player (Obstacles)
 class DestroyableTile inherits Tile {
-    const property image = "./assets/objects/obstacles/obstacle-" + levelManager.activeLevel().levelName() + "-" + new Range(start = 1, end = 3).anyOne() + ".png" //TODO level changes obstacles
+    var property image = "./assets/objects/obstacles/obstacle-" + levelManager.activeLevel().levelName() + "-" + new Range(start = 1, end = 3).anyOne() + ".png" //TODO level changes obstacles
     var property canBeSteppedOn = false
     const property destroyable = true
 
     //The following method is called in bomb.wlk
     method harm() {
-        game.removeVisual(self) 
+        game.removeVisual(self)
         //canBeSteppedOn = true //TODO: Línea probablemente de más
-        //TODO: Implementar bonus
+        
+        const random = new Range(start = 0, end = 4).anyOne()
+        if(random == 1){
+        	const type = ["bomb", "potion-green", "potion-red"]
+        	const bonus = new PowerUp(position = self.position(), type = type.anyOne())
+        	bonus.render()
+        }
     }
 
     override method render() {

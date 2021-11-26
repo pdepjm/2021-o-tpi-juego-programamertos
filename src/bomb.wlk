@@ -18,8 +18,9 @@ class Bomb {
 	var exploded = false
 	
 
-	method init() {
+	method init(powerUps) {
 		game.addVisual(self)
+		powerUps.forEach({ bonus => bonus.affect(self) })
 		self.phaser()
 	}
 
