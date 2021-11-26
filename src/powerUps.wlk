@@ -1,10 +1,17 @@
 import wollok.game.*
 import tile.*
 import players.*
+import bomb.*
 
 //active bonus (WIP Mati)
-object normal {
-	
+object normalBomb {
+	method use(position, owner) {
+		if(owner.bombCount() < owner.activeBombs()) { //if the player has bombs available
+            const newBomb = new Bomb(owner = owner, position = position)
+            newBomb.init()
+            owner.bombCount(owner.bombCount() + 1)
+        }
+	}
 }
 
 //powerUps

@@ -16,7 +16,7 @@ class Player {
     const downBind
     const leftBind
     const rightBind
-    const bombKey
+    const useKey
     
     //Properties with initial value
     var property image = "./assets/characters/dino-right-" + self.color() + ".png"
@@ -27,9 +27,10 @@ class Player {
     var property bombCount = 0				//Amount of bombs the player has active on field
     
     //bonus implementation
-    var property bombs = 1					//Amount of bombs the player has in total (it goes up with +1 bonus)
+    var property activeBombs = 1					//Amount of bombs the player has in total (it goes up with +1 bonus)
     var property bombDistance = 2			//Distance of player bomb explosions (it goes up with extraDistance bonus)
 	var property bombSpeed = 500			//Speed at which bombs explode (it goes up with extraSpeed bonus)
+    var property activeItem = normalBomb
        
 	method color() = color
 
@@ -38,6 +39,12 @@ class Player {
         image = "./assets/characters/dino-right-" + self.color() + ".png"
         isAlive = true
         bombCount = 0  //hace falta?
+
+        //Bonus reset
+        activeBombs = 1
+        bombDistance = 2
+        bombSpeed = 500
+
         game.addVisual(self)
     }
 
@@ -51,12 +58,10 @@ class Player {
         }
     }
 
-    method dropBomb() {		
-        if(bombCount < bombs && isAlive) { //if the player has bombs available
-            const bomb = new Bomb(owner = self, position = self.position())
-            bomb.init()
-            bombCount++
-        }
+    method useItem() {	
+        if(isAlive) {
+            activeItem.use(position, self)
+        }	
     }
 
     method harm() {
@@ -91,11 +96,11 @@ class Player {
         downBind.onPressDo({ self.action(down) })
         leftBind.onPressDo({ self.action(left) })
         rightBind.onPressDo({ self.action(right) })
-        bombKey.onPressDo({ self.dropBomb() })
+        useKey.onPressDo({ self.useItem() })
     }
     
     method bonusBomb(){
-    	bombs = bombs + 1
+    	activeBombs = activeBombs + 1
     }
     
     method bonusDistance(){

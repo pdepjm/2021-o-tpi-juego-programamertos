@@ -72,7 +72,7 @@ const p1 = new Player(
         downBind = keyboard.s(), 
         leftBind = keyboard.a(), 
         rightBind = keyboard.d(),
-        bombKey = keyboard.q()
+        useKey = keyboard.q()
     )
 
 const p2 = new Player(
@@ -83,5 +83,5 @@ const p2 = new Player(
     downBind = keyboard.down(), 
     leftBind = keyboard.left(), 
     rightBind = keyboard.right(),
-    bombKey = keyboard.minusKey()
+    useKey = keyboard.minusKey()
 )
