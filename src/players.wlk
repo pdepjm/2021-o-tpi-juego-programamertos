@@ -105,4 +105,6 @@ class Player {
     method bonusSpeed(){
     	bombSpeed = bombSpeed - 50
     }
+    
+    method isAPlayer() = true
 }

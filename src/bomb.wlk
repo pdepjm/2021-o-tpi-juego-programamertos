@@ -110,5 +110,7 @@ class Explosion {
 		const exp = new Explosion(position = nextPosition, orientation = orientation, remainingTiles = remainingTiles - 1)
 		exp.set()
 	}
+	
+	method isAPlayer() = false
 }
 

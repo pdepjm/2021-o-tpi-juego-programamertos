@@ -27,10 +27,13 @@ class PowerUp {
     
    	//the powerUp causes an effect on the player that picks it up
     method affect(){
-    	game.onCollideDo(self, { player => 
-			game.say(self, "extra " + type)
-			type.effect(player)
-			game.removeVisual(self)
+    	game.onCollideDo(self, { player =>
+    		game.say(self, "extra " + type)
+    		
+    		if(player.isAPlayer()){
+				type.effect(player)
+				game.removeVisual(self)    			
+    		}
     	})
     }
 }

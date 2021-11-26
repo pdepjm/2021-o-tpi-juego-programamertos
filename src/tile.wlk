@@ -42,7 +42,7 @@ class DestroyableTile inherits Tile {
         //canBeSteppedOn = true //TODO: Línea probablemente de más
         
         // dropping a powerUp item
-        const random = new Range(start = 0, end = 4).anyOne()
+        const random = new Range(start = 0, end = 3).anyOne()
         const type = [bomb, distance, speed]
                 	
         if(random == 1){
