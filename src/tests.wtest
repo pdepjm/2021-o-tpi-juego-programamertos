@@ -22,7 +22,7 @@ describe "Player Movements" {
 		downBind = keyboard.s(),
 		leftBind = keyboard.a(),
 		rightBind = keyboard.d(),
-		bombKey = keyboard.q()
+		useKey = keyboard.q()
 	)
 	
 	const p2 = new Player(
@@ -33,7 +33,7 @@ describe "Player Movements" {
 		downBind = keyboard.down(),
 		leftBind = keyboard.left(),
 		rightBind = keyboard.right(),
-		bombKey = keyboard.minusKey()
+		useKey = keyboard.minusKey()
 	)
 	
 	const solidTile = new SolidTile(position = game.at(5, 1))
@@ -83,7 +83,7 @@ describe "Player Skills" {
 		downBind = keyboard.s(), 
 		leftBind = keyboard.a(), 
 		rightBind = keyboard.d(), 
-		bombKey = keyboard.q(),
+		useKey = keyboard.q(),
 		bombCount = 3
 	)
 	
@@ -107,7 +107,7 @@ describe "Players Interactions" {
 		downBind = keyboard.s(), 
 		leftBind = keyboard.a(), 
 		rightBind = keyboard.d(), 
-		bombKey = keyboard.q()
+		useKey = keyboard.q()
 	)
 	
 	test "Whrn Player harms, dies" {
@@ -140,7 +140,7 @@ describe "Bomb's Interactions" {
 		downBind = keyboard.s(), 
 		leftBind = keyboard.a(), 
 		rightBind = keyboard.d(), 
-		bombKey = keyboard.q()
+		useKey = keyboard.q()
 	)
 	
 	const b1 = new Bomb(owner = p3 , position = game.at(5 , 5))
@@ -175,7 +175,7 @@ describe "Tile's Interactions" {
 		downBind = keyboard.s(), 
 		leftBind = keyboard.a(), 
 		rightBind = keyboard.d(), 
-		bombKey = keyboard.q()
+		useKey = keyboard.q()
 	)
 		
 	const d1 = new DestroyableTile(position = game.at(2 , 5))
@@ -212,7 +212,7 @@ describe "Level's functions" {
 		levelSand.unloadLevel()
 		assert.equals(0 , (game.getObjectsIn(game.at(2 , 2))).size()) 	
 	}
-	
+
 	*/
 }
 
