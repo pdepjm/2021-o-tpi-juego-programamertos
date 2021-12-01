@@ -50,16 +50,14 @@ class Level {
     }
 
     method changeBackground(image){
-        //Image must be 544x544
+        //Image must be 704x704
         background.image(image)
         if (!game.hasVisual(background)) {
             game.addVisual(background)
         }
     }
-    
+
     method newSpawnPoints()
- 
-     
 }
 
 object background {

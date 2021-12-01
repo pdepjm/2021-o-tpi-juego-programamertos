@@ -8,38 +8,36 @@ object levelSand inherits Level{
     override method levelName() = "sand"
     
     override method newSpawnPoints(){
-    	spawnPoints = [game.at(1,15), game.at(1, 1), game.at(15, 15), game.at(1, 1)]
+    	spawnPoints = [game.at(1, 11), game.at(1, 1), game.at(11, 11), game.at(1, 1)]
    }
 
 	override method renderSolidTiles(){
 		
-		const pos1 = [8] //(15, 1)
-		const pos2 = [2, 3, 5, 6, 8, 10, 11, 13, 14] //(14, 2)
-		const pos4 = [2, 3, 5, 7, 8, 9, 11, 13, 14] //(12, 4)
-		const pos5 = [5, 11] //(11, 5)
-		const pos6 = [1, 3, 8, 13, 15] //(10, 6)
-		const pos7 = [3, 4, 5, 7, 8, 9, 11, 12, 13] //(9, 7)
+		const pos1 = [6] //(1, 11)
+		const pos2 = [2, 3, 5, 6, 7, 9, 10] //(2, 10)
+		const pos3 = [6] //(3, 9)
+		const pos4 = [1, 2, 10, 11] //(4, 8)
+		const pos5 = [5, 7] //[5, 7]
+		const pos6 = [3, 4, 5, 7, 8, 9] //(6)
 		
 		//TIP: Add [] for empty columns 
-		const columns = [pos1, pos2, [], pos4, pos5, pos6, pos7, []]
+		const columns = [pos1, pos2, pos3, pos4, pos5, pos6]
 		
-		renderizer.getRender(solidTiles , columns , self)
+		renderizer.getRender(solidTiles, columns, self)
 				
 		solidTiles.forEach({tile => tile.render()})
 	}
 	
 	override method renderDestroyableTiles(){
-	
-		const pos1 = [4, 5, 6, 7, 9, 10, 11, 12]
-		const pos2 = [4, 7, 9, 12]
-		const pos3 = [2, 3, 5, 7, 8, 9, 11, 13, 14]
-		const pos4 = [1, 4, 6, 10, 12, 15]
-		const pos5 = [1, 3, 4, 8, 12, 13, 15]
-		const pos6 = [2, 5, 6, 10, 11, 14]
-		const pos8 = [1, 3, 5, 8, 11, 13, 15]
+		
+		const pos1 = [3, 5, 7, 9] //(1, 11)
+		const pos3 = [1, 3, 4, 5, 7, 8, 9, 11] //(3, 9)
+		const pos4 = [5, 7] //(4, 8)
+		const pos5 = [1, 3, 4, 6, 8, 9, 11] //[5, 7]
+		const pos6 = [2, 6, 10] //(6)
 		
 		//TIP: Add [] for empty columns 	
-		const columns = [pos1 , pos2, pos3, pos4, pos5, pos6, [], pos8]
+		const columns = [pos1, [], pos3, pos4, pos5, pos6]
 		
 		renderizer.getRender(destroyableTiles , columns , self)
 		
@@ -148,22 +146,19 @@ object renderizer{
 	
 	method getRender(typeTile , listPositions , level){
 	 
-        (self.getPosition(listPositions , 0)).forEach({ n => self.addTile(typeTile , n , [1 , 15] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [1, 13]
+        (self.getPosition(listPositions, 0)).forEach({ n => self.addTile(typeTile , n , [1 , 11] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [1, 13]
 		
-		(self.getPosition(listPositions , 1)).forEach({ n => self.addTile(typeTile , n , [2 , 14] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [2, 12]
+		(self.getPosition(listPositions, 1)).forEach({ n => self.addTile(typeTile , n , [2 , 10] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [2, 12]
 		
-		(self.getPosition(listPositions , 2)).forEach({ n => self.addTile(typeTile , n , [3 , 13] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [3, 11]
+		(self.getPosition(listPositions, 2)).forEach({ n => self.addTile(typeTile , n , [3 , 9] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [3, 11]
 		
-		(self.getPosition(listPositions , 3)).forEach({ n => self.addTile(typeTile , n , [4 , 12] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [4, 10]
+		(self.getPosition(listPositions, 3)).forEach({ n => self.addTile(typeTile , n , [4 , 8] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [4, 10]
 
-		(self.getPosition(listPositions , 4)).forEach({ n => self.addTile(typeTile , n , [5 , 11] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [5, 9]
+		(self.getPosition(listPositions, 4)).forEach({ n => self.addTile(typeTile , n , [5 , 7] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [5, 9]
 		
-		(self.getPosition(listPositions , 5)).forEach({ n => self.addTile(typeTile , n , [6 , 10] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [6, 8]
+		(self.getPosition(listPositions, 5)).forEach({ n => self.addTile(typeTile , n , [6] , level) } ) //TODO OPC: Para mapa 13x13, cambiar a [6, 8]
 		
-		(self.getPosition(listPositions , 6)).forEach({ n => self.addTile(typeTile , n , [7 , 9] , level) } )  //TODO OPC: Para mapa 13x13, cambiar a [7]
-		
-		(self.getPosition(listPositions , 7)).forEach({ n => self.addTile(typeTile , n , [8] , level) } )      //TODO OPC: Para mapa 13x13, eliminar esta linea 
-		
+		//(self.getPosition(listPositions, 6)).forEach({ n => self.addTile(typeTile , n , [7] , level) } )  //TODO OPC: Para mapa 13x13, cambiar a [7]		
   }
   		
 	method getPosition(list , number){

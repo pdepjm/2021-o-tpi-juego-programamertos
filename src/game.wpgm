@@ -4,9 +4,9 @@ import menu.*
 program Dinoboom {
 	game.title("Dinoboom")
 	
-	game.height(17) //Based on Bomb It
-	game.width(17)  //Based on Bomb It
-	game.cellSize(32)
+	game.height(13)
+	game.width(13)
+	game.cellSize(64)
 
 	menu.setup()
 	
