@@ -72,7 +72,6 @@ describe "Player Movements" {
 }
 
 
-
 describe "Player Skills" {
 
 	const p1 = new Player(
@@ -88,7 +87,6 @@ describe "Player Skills" {
 	)
 	
 	const destroyableTile = new DestroyableTile(position = game.at(3, 15))
-	const destroyableTile2 = new DestroyableTile(position = game.at(4, 15))
 
 	test "A Player drops a Bomb" {
 		p1.move(right)
@@ -204,17 +202,17 @@ describe "Tile's Interactions" {
 	}
 }
 
+/*
 describe "Level's functions" {
-	/* 
+
 	test "Unload a Level" {
 		levelSand.loadLevel()
 		assert.that(levelSand.verifyTiles(game.at(2 , 2) , levelSand.solidTiles()))
 		levelSand.unloadLevel()
 		assert.equals(0 , (game.getObjectsIn(game.at(2 , 2))).size()) 	
 	}
-
-	*/
 }
+*/
 
 
 describe "Menu's Interactions" {

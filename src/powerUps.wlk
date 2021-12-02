@@ -66,15 +66,17 @@ object throwableBombItem {
         //Prevents the player from throwing more bombs
         owner.bombCount(owner.bombCount() + 1)
 
+		var tbomb = ""
+
         //Performs the check
         if(tileObjects.all({_object => _object.canBeSteppedOn()})) {
             //Instantiates the bomb            
-            const tbomb = new ThrowableBomb(position = startingPosition, owner = owner, direction = direction)
+            tbomb = new ThrowableBomb(position = startingPosition, owner = owner, direction = direction)
 
         //If not possible, the bomb is in the player position
         } else {
             //Instantiates the bomb            
-            const tbomb = new ThrowableBomb(position = position, owner = owner, direction = direction)
+            tbomb = new ThrowableBomb(position = position, owner = owner, direction = direction)
         }
 
         //Rolls the bomb

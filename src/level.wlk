@@ -7,15 +7,13 @@ import players.*
 
 
 class Level {
-    //List that contains spawnpoints for all 4 characters
     var property spawnPoints = []
     const property solidTiles = []
     const property destroyableTiles = []
 
-    method levelName () = ""    //Abstract
+    method levelName() = ""
 
-    method loadLevel() {
-        
+    method loadLevel(){
         self.newSpawnPoints()
         
         self.changeBackground("./assets/map/bg-" + self.levelName() + ".png")    
@@ -23,10 +21,9 @@ class Level {
     	self.renderSolidTiles()
     	self.renderDestroyableTiles()
         self.renderBorderTiles()
-
     }
 
-    method unloadLevel() {
+    method unloadLevel(){
         solidTiles.forEach({_tile => _tile.remove()})
         destroyableTiles.forEach({_tile => _tile.remove()})
     }
@@ -52,6 +49,7 @@ class Level {
     method changeBackground(image){
         //Image must be 13x64 => 832x832
         background.image(image)
+        
         if (!game.hasVisual(background)) {
             game.addVisual(background)
         }
@@ -64,5 +62,4 @@ object background {
     const property position = game.at(0, 0)
     var property image = "./assets/menu/menu_background.png"
 }
-
 
