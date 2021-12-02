@@ -5,7 +5,6 @@ import directions.*
 import tile.*
 import players.*
 
-
 class Level {
     var property spawnPoints = []
     const property solidTiles = []
