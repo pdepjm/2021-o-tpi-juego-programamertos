@@ -50,7 +50,7 @@ class Level {
     }
 
     method changeBackground(image){
-        //Image must be 704x704
+        //Image must be 13x64 => 832x832
         background.image(image)
         if (!game.hasVisual(background)) {
             game.addVisual(background)
