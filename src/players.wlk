@@ -26,6 +26,7 @@ class Player {
     const property stopsExplosion = false 	//An explosion will continue expanding after hitting a player
     var property bombCount = 0				//Amount of bombs the player has active on field
     var property facingDirection = right    //Used to aim throwable bomb
+    var property defenseStatus = normalDefenseStatus //Used to determine how the player reacts to damage
     
     //bonus implementation
     var property activeBombs = 1					//Amount of bombs the player has in total (it goes up with +1 bonus)
@@ -68,16 +69,15 @@ class Player {
     }
 
     method harm() {
-        self.die()
+        defenseStatus.affect(self)
     }
 
 	method die(){
-		if(isAlive) {
-            isAlive = false
-            levelManager.playerDied(self)
-            image = "./assets/characters/dino-lose.png" 
-            game.schedule(500 * 2.5 , {game.removeVisual(self)})
-        }     
+        isAlive = false
+        levelManager.playerDied(self)
+        image = "./assets/characters/dino-lose.png" 
+        game.schedule(500 * 2.5 , {game.removeVisual(self)})
+        defenseStatus = deadStatus        
     }
 
 	method image(direction){
@@ -115,4 +115,14 @@ class Player {
     }
     
     method isAPlayer() = true
+}
+
+object normalDefenseStatus {
+    method affect(player) {
+        player.die()
+    }
+}
+
+object deadStatus {
+    method affect(player) {}
 }

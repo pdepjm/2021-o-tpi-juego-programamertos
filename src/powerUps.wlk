@@ -148,4 +148,3 @@ object speed{
 		player.bonusSpeed()
 	}
 }
-
