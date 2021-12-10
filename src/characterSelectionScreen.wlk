@@ -22,8 +22,6 @@ object characterSelectionScreen {
         // Set up the character selection screen
         selector1.setUp()
         selector2.setUp()
-
-
     }
 
     method checkAllPlayersReady() {
@@ -96,9 +94,9 @@ class CharacterSelector {
 
     method position()  {
         if(playerId == 1) {
-            return game.at(5, 8)
+            return game.at(4, 7)
         } else if (playerId == 2) {
-            return game.at(11, 8)
+            return game.at(8, 7)
         } else {
             game.say(self, "ID Error in CharacterSelector")
             return game.at(-1, -1)

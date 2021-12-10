@@ -16,7 +16,7 @@ object menu {
 
     method setup() {
         self.loadControls()
-        game.boardGround("./assets/menu/menu_background.png")
+        game.boardGround("./assets/menu/menu-background.png")
         options.forEach({option => game.addVisual(option)})
         game.addVisual(title)
 
@@ -61,7 +61,7 @@ object menu {
 }
 
 object title {
-    const property position = game.at(1, 12)    
+    const property position = game.at(2, 11)    
     const property image = "./assets/menu/DINOBOOM.png"                  
 }
 
@@ -91,7 +91,7 @@ object play inherits Button(
     ) {
 
     method enter() {
-        game.clear()        //Cleans up the menu
+        game.clear()
         characterSelectionScreen.setUp()
     }
     
@@ -102,12 +102,14 @@ object keybindings inherits Button(
     name = "keybindings", 
     imgSelected = "./assets/menu/CONTROLES_rojo.png", 
     imgUnselected = "./assets/menu/CONTROLES_blanco.png", 
-    isSelected = false, 
+    isSelected = false,
     position = game.at(3,6)
     ) {
+    	
     method enter() {
         game.addVisual(keybindingsSubpage)
     }
+    
     method remove(){
     	game.removeVisual(keybindingsSubpage)
     }
