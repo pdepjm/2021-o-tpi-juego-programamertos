@@ -23,30 +23,25 @@ class ThrowableBomb {
     var tilesTraveled = 0
     const rollSpeed = 50
 
-    method throwBomb() {            
+    method throwBomb(){            
         game.addVisual(self)
         self.roll()
     }
 
-    method roll() {
+    method roll(){
         //Checks if next tile can be rolled on
         const canContinue = game.getObjectsIn(direction.nextPosition(position)).all({_object => _object.canBeSteppedOn()})
-        if(canContinue) {
-            game.schedule((tilesTraveled+1) * rollSpeed, {
+        if(canContinue){
+            game.schedule((tilesTraveled + 1) * rollSpeed, {
                 tilesTraveled++
                 position = direction.nextPosition(position)
                 self.roll()
             })
-            
-        }
-        else {
+        } else{
             game.schedule(tilesTraveled * rollSpeed, {
-
-                game.removeVisual(self)
-                const bomb = new Bomb(position = position, owner = owner)
-                bomb.init()
-
-
+            game.removeVisual(self)
+            const bomb = new Bomb(position = position, owner = owner)
+            bomb.init()
             })
         }
     }
