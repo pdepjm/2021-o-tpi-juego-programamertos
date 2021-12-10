@@ -5,7 +5,8 @@ import menu.*
 import soundManager.*
 
 object characterSelectionScreen {
-    var property confirmedCounter = 0 //Count of how many players confirmed their selection 
+	//Count of how many players confirmed their selection
+    var property confirmedCounter = 0 
 
     const selector1 = new CharacterSelector(playerId = 1, currentlySelected = 0)
     const selector2 = new CharacterSelector(playerId = 2, currentlySelected = 1)
@@ -26,16 +27,13 @@ object characterSelectionScreen {
 
     method checkAllPlayersReady() {
         if (confirmedCounter == 2) {
-            //soundManager.stopAllSongs() //sacar esta linea
             soundManager.playSong(new SoundEffect(path = './assets/sounds/gameST.mp3') , true)
             self.startGame()
         }
     }
 
-
     method startGame() {
-        
-        game.schedule(1000 ,{
+        game.schedule(1000, {
             //Clear menu
             game.clear()    
 
@@ -49,7 +47,6 @@ object characterSelectionScreen {
             //Load level
             game.schedule(500 ,{levelManager.loadLevel()})  //This prevents the user from miss-inputs
         })
-
     }
 }
 
@@ -59,7 +56,7 @@ class CharacterSelector {
     const availableColors = ["red", "green", "purple", "yellow"]
     var hasConfirmed = false
 
-    method setUp() {
+    method setUp(){
         if (playerId == 1) {
             keyboard.a().onPressDo({self.previous()})
             keyboard.q().onPressDo({self.confirm()})
@@ -70,45 +67,34 @@ class CharacterSelector {
             keyboard.minusKey().onPressDo({self.confirm()})
             keyboard.right().onPressDo({self.next()})
         }
-            game.addVisual(self)
-
+        
+        game.addVisual(self)
     }
 
     method getCurrentlySelectedColor() = availableColors.get(currentlySelected)
     
-    method image() {
-        return "./assets/characters/dino-right-" + availableColors.get(currentlySelected) + ".png"
-    }
+    method image() = "./assets/characters/dino-right-" + availableColors.get(currentlySelected) + ".png"
 
-    method next() {
+    method next(){
         if(!hasConfirmed) {
         	// Modulo hack to make the colour selection cyclic.
             currentlySelected = (((currentlySelected + 1) % availableColors.size()) + availableColors.size()) % availableColors.size()
         }
     }
 
-    method previous() {
+    method previous(){
     	// Modulo hack to make the colour selection cyclic.
     	currentlySelected = (((currentlySelected - 1) % availableColors.size()) + availableColors.size()) % availableColors.size()
     }
 
-    method position()  {
-        if(playerId == 1) {
-            return game.at(4, 7)
-        } else if (playerId == 2) {
-            return game.at(8, 7)
-        } else {
-            game.say(self, "ID Error in CharacterSelector")
-            return game.at(-1, -1)
-        }
-    }
+    method position() = if (playerId == 1) game.at(4,7) else game.at(8, 7)
 
-    method confirm() {
-        if(!hasConfirmed) {
+    method confirm(){
+        if(!hasConfirmed){
             hasConfirmed = true
             game.say(self, "Confirmado")
             characterSelectionScreen.incrementConfirmedCounter()
-        }   
+        }
     }
 }
 

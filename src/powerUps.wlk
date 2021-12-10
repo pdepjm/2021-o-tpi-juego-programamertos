@@ -3,7 +3,6 @@ import tile.*
 import players.*
 import bomb.*
 
-//active bonus (WIP Mati)
 //Normal bomb
 object normalBomb {
 	method use(position, owner) {
@@ -94,7 +93,6 @@ object throwableBombPickable {
 		player.activeItem(throwableBombItem)
 	}
 }
-
 
 //powerUps
 class PowerUp {
