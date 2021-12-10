@@ -47,6 +47,7 @@ class Player {
         bombDistance = 2
         bombSpeed = 500
         activeItem = normalBomb
+        defenseStatus = normalDefenseStatus
 
         game.addVisual(self)
     }
