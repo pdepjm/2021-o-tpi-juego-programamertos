@@ -14,9 +14,9 @@ object menu {
 
 	method getSelected() = options.get(selected)
 
-    method setup() {
+    method setup(){
         self.loadControls()
-        game.boardGround("./assets/menu/menu_background.png")
+        game.boardGround("./assets/menu/menu-background.png")
         options.forEach({option => game.addVisual(option)})
         game.addVisual(title)
 
@@ -45,14 +45,14 @@ object menu {
     	self.getSelected().isSelected(true)
     }
 
-    method select() {
+    method select(){
 		if (screenOnTop == null){
 			screenOnTop = self.getSelected()
         	self.getSelected().enter()
 		}
     }
 
-    method exit() {
+    method exit(){
         if (screenOnTop != null) {
             screenOnTop.remove()
             screenOnTop = null
@@ -61,25 +61,18 @@ object menu {
 }
 
 object title {
-    const property position = game.at(1, 12)    
+    const property position = game.at(2, 11)    
     const property image = "./assets/menu/DINOBOOM.png"                  
 }
 
 class Button {
-    const property name         //Identifier
+    const property name
     const property position
-    const imgSelected           //Image shown when the option is selected
-    const imgUnselected         //The opposite xd
-    var property isSelected     //Boolean value indicating if the option is being selected by default
+    const imgSelected
+    const imgUnselected
+    var property isSelected
 
-    method image() {
-        if (isSelected) {
-            return imgSelected
-        }
-        else {
-            return imgUnselected
-        }
-    }
+    method image() = if (isSelected) imgSelected else imgUnselected
 }
 
 object play inherits Button(
@@ -90,8 +83,8 @@ object play inherits Button(
     position = game.at(3,8)
     ) {
 
-    method enter() {
-        game.clear()        //Cleans up the menu
+    method enter(){
+        game.clear()
         characterSelectionScreen.setUp()
     }
     
@@ -102,12 +95,14 @@ object keybindings inherits Button(
     name = "keybindings", 
     imgSelected = "./assets/menu/CONTROLES_rojo.png", 
     imgUnselected = "./assets/menu/CONTROLES_blanco.png", 
-    isSelected = false, 
+    isSelected = false,
     position = game.at(3,6)
     ) {
+    	
     method enter() {
         game.addVisual(keybindingsSubpage)
     }
+    
     method remove(){
     	game.removeVisual(keybindingsSubpage)
     }

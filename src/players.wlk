@@ -37,7 +37,7 @@ class Player {
 	method color() = color
 
     method spawn() {
-        position = levelManager.activeLevel().spawnPoints().get(id)
+        position = levelManager.activeLevel().spawnPoints().get(id - 1)
         image = "./assets/characters/dino-right-" + self.color() + ".png"
         isAlive = true
         bombCount = 0  //hace falta?

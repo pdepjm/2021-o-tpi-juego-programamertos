@@ -3,7 +3,6 @@ import tile.*
 import players.*
 import bomb.*
 
-//active bonus (WIP Mati)
 //Normal bomb
 object normalBomb {
 	method use(position, owner) {
@@ -24,30 +23,25 @@ class ThrowableBomb {
     var tilesTraveled = 0
     const rollSpeed = 50
 
-    method throwBomb() {            
+    method throwBomb(){            
         game.addVisual(self)
         self.roll()
     }
 
-    method roll() {
+    method roll(){
         //Checks if next tile can be rolled on
         const canContinue = game.getObjectsIn(direction.nextPosition(position)).all({_object => _object.canBeSteppedOn()})
-        if(canContinue) {
-            game.schedule((tilesTraveled+1) * rollSpeed, {
+        if(canContinue){
+            game.schedule((tilesTraveled + 1) * rollSpeed, {
                 tilesTraveled++
                 position = direction.nextPosition(position)
                 self.roll()
             })
-            
-        }
-        else {
+        } else{
             game.schedule(tilesTraveled * rollSpeed, {
-
-                game.removeVisual(self)
-                const bomb = new Bomb(position = position, owner = owner)
-                bomb.init()
-
-
+            game.removeVisual(self)
+            const bomb = new Bomb(position = position, owner = owner)
+            bomb.init()
             })
         }
     }
@@ -66,15 +60,17 @@ object throwableBombItem {
         //Prevents the player from throwing more bombs
         owner.bombCount(owner.bombCount() + 1)
 
+		var tbomb = ""
+
         //Performs the check
         if(tileObjects.all({_object => _object.canBeSteppedOn()})) {
             //Instantiates the bomb            
-            const tbomb = new ThrowableBomb(position = startingPosition, owner = owner, direction = direction)
+            tbomb = new ThrowableBomb(position = startingPosition, owner = owner, direction = direction)
 
         //If not possible, the bomb is in the player position
         } else {
             //Instantiates the bomb            
-            const tbomb = new ThrowableBomb(position = position, owner = owner, direction = direction)
+            tbomb = new ThrowableBomb(position = position, owner = owner, direction = direction)
         }
 
         //Rolls the bomb
@@ -92,7 +88,6 @@ object throwableBombPickable {
 		player.activeItem(throwableBombItem)
 	}
 }
-
 
 //powerUps
 class PowerUp {
