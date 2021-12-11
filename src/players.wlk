@@ -1,6 +1,5 @@
 import wollok.game.*
 import directions.*
-import bomb.*
 import levelManager.*
 import powerUps.*
 
@@ -29,7 +28,7 @@ class Player {
     var property defenseStatus = normalDefenseStatus //Used to determine how the player reacts to damage
     
     //bonus implementation
-    var property activeBombs = 1					//Amount of bombs the player has in total (it goes up with +1 bonus)
+    var property activeBombs = 1			//Amount of bombs the player has in total (it goes up with +1 bonus)
     var property bombDistance = 2			//Distance of player bomb explosions (it goes up with extraDistance bonus)
 	var property bombSpeed = 500			//Speed at which bombs explode (it goes up with extraSpeed bonus)
     var property activeItem = normalBomb
@@ -77,7 +76,7 @@ class Player {
         isAlive = false
         levelManager.playerDied(self)
         image = "./assets/characters/dino-lose.png" 
-        game.schedule(500 * 2.5 , {game.removeVisual(self)})
+        game.schedule(1250, {game.removeVisual(self)})
         defenseStatus = deadStatus        
     }
 
@@ -127,3 +126,25 @@ object normalDefenseStatus {
 object deadStatus {
     method affect(player) {}
 }
+
+const p1 = new Player(
+        id = 1,
+        color = "green",
+        position = game.at(15,15),
+        upBind = keyboard.w(), 
+        downBind = keyboard.s(), 
+        leftBind = keyboard.a(), 
+        rightBind = keyboard.d(),
+        useKey = keyboard.q()
+    )
+
+const p2 = new Player(
+    id = 2,
+    color = "red",
+    position = game.at(1,1),
+    upBind = keyboard.up(), 
+    downBind = keyboard.down(), 
+    leftBind = keyboard.left(), 
+    rightBind = keyboard.right(),
+    useKey = keyboard.minusKey()
+)

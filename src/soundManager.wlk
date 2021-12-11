@@ -2,7 +2,7 @@ import wollok.game.*
 
 object soundManager {
     const activeSongs = []
-    var property musicIsEnabled = false //TODO: Cambiar para habilitar o deshabilitar musica
+    var property musicIsEnabled = true //TODO: Cambiar para habilitar o deshabilitar musica
 
     method playSound(sound, shouldLoop) {
         const soundToBePlayed = sound.get()

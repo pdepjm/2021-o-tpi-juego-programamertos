@@ -14,28 +14,6 @@ import soundProducer.*
  
 describe "Player Movements" {
 
-	const p1 = new Player(
-		id = 1,
-		color = "purple",
-		position = game.at(1, 15),
-		upBind = keyboard.w(),
-		downBind = keyboard.s(),
-		leftBind = keyboard.a(),
-		rightBind = keyboard.d(),
-		useKey = keyboard.q()
-	)
-	
-	const p2 = new Player(
-		id = 2,
-		color = "yellow",
-		position = game.at(1, 1),
-		upBind = keyboard.up(),
-		downBind = keyboard.down(),
-		leftBind = keyboard.left(),
-		rightBind = keyboard.right(),
-		useKey = keyboard.minusKey()
-	)
-	
 	const solidTile = new SolidTile(position = game.at(5, 1))
 
 	test "a player moves right" {
@@ -73,18 +51,6 @@ describe "Player Movements" {
 
 
 describe "Player Skills" {
-
-	const p1 = new Player(
-		id = 1, 
-		color = "purple", 
-		position = game.at(1, 15), 
-		upBind = keyboard.w(), 
-		downBind = keyboard.s(), 
-		leftBind = keyboard.a(), 
-		rightBind = keyboard.d(), 
-		useKey = keyboard.q(),
-		bombCount = 3
-	)
 	
 	const destroyableTile = new DestroyableTile(position = game.at(3, 15))
 
@@ -97,18 +63,7 @@ describe "Player Skills" {
 
 describe "Players Interactions" {
 
-	const p1 = new Player(
-		id = 1, 
-		color = "purple", 
-		position = game.at(1, 15), 
-		upBind = keyboard.w(), 
-		downBind = keyboard.s(), 
-		leftBind = keyboard.a(), 
-		rightBind = keyboard.d(), 
-		useKey = keyboard.q()
-	)
-	
-	test "Whrn Player harms, dies" {
+	test "When Player harms, dies" {
 		p1.harm()
 		assert.notThat(game.hasVisual(p1))
 	}

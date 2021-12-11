@@ -12,7 +12,6 @@ class Screen {
 object levelManager {
     const availableLevels = [levelDungeon, levelStone, levelSand]
 
-
     var playersAlive = [p1, p2]
     var property activeLevel = null
     var levelFinished
@@ -31,57 +30,41 @@ object levelManager {
         levelFinished = false
     }
 
-    method finishLevel(player) {
-        levelFinished = true
-        const levelEndScreen = new Screen(image = "./assets/menu/youwin-" + player.id() + ".png")
-        game.schedule(1500, {
-            game.addVisual(levelEndScreen)
-            game.removeVisual(player)
-            activeLevel.unloadLevel()
-        })
-        game.schedule(3000, {
-            game.removeVisual(levelEndScreen)
-            game.clear()
-            self.loadLevel()
-        })
-        levelCounter = (levelCounter + 1) % 3
-    }
-
     method levelFinished() = levelFinished
 
     method playerDied(player) {
         playersAlive.remove(player)
-        self.checkIfLevelFinished()
-    }
+        self.finishLevel()
+	}
+	
+	method finishLevel() {
+    	levelFinished = true
 
-    method checkIfLevelFinished() {
-        if (playersAlive.size() == 1) {
-            self.finishLevel(playersAlive.get(0))
-        } else if (playersAlive.size() == 0) {
-            self.finishLevel("neutral")    //TODO: Arreglar imagen neutral. Altamente improbable que dos jugadores mueran en el mismo tick.
+		var levelEndScreen = ""
+				
+    	if(playersAlive.size() == 1){
+			levelEndScreen = new Screen(image = "./assets/menu/youwin-" + playersAlive.get(0).id() + ".png")
+		}else{
+			levelEndScreen = new Screen(image = "./assets/menu/youwin-neutral.png")
+		}
+		
+		game.schedule(1500, {
+        game.addVisual(levelEndScreen)
+        
+        if(playersAlive.size() == 1){
+       		game.removeVisual(playersAlive.get(0))
         }
+        
+        activeLevel.unloadLevel()
+		})
+	    
+    	game.schedule(2000, {
+        game.removeVisual(levelEndScreen)
+        game.clear()
+        self.loadLevel()
+    	})
+		
+    	levelCounter = (levelCounter + 1) % 3
     }
 }
 
-
-const p1 = new Player(
-        id = 1,
-        color = "green",
-        position = game.at(15,15),
-        upBind = keyboard.w(), 
-        downBind = keyboard.s(), 
-        leftBind = keyboard.a(), 
-        rightBind = keyboard.d(),
-        useKey = keyboard.q()
-    )
-
-const p2 = new Player(
-    id = 2,
-    color = "red",
-    position = game.at(1,1),
-    upBind = keyboard.up(), 
-    downBind = keyboard.down(), 
-    leftBind = keyboard.left(), 
-    rightBind = keyboard.right(),
-    useKey = keyboard.minusKey()
-)
