@@ -22,6 +22,7 @@ class ThrowableBomb {
     const direction
     var tilesTraveled = 0
     const rollSpeed = 50
+    const property canBeSteppedOn = true
 
     method throwBomb(){            
         game.addVisual(self)
