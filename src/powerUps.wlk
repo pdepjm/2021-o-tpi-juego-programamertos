@@ -110,9 +110,7 @@ class PowerUp {
     
    	//the powerUp causes an effect on the player that picks it up
     method pickUp(){
-    	game.onCollideDo(self, { player =>
-    		game.say(self, "extra " + type)
-    		
+    	game.onCollideDo(self, { player =>    		
     		if(player.isAPlayer()){
 				type.effect(player)
 				game.removeVisual(self)    			
