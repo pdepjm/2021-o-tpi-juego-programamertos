@@ -10,11 +10,12 @@
 - Rossi, Matías
 
 ## Capturas
-![image](https://user-images.githubusercontent.com/72177829/139638166-5d44c8bc-e2d4-4a1c-aeca-13f236e23404.png)
+![image](https://user-images.githubusercontent.com/72177829/145728074-f81d8b31-7151-4019-aeb8-cd217ca413ba.png)
 
-![image](https://user-images.githubusercontent.com/72177829/139639447-4067f5ee-a25f-44c5-8069-2b048fda5710.png)
+![image](https://user-images.githubusercontent.com/72177829/145728070-5a907998-eabc-4810-b775-40b5c5fd0a2c.png)
 
-![image](https://user-images.githubusercontent.com/72177829/139637463-942e565f-d13c-4b9c-8bc4-48b5fcc9f067.png)
+![image](https://user-images.githubusercontent.com/72177829/145728076-4d7973cd-e331-43f1-83d3-b7bbbe786a9c.png)
+
 
 ## Reglas de Juego / Instrucciones
 
