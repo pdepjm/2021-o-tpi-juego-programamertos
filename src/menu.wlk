@@ -9,7 +9,7 @@ import soundManager.*
 object menu {
 
     var property selected = 0
-    const options = [play, keybindings, credits]
+    const options = [play, keybindings, credits, bonus]
     var property screenOnTop = null        //Example: credits or controls
 
 	method getSelected() = options.get(selected)
@@ -80,7 +80,7 @@ object play inherits Button(
     imgSelected = "./assets/menu/JUGAR_rojo.png", 
     imgUnselected = "./assets/menu/JUGAR_blanco.png", 
     isSelected = true, 
-    position = game.at(3,8)
+    position = game.at(3,9)
     ) {
 
     method enter(){
@@ -96,7 +96,7 @@ object keybindings inherits Button(
     imgSelected = "./assets/menu/CONTROLES_rojo.png", 
     imgUnselected = "./assets/menu/CONTROLES_blanco.png", 
     isSelected = false,
-    position = game.at(3,6)
+    position = game.at(3,7)
     ) {
     	
     method enter() {
@@ -113,7 +113,7 @@ object credits inherits Button(
     imgSelected = "./assets/menu/CREDITOS_rojo.png", 
     imgUnselected = "./assets/menu/CREDITOS_blanco.png", 
     isSelected = false, 
-    position = game.at(3,4)
+    position = game.at(3,5)
     ) {
     
     method enter(){
@@ -125,5 +125,23 @@ object credits inherits Button(
     }
 }
 
+object bonus inherits Button(
+    name = "bonus", 
+    imgSelected = "./assets/menu/BONUS_rojo.png",
+    imgUnselected = "./assets/menu/BONUS_blanco.png",
+    isSelected = false,
+    position = game.at(3,3)
+    ) { method enter(){
+    	game.addVisual(bonusSubpage)
+    }
+    
+    method remove(){
+    	game.removeVisual(bonusSubpage)
+    }
+
+}
+
+
 const keybindingsSubpage = new Screen(image = "./assets/menu/controles.png")
 const creditsSubpage = new Screen(image = "./assets/menu/creditos.png")
+const bonusSubpage = new Screen(image = "./assets/menu/bonus.png")

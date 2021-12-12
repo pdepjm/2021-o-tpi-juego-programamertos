@@ -4,6 +4,17 @@ import levelManager.*
 import menu.*
 import soundManager.*
 
+class ConfirmedIndicator {
+    const image = "./assets/menu/confirmado.png"
+    const property position
+
+    method image() = image
+
+    method show() {
+        game.addVisual(self)
+    }
+}
+
 object characterSelectionScreen {
 	//Count of how many players confirmed their selection
     var property confirmedCounter = 0 
@@ -92,7 +103,9 @@ class CharacterSelector {
     method confirm(){
         if(!hasConfirmed){
             hasConfirmed = true
-            game.say(self, "Confirmado")
+            //game.say(self, "Confirmado")
+            const confirmedText = new ConfirmedIndicator(position = self.position())
+            confirmedText.show()
             characterSelectionScreen.incrementConfirmedCounter()
         }
     }
