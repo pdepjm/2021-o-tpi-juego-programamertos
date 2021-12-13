@@ -1,11 +1,215 @@
+import wollok.game.*
+import level.*
+import levels.*
+import players.*
+import directions.*
+import menu.*
+import bomb.*
+import tile.*
 import soundProducer.*
 
-describe "Inserte descripción" {
-	method initialize() {
-		soundProducer.provider(soundProviderMock)		
+/*method initialize() {
+ * 		soundProducer.provider(soundProviderMock)		
+ } */
+ 
+describe "Player Movements" {
+
+	const solidTile = new SolidTile(position = game.at(5, 1))
+
+	test "a player moves right" {
+		p1.move(right)
+		assert.equals(game.at(2, 15), p1.position())
+	}
+
+	test "a player moves left" {
+		p2.move(right)
+		p2.move(right)
+		p2.move(left)
+		assert.equals(game.at(2, 1), p2.position())
+	}
+
+	test "a player moves up" {
+		p2.move(up)
+		p2.move(up)
+		assert.equals(game.at(1, 3), p2.position())
+	}
+
+	test "a player moves down" {
+		p1.move(down)
+		p1.move(down)
+		assert.equals(game.at(1, 13), p1.position())
+	}
+    
+	test "a player cannot go through a wall" {
+		keyboard.right()
+		p2.move(right)
+		keyboard.right()
+		p2.move(right)
+		assert.equals(game.at(3, 1), p2.position())
+	}
+}
+
+
+describe "Player Skills" {
+	
+	const destroyableTile = new DestroyableTile(position = game.at(3, 15))
+
+	test "A Player drops a Bomb" {
+		p1.move(right)
+		p1.dropBomb()
+		assert.notThat(game.hasVisual(destroyableTile))
+	}
+}
+
+describe "Players Interactions" {
+
+	test "When Player harms, dies" {
+		p1.harm()
+		assert.notThat(game.hasVisual(p1))
+	}
+
+	test "A Player dies when reached by a Bomb" {
+		p1.dropBomb()
+		assert.notThat(game.hasVisual(p1))
+	}
+
+	test "A Player dies when reached by a Bomb explosion" {
+		4.times({any => p1.move(down)})
+		game.schedule(500, {p1.dropBomb()} )
+		game.schedule(500 * 1.1 , {p1.move(right)})
+		game.schedule(500 * 1.2, {3.times(p1.move(up))})
+		assert.notThat(game.hasVisual(p1))
+	}
+
+}
+
+describe "Bomb's Interactions" {
+	
+	const p3 = new Player(
+		id = 3, 
+		color = "purple", 
+		position = game.at(5, 5), 
+		upBind = keyboard.w(), 
+		downBind = keyboard.s(), 
+		leftBind = keyboard.a(), 
+		rightBind = keyboard.d(), 
+		useKey = keyboard.q()
+	)
+	
+	const b1 = new Bomb(owner = p3 , position = game.at(5 , 5))
+		
+	const d1 = new DestroyableTile(position = game.at(2 , 5))
+	const d2 = new DestroyableTile(position = game.at(8 , 5))
+	const d3 = new DestroyableTile(position = game.at(5 , 8))
+	const d4 = new DestroyableTile(position = game.at(5 , 2))	
+	
+	test "A bomb explode" {
+		b1.init()
+		b1.explode()
+		assert.that(b1.exploded())
 	}
 	
-	test "testX" {
-		assert.that(true)
-	}	
+	test "A bomb reaches an DestroyableTile" {
+		b1.init()
+		b1.explode()
+		assert.notThat(game.hasVisual(d1))
+		assert.notThat(game.hasVisual(d2))
+		assert.notThat(game.hasVisual(d3))
+		assert.notThat(game.hasVisual(d4))
+	}
+}
+
+describe "Tile's Interactions" {
+	const p3 = new Player(
+		id = 3, 
+		color = "purple", 
+		position = game.at(5, 5), 
+		upBind = keyboard.w(), 
+		downBind = keyboard.s(), 
+		leftBind = keyboard.a(), 
+		rightBind = keyboard.d(), 
+		useKey = keyboard.q()
+	)
+		
+	const d1 = new DestroyableTile(position = game.at(2 , 5))
+	const s2 = new SolidTile(position = game.at(8 , 5))
+	const b3 = new BorderTile(position = game.at(5 , 8))
+	const d4 = new DestroyableTile(position = game.at(5 , 2))	
+	
+	test "A destroyable tile can be harm" {
+	    p3.dropBomb()
+	    assert.notThat(game.hasVisual(d1))
+	    assert.notThat(game.hasVisual(d4))
+	}
+	
+	test "A solid tile cannot be harm" {
+		p3.dropBomb()
+		game.schedule(500 , {p3.move(up)})
+		game.schedule(500 * 1.1 , {p3.move(right)})
+		assert.that(game.hasVisual(s2))
+	}
+	
+	test "A border tile cannot be harm"{
+		p3.dropBomb()
+		game.schedule(500 , {p3.move(up)})
+		game.schedule(500 * 1.1 , {p3.move(right)})
+		assert.that(game.hasVisual(b3))
+	}
+}
+
+/*
+describe "Level's functions" {
+
+	test "Unload a Level" {
+		levelSand.loadLevel()
+		assert.that(levelSand.verifyTiles(game.at(2 , 2) , levelSand.solidTiles()))
+		levelSand.unloadLevel()
+		assert.equals(0 , (game.getObjectsIn(game.at(2 , 2))).size()) 	
+	}
+}
+*/
+
+
+describe "Menu's Interactions" {
+    
+    test "goUp() cycles through the options." {
+        menu.goUp()
+        assert.equals(2, menu.selected())    
+    }
+    
+    test "goDown() cycles through the options." {
+        4.times{any => menu.goDown()}
+        assert.equals(1, menu.selected())    
+    }
+
+    test "method select() does not let you open a second submenu." {
+        menu.goDown()
+        menu.select()
+        menu.goDown()
+        menu.select()
+        assert.equals(keybindings,menu.screenOnTop())
+    }
+   
+}
+
+
+describe "menu" {
+	
+	test "goUp() cycles through the options." {
+		menu.goUp()
+		assert.equals(2, menu.selected())	
+	}
+	
+	test "goDown() cycles through the options." {
+		4.times{any => menu.goDown()}
+		assert.equals(1, menu.selected())	
+	}
+
+	test "method select() does not let you open a second submenu." {
+		menu.goDown()
+		menu.select()
+		menu.goDown()
+		menu.select()
+		assert.equals(keybindings,menu.screenOnTop())
+	}
 }
