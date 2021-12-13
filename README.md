@@ -16,6 +16,8 @@
 
 ![image](https://user-images.githubusercontent.com/72177829/145728076-4d7973cd-e331-43f1-83d3-b7bbbe786a9c.png)
 
+![image](https://i.imgur.com/FqbYBrN.png)
+
 
 ## Reglas de Juego / Instrucciones
 
